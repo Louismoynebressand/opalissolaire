@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nos Réalisations | Opalis Solaire – Films Anti-Chaleur Auvergne-Rhône-Alpes</title>
+  <meta name="description" content="Découvrez nos chantiers de pose de films anti-chaleur sur vitrages en Auvergne-Rhône-Alpes (Lyon, Valence). Bureaux, commerces, vérandas. Photos de chantiers réels." />
+  <link rel="canonical" href="https://opalissolaire.fr/realisations.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="global.css" />
+  <style>
+    /* Styles spécifiques à la page Réalisations */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1a56db; --blue-dark: #1240b0; --blue-light: #e8f0fe;
+      --text: #111827; --muted: #6b7280; --border: #e5e7eb;
+      --bg: #ffffff; --bg-alt: #f9fafb; --radius: 10px;
+    }
+    html { scroll-behavior: smooth; }
+    body { padding-top: 70px;  font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); font-size: 16px; line-height: 1.6; }
+
+    /* Grid and Cards styles... */
+
+    /* PAGE HEADER */
+    .page-header { background: linear-gradient(160deg, #f0f6ff 0%, #ffffff 60%); border-bottom: 1px solid var(--border); padding: 4rem 1.25rem 3rem; text-align: center; }
+    .page-header h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); font-weight: 800; color: var(--text); margin-bottom: 1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .page-header p { color: var(--muted); max-width: 580px; margin: 0 auto; font-size: 1.05rem; }
+    .section-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 0.75rem; }
+
+    /* FILTERS */
+    .filter-wrap { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.25rem 0; }
+    .filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .filter-btn { padding: 0.5rem 1.1rem; border: 1.5px solid var(--border); border-radius: 999px; font-size: 0.875rem; font-weight: 600; cursor: pointer; background: #fff; color: var(--muted); transition: all 0.15s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+    /* PORTFOLIO GRID */
+    .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+    @media (max-width: 640px) { .portfolio-grid { grid-template-columns: 1fr; } }
+
+    /* PROJECT CARD */
+    .project-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+
+    /* BEFORE/AFTER SLIDER */
+    .ba-container { position: relative; aspect-ratio: 4/3; overflow: hidden; user-select: none; cursor: ew-resize; flex-shrink: 0; }
+    .ba-after, .ba-before { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    .ba-after img, .ba-before img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+    .ba-before { clip-path: inset(0 50% 0 0); }
+    .ba-handle { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 3px; height: 100%; background: #fff; z-index: 3; cursor: ew-resize; }
+    .ba-handle::after { content: "◀ ▶"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--blue); color: #fff; font-size: 0.65rem; padding: 0.35rem 0.5rem; border-radius: 20px; white-space: nowrap; letter-spacing: 0.05em; }
+    .ba-label-before, .ba-label-after { position: absolute; top: 0.75rem; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.25rem 0.6rem; border-radius: 4px; z-index: 4; }
+    .ba-label-before { left: 0.75rem; background: rgba(0,0,0,0.5); color: #fff; }
+    .ba-label-after { right: 0.75rem; background: rgba(26,86,219,0.85); color: #fff; }
+
+    /* CARD INFO */
+    .project-info { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+    .project-cat { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; background: var(--blue-light); color: var(--blue); padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.6rem; }
+    .project-info h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; line-height: 1.3; }
+    .project-info .card-pitch { font-size: 0.875rem; color: var(--muted); line-height: 1.5; margin-bottom: 1rem; flex: 1; }
+    .card-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.1rem; }
+    .card-tag { font-size: 0.72rem; font-weight: 600; color: var(--muted); background: var(--bg-alt); border: 1px solid var(--border); padding: 0.2rem 0.55rem; border-radius: 4px; }
+    .card-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; font-weight: 700; color: var(--blue); text-decoration: none; transition: gap 0.15s; }
+    .card-link:hover { gap: 0.7rem; }
+
+    /* CTA BAND */
+    .cta-band { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%); border-radius: 16px; padding: 3rem 2rem; text-align: center; margin: 0 1.25rem 4rem; max-width: 1100px; margin-left: auto; margin-right: auto; margin-bottom: 4rem; }
+    .cta-band h2 { color: #fff; margin-bottom: 0.75rem; font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; }
+    .cta-band p { color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; }
+    .btn-white { background: #fff; color: var(--blue); border: none; border-radius: 8px; padding: 0.9rem 2rem; font-size: 1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: opacity 0.15s; display: inline-block; }
+    .btn-white:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer { background: #111827; color: #9ca3af; padding: 2rem 1.25rem; text-align: center; font-size: 0.85rem; }
+    footer strong { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo-wrap">
+      <span class="nav-logo">Opalis <b>Solaire</b></span>
+      <span class="nav-slogan">Expert en protection thermique des vitrages.</span>
+    </a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="realisations.html">Nos Réalisations</a></li>
+      <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+      <li class="mobile-only"><a href="index.html#contact" class="nav-cta">Demander un devis</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta desktop-only">Demander un devis</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="section-label">Chantiers réalisés en Auvergne-Rhône-Alpes</p>
+  <h1>Nos réalisations,<br/>nos vraies photos.</h1>
+  <p>Pose de film anti-chaleur et film solaire sur vitrages professionnels et résidentiels, entre Lyon et Valence. Glissez le curseur sur chaque photo pour voir l'avant/après, et cliquez pour le détail complet du chantier.</p>
+</div>
+
+<!-- FILTERS -->
+<div class="filter-wrap">
+  <div class="filter-tabs">
+    <button class="filter-btn active" data-filter="all" id="filter-all">Tout voir</button>
+    <button class="filter-btn" data-filter="bureaux" id="filter-bureau">🏢 Bureaux</button>
+    <button class="filter-btn" data-filter="tertiaire" id="filter-commerce">🏪 Tertiaire / Commerces</button>
+    <button class="filter-btn" data-filter="residentiel" id="filter-residentiel">🏠 Résidentiel</button>
+  </div>
+</div>
+
+<!-- PORTFOLIO GRID -->
+<div class="portfolio-grid" id="portfolio-grid">
+
+  <!-- PROJET 1 -->
+  <article class="project-card" data-cat="bureaux">
+    <div class="ba-container" id="ba-1">
+      <div class="ba-after"><img src="hall-entreprise-apres.jpg" alt="Façade hall d'entrée miroir après"></div>
+      <div class="ba-before"><img src="hall-entreprise-avant.jpg" alt="Façade hall d'entrée miroir avant"></div>
+      <div class="ba-handle"></div>
+      <span class="ba-label-before">Avant</span>
+      <span class="ba-label-after">Après</span>
+    </div>
+    <div class="project-info">
+      <span class="project-cat">Bureaux · Rhône-Alpes</span>
+      <h3>Façade de hall d'accueil – Film miroir</h3>
+      <p class="card-pitch">Surchauffe et manque d'intimité depuis le parking extérieur. Le film miroir rejette la chaleur et bloque complètement la vue vers l'intérieur tout en conservant la transparence depuis le hall.</p>
+      <div class="card-meta">
+        <span class="card-tag">📐 45 m²</span>
+        <span class="card-tag">⏱ 1 journée</span>
+        <span class="card-tag">🎞 Effet miroir</span>
+      </div>
+      <a href="projet-open-space-lyon.html" class="card-link">Voir le détail du chantier →</a>
+    </div>
+  </article>
+
+  <!-- PROJET 2 -->
+  <article class="project-card" data-cat="tertiaire">
+    <div class="ba-container" id="ba-2">
+      <div class="ba-after"><img src="batiment-tertiaire-apres.jpg" alt="Bâtiment tertiaire après pose film solaire intégral"></div>
+      <div class="ba-before"><img src="batiment-tertiaire-avant.jpg" alt="Bâtiment tertiaire avant pose film solaire"></div>
+      <div class="ba-handle"></div>
+      <span class="ba-label-before">Avant</span>
+      <span class="ba-label-after">Après</span>
+    </div>
+    <div class="project-info">
+      <span class="project-cat">Tertiaire · Rhône-Alpes</span>
+      <h3>Bâtiment tertiaire complet – Film contrôle solaire</h3>
+      <p class="card-pitch">Pose d'un film extérieur sombre sur l'intégralité des façades vitrées. Réduction drastique de l'éblouissement, baisse de la chaleur et uniformisation du design du bâtiment.</p>
+      <div class="card-meta">
+        <span class="card-tag">📐 150 m²</span>
+        <span class="card-tag">⏱ 3 jours</span>
+        <span class="card-tag">🎞 Pose extérieure</span>
+      </div>
+      <a href="projet-batiment-tertiaire.html" class="card-link">Voir le détail du chantier →</a>
+    </div>
+  </article>
+
+  <!-- PROJET 3 -->
+  <article class="project-card" data-cat="residentiel">
+    <div class="ba-container" id="ba-3">
+      <div class="ba-after"><img src="baie-vitree-apres.jpg" alt="Baie vitrée après pose de film miroir"></div>
+      <div class="ba-before"><img src="baie-vitree-avant.jpg" alt="Baie vitrée avant pose de film"></div>
+      <div class="ba-handle"></div>
+      <span class="ba-label-before">Avant</span>
+      <span class="ba-label-after">Après</span>
+    </div>
+    <div class="project-info">
+      <span class="project-cat">Résidentiel · Drôme</span>
+      <h3>Baie vitrée de salon – Effet miroir et intimité</h3>
+      <p class="card-pitch">Vis-à-vis gênant et chaleur accablante dans la pièce de vie. L'installation d'un film miroir extérieur a permis de retrouver une intimité totale en journée tout en coupant la chaleur.</p>
+      <div class="card-meta">
+        <span class="card-tag">📐 8 m²</span>
+        <span class="card-tag">⏱ 2 heures</span>
+        <span class="card-tag">🎞 Effet miroir</span>
+      </div>
+      <a href="projet-baie-vitree-salon.html" class="card-link">Voir le détail du chantier →</a>
+    </div>
+  </article>
+
+  <!-- PROJET 4 -->
+  <article class="project-card" data-cat="bureaux">
+    <div class="ba-container" id="ba-4">
+      <div class="ba-after"><img src="sas-entree-apres.jpg" alt="Sas d'entrée vue intérieure avec film"></div>
+      <div class="ba-before"><img src="sas-entree-avant.jpg" alt="Sas d'entrée vue intérieure sans film"></div>
+      <div class="ba-handle"></div>
+      <span class="ba-label-before">Avant</span>
+      <span class="ba-label-after">Après</span>
+    </div>
+    <div class="project-info">
+      <span class="project-cat">Bureaux · Rhône-Alpes</span>
+      <h3>Sas d'entrée vitré – Intimité totale depuis la rue</h3>
+      <p class="card-pitch">Pose d'un film miroir sur le sas d'accueil donnant sur rue. De l'extérieur, le vitrage devient un miroir opaque. De l'intérieur, la transparence et la vue sont parfaitement conservées.</p>
+      <div class="card-meta">
+        <span class="card-tag">📐 15 m²</span>
+        <span class="card-tag">⏱ 3 heures</span>
+        <span class="card-tag">🎞 Effet miroir</span>
+      </div>
+      <a href="projet-sas-entree-vitre.html" class="card-link">Voir le détail du chantier →</a>
+    </div>
+  </article>
+
+  <!-- PROJET 5 -->
+  <article class="project-card" data-cat="tertiaire">
+    <div class="card-image-container" style="position:relative; width:100%; height:250px; overflow:hidden;">
+      <img src="verriere-toit.jpg" alt="Verrière de toit plat avec film solaire" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="project-info">
+      <span class="project-cat">Industriel · Rhône-Alpes</span>
+      <h3>Verrière de toiture – Bouclier anti-chaleur</h3>
+      <p class="card-pitch">L'éclairage zénithal créait un effet de serre majeur dans le bâtiment. La pose d'un film solaire extérieur a permis de rejeter la chaleur avant même qu'elle ne traverse le vitrage.</p>
+      <div class="card-meta">
+        <span class="card-tag">📐 ~40 m²</span>
+        <span class="card-tag">⏱ 1 journée</span>
+        <span class="card-tag">🎞 Pose extérieure</span>
+      </div>
+      <a href="projet-verriere-toit.html" class="card-link">Voir le détail du chantier →</a>
+    </div>
+  </article>
+
+  <!-- PROJET 6 -->
+  <article class="project-card" data-cat="residentiel">
+    <div class="card-image-container" style="position:relative; width:100%; height:250px; overflow:hidden;">
+      <img src="velux.jpg" alt="Fenêtre de toit Velux avec film anti-chaleur" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="project-info">
+      <span class="project-cat">Résidentiel · Rhône-Alpes</span>
+      <h3>Fenêtre de toit (Velux) – Film garanti 10 ans</h3>
+      <p class="card-pitch">Les combles surchauffaient à cause de fenêtres inclinées captant tout le rayonnement. Le film solaire appliqué filtre massivement la chaleur et bénéficie d'une garantie constructeur de 10 ans.</p>
+      <div class="card-meta">
+        <span class="card-tag">📐 Velux standard</span>
+        <span class="card-tag">⏱ 1 heure/fenêtre</span>
+        <span class="card-tag">🎞 Film intérieur</span>
+      </div>
+      <a href="projet-velux.html" class="card-link">Voir le détail du chantier →</a>
+    </div>
+  </article>
+
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Votre situation ressemble à l'un de ces chantiers ?</h2>
+  <p>Contactez-nous. Nous chiffrons votre projet sous 12h, sans déplacement obligatoire pour la première estimation.</p>
+  <a href="index.html#contact" class="btn-white">Demander un devis gratuit</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer-main">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-about">
+        <a href="index.html" class="nav-logo" style="color:#fff; margin-bottom:1rem; display:block;">Opalis <b style="background:var(--blue); padding:0.1rem 0.35rem; border-radius:5px;">Solaire</b></a>
+        <p>Expert en protection thermique des vitrages. Nous installons des films solaires haute performance pour les professionnels et particuliers en Auvergne-Rhône-Alpes.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="realisations.html">Nos Réalisations</a></li>
+          <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+          <li><a href="index.html#contact">Demander un devis</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Nos Solutions</h4>
+        <ul>
+          <li><a href="savoir-faire.html#solutions">Film Anti-Chaleur</a></li>
+          <li><a href="savoir-faire.html#solutions">Film Anti-UV</a></li>
+          <li><a href="savoir-faire.html#solutions">Miroir Sans Tain</a></li>
+          <li><a href="savoir-faire.html#solutions">Film 4 Saisons</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-info">
+          <div class="footer-contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <a href="tel:+33699555091">06 99 55 50 91</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a>
+          </div>
+          <p style="font-size:0.85rem; margin-top:0.5rem; line-height:1.4;">Intervention : Lyon, Valence, Grenoble, Saint-Étienne.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Opalis Solaire. Tous droits réservés.</p>
+      <div class="footer-legal">
+        <a href="legal.html">Mentions Légales</a>
+        <a href="legal.html">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Burger menu
+  document.getElementById('nav-burger').addEventListener('click', function() {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+
+  // Filter tabs
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const filter = this.dataset.filter;
+      cards.forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.cat === filter) ? 'flex' : 'none';
+      });
+    });
+  });
+
+  // Before/After sliders
+  document.querySelectorAll('.ba-container').forEach(container => {
+    const before = container.querySelector('.ba-before');
+    const handle = container.querySelector('.ba-handle');
+    let dragging = false;
+
+    function setPosition(x) {
+      const rect = container.getBoundingClientRect();
+      let pct = Math.min(Math.max(((x - rect.left) / rect.width) * 100, 0), 100);
+      before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left = pct + '%';
+    }
+
+    container.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); e.preventDefault(); });
+    window.addEventListener('mouseup', () => dragging = false);
+    window.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
+
+    container.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchend', () => dragging = false);
+    window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
+  });
+
+  // Clic sur toute la carte → ouvre la page projet (sauf si on draguait le slider)
+  document.querySelectorAll('.project-card').forEach(card => {
+    const link = card.querySelector('.card-link');
+    if (!link) return;
+    let startX = 0, startY = 0;
+    card.addEventListener('mousedown', e => { startX = e.clientX; startY = e.clientY; });
+    card.addEventListener('click', e => {
+      if (e.target.closest('a')) return; // lien normal, laisser faire
+      const dx = Math.abs(e.clientX - startX);
+      const dy = Math.abs(e.clientY - startY);
+      if (dx < 6 && dy < 6) window.location.href = link.href; // pas un drag
+    });
+    card.style.cursor = 'pointer';
+  });
+</script>
+
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentions Légales & CGV | Opalis Solaire</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1a56db; --blue-dark: #1240b0; --blue-light: #e8f0fe;
+      --text: #111827; --muted: #6b7280; --border: #e5e7eb;
+      --bg: #ffffff; --bg-alt: #f9fafb; --radius: 10px;
+    }
+    html { scroll-behavior: smooth; }
+    body { padding-top: 70px;  font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); font-size: 16px; line-height: 1.6; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 1.25rem; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 1rem; }
+    .nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--blue); text-decoration: none; flex-shrink: 0; }
+    .nav-logo span { color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+    .nav-links a:hover { color: var(--blue); background: var(--blue-light); }
+    .nav-cta { background: var(--blue); color: #fff; border: none; border-radius: 7px; padding: 0.5rem 1.1rem; font-size: 0.875rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: background 0.15s; flex-shrink: 0; white-space: nowrap; }
+    .nav-cta:hover { background: var(--blue-dark); }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 1.25rem; gap: 0.25rem; align-items: flex-start; z-index: 99; }
+      .nav-burger { display: flex; }
+    }
+
+    /* LAYOUT */
+    .page-header { background: linear-gradient(160deg, #f0f6ff 0%, #ffffff 60%); border-bottom: 1px solid var(--border); padding: 4rem 1.25rem 3rem; text-align: center; }
+    .page-header h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); font-weight: 800; color: var(--text); margin-bottom: 1rem; }
+    .page-header p { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
+    
+    .container { max-width: 900px; margin: 0 auto; padding: 4rem 1.25rem; }
+    
+    /* SUB-NAV ANCHORS */
+    .legal-nav { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .legal-nav a { font-size: 0.9rem; font-weight: 600; color: var(--blue); background: var(--blue-light); padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
+    .legal-nav a:hover { opacity: 0.8; }
+
+    /* LEGAL CONTENT */
+    .legal-section { margin-bottom: 4rem; }
+    .legal-section h2 { font-size: 1.8rem; font-weight: 800; color: var(--text); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border); }
+    .legal-section h3 { font-size: 1.2rem; font-weight: 700; color: var(--text); margin-top: 2rem; margin-bottom: 0.75rem; }
+    .legal-section p, .legal-section ul { color: var(--muted); margin-bottom: 1rem; line-height: 1.7; }
+    .legal-section ul { padding-left: 1.5rem; }
+    .legal-section li { margin-bottom: 0.5rem; }
+    .legal-section strong { color: var(--text); font-weight: 600; }
+    .legal-section a { color: var(--blue); text-decoration: underline; }
+
+    /* FOOTER */
+    footer { background: #111827; color: #9ca3af; padding: 2rem 1.25rem; text-align: center; font-size: 0.85rem; }
+    footer strong { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo-wrap">
+      <span class="nav-logo">Opalis <b>Solaire</b></span>
+      <span class="nav-slogan">Expert en protection thermique des vitrages.</span>
+    </a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="realisations.html">Nos Réalisations</a></li>
+      <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+      <li class="mobile-only"><a href="index.html#contact" class="nav-cta">Demander un devis</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta desktop-only">Demander un devis</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Mentions Légales & CGV</h1>
+  <p>Conformité, conditions générales de vente et politique de confidentialité.</p>
+</div>
+
+<div class="container">
+  
+  <div class="legal-nav">
+    <a href="#mentions-legales">Mentions Légales</a>
+    <a href="#cgv">Conditions Générales de Vente (CGV)</a>
+    <a href="#confidentialite">Politique de Confidentialité (RGPD)</a>
+  </div>
+
+  <!-- DOCUMENT 1 : MENTIONS LEGALES -->
+  <section id="mentions-legales" class="legal-section">
+    <h2>1. Mentions Légales</h2>
+    
+    <h3>Éditeur du site</h3>
+    <p>Le présent site est édité par :</p>
+    <ul>
+      <li><strong>Entreprise :</strong> LMBProd</li>
+      <li><strong>Statut juridique :</strong> Micro-entreprise</li>
+      <li><strong>Représentant légal :</strong> Louis Moyne-Bressand</li>
+      <li><strong>SIRET :</strong> 947 665 345 00015</li>
+      <li><strong>Adresse :</strong> Communiquée sur demande</li>
+      <li><strong>Téléphone :</strong> 06 99 55 50 91</li>
+      <li><strong>Email contact :</strong> <a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a></li>
+    </ul>
+
+    <h3>Hébergement du site</h3>
+    <p>Ce site est hébergé par :</p>
+    <ul>
+      <li><strong>Nom de l'hébergeur :</strong> Vercel Inc.</li>
+      <li><strong>Adresse de l'hébergeur :</strong> 340 S Lemon Ave #4133 Walnut, CA 91789, USA</li>
+    </ul>
+
+    <h3>Propriété intellectuelle</h3>
+    <p>L'ensemble de ce site (textes, images, vidéos) relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Toute reproduction ou représentation, intégrale ou partielle, est strictement interdite sans l'autorisation expresse de LMBProd.</p>
+  </section>
+
+  <!-- DOCUMENT 2 : CGV -->
+  <section id="cgv" class="legal-section">
+    <h2>2. Conditions Générales de Vente et de Services</h2>
+    
+    <h3>1. Objet</h3>
+    <p>Les présentes conditions générales définissent les modalités de prestation de services proposés par LMBProd, spécialisée dans la fourniture et l'installation de films techniques pour vitrages (films de contrôle solaire anti-chaleur, films anti-UV, films d'intimité et de sécurité) à destination des professionnels (bureaux, commerces) et des particuliers.</p>
+
+    <h3>2. Devis et Commandes</h3>
+    <p>Toute intervention est précédée d'un audit ou d'un devis gratuit et personnalisé (réalisé sur site ou sur plan). La commande devient ferme et définitive dès le retour du devis signé par le client, portant la mention "Bon pour accord", et accompagné, le cas échéant, du versement de l'acompte prévu sur le devis (généralement 30% à 50%).</p>
+
+    <h3>3. Tarifs et Modalités de paiement</h3>
+    <p>Les prix sont indiqués en euros. Le solde de la facture est payable à réception, une fois le chantier de pose terminé. En cas de retard de paiement, LMBProd se réserve le droit d'appliquer les pénalités légales en vigueur conformément à l'article L. 441-10 du Code de commerce.</p>
+
+    <h3>4. Exécution de la prestation (La Pose)</h3>
+    <p>LMBProd s'engage à intervenir dans les délais convenus sur le devis. Le client s'engage à rendre les vitrages accessibles et dégagés le jour de l'intervention. La pose est réalisée sans poussière ni nuisance sonore majeure permettant, dans la majorité des cas, le maintien de l'activité dans les locaux professionnels.</p>
+
+    <h3>5. Garanties et Service Après-Vente</h3>
+    <p>Les films installés bénéficient des garanties fabricants (variant de 5 à 12 ans selon le type de film posé : décollement, craquelure, démétallisation). LMBProd garantit également la conformité et la qualité de la pose. La garantie ne couvre pas les dégradations volontaires, le nettoyage avec des produits abrasifs ou les bris de glace d'origine thermique non imputables au film.</p>
+
+    <h3>6. Litiges</h3>
+    <p>En cas de litige, une solution à l'amiable sera recherchée en priorité. À défaut, les tribunaux français seront seuls compétents.</p>
+  </section>
+
+  <!-- DOCUMENT 3 : CONFIDENTIALITE -->
+  <section id="confidentialite" class="legal-section">
+    <h2>3. Politique de Confidentialité (RGPD)</h2>
+    
+    <h3>1. Données collectées</h3>
+    <p>Dans le cadre d'une demande de devis, d'audit thermique gratuit ou d'une prise de contact, nous sommes amenés à collecter les données suivantes :</p>
+    <ul>
+      <li>Nom, Prénom</li>
+      <li>Nom de l'entreprise (le cas échéant)</li>
+      <li>Numéro de téléphone</li>
+      <li>Adresse email</li>
+      <li>Adresse du chantier / localisation</li>
+    </ul>
+
+    <h3>2. Finalité du traitement</h3>
+    <p>Vos données sont collectées dans le but exclusif de :</p>
+    <ul>
+      <li>Répondre à vos demandes de contact.</li>
+      <li>Établir une estimation tarifaire ou un devis pour la pose de films pour vitrages.</li>
+      <li>Organiser l'intervention technique sur site.</li>
+      <li>Assurer le suivi commercial et la facturation.</li>
+      <li>Analyser l'audience du site (de manière anonymisée) pour améliorer nos services.</li>
+    </ul>
+    <p>LMBProd s'engage : vos données ne sont ni vendues, ni louées, ni cédées à des tiers.</p>
+
+    <h3>3. Durée de conservation</h3>
+    <p>Les données sont conservées le temps nécessaire à la relation commerciale, et au maximum 3 ans après notre dernier échange pour les prospects. Les documents comptables (factures) sont conservés 10 ans, conformément à la loi.</p>
+
+    <h3>4. Vos droits (Accès, rectification et suppression)</h3>
+    <p>Conformément à la loi Informatique et Libertés et au RGPD, vous disposez d'un droit d'accès, de rectification, de portabilité et de suppression de vos données.<br>
+    Pour exercer ce droit, il vous suffit de nous envoyer un email à : <a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a>.</p>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer-main">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-about">
+        <a href="index.html" class="nav-logo" style="color:#fff; margin-bottom:1rem; display:block;">Opalis <b style="background:var(--blue); padding:0.1rem 0.35rem; border-radius:5px;">Solaire</b></a>
+        <p>Expert en protection thermique des vitrages. Nous installons des films solaires haute performance pour les professionnels et particuliers en Auvergne-Rhône-Alpes.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="realisations.html">Nos Réalisations</a></li>
+          <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+          <li><a href="index.html#contact">Demander un devis</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Nos Solutions</h4>
+        <ul>
+          <li><a href="savoir-faire.html#solutions">Film Anti-Chaleur</a></li>
+          <li><a href="savoir-faire.html#solutions">Film Anti-UV</a></li>
+          <li><a href="savoir-faire.html#solutions">Miroir Sans Tain</a></li>
+          <li><a href="savoir-faire.html#solutions">Film 4 Saisons</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-info">
+          <div class="footer-contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <a href="tel:+33699555091">06 99 55 50 91</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a>
+          </div>
+          <p style="font-size:0.85rem; margin-top:0.5rem; line-height:1.4;">Intervention : Lyon, Valence, Grenoble, Saint-Étienne.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Opalis Solaire. Tous droits réservés.</p>
+      <div class="footer-legal">
+        <a href="legal.html">Mentions Légales</a>
+        <a href="legal.html">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="main.js"></script>
+</body>
+</html>

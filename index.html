@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opalis Solaire | Film Anti-Chaleur Vitrages & Pose Professionnelle</title>
+  <meta name="description" content="Réduisez la chaleur dans vos bureaux, commerces et habitations grâce à la pose de films anti-chaleur sur vitrages. Intervention régionale, rapide et sans travaux. Demandez votre devis gratuit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="global.css" />
+  <style>
+    /* Styles spécifiques à la Home Page */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1a56db;
+      --blue-dark: #1240b0;
+      --blue-light: #e8f0fe;
+      --amber: #f59e0b;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --bg-alt: #f9fafb;
+      --radius: 10px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body { padding-top: 70px; 
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ROI Section styles... */
+
+    /* ── ROI SECTION ── */
+    #roi { background: #0f172a; padding: 5rem 1.25rem; }
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 3rem;
+      border: 1px solid #1e293b;
+    }
+    @media (max-width: 700px) { .roi-grid { grid-template-columns: 1fr; } }
+    .roi-card {
+      background: #111827;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .roi-card + .roi-card { border-left: 1px solid #1e293b; }
+    @media (max-width: 700px) { .roi-card + .roi-card { border-left: none; border-top: 1px solid #1e293b; } }
+    .roi-num {
+      font-size: clamp(2.8rem, 7vw, 4.5rem);
+      font-weight: 800;
+      color: #60a5fa;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .roi-label { font-size: 0.95rem; color: #64748b; line-height: 1.5; max-width: 220px; }
+    #roi h2 { color: #fff; margin-bottom: 0.5rem; }
+    #roi .section-label { color: #60a5fa; }
+    #roi > .container > p { color: #64748b; font-size: 1rem; max-width: 520px; }
+
+    /* ── CONFORT VISUEL ── */
+    #confort-visuel {}
+    .split-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-top: 2.5rem;
+      border: 1px solid var(--border);
+    }
+    @media (max-width: 640px) { .split-visual { grid-template-columns: 1fr; } }
+    .split-side { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+    .split-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .split-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+      color: #fff;
+    }
+    .split-caption strong { display: block; font-size: 0.95rem; font-weight: 700; }
+    .split-caption span { font-size: 0.8rem; opacity: 0.85; }
+    .split-divider {
+      width: 3px;
+      background: #fff;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .split-divider-badge {
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      writing-mode: vertical-rl;
+      white-space: nowrap;
+    }
+    .confort-text {
+      max-width: 680px;
+      margin: 2rem auto 0;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      padding: 1.25rem 1.5rem;
+      background: var(--blue-light);
+      border-radius: 10px;
+      border: 1px solid #bfdbfe;
+    }
+    .confort-text strong { color: var(--blue); }
+
+    /* ── SECTIONS ── */
+    section { padding: 4rem 1.25rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+    h1, h2, h3 { line-height: 1.25; }
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    p { color: var(--muted); }
+    .text-dark { color: var(--text); }
+
+    /* ── HERO ── */
+    #hero {
+      background: linear-gradient(160deg, #f0f6ff 0%, #ffffff 60%);
+      padding: 5rem 1.25rem 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    h1 em { font-style: normal; color: var(--blue); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+    }
+    .hero-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.85rem 1.75rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--blue);
+      border: 2px solid var(--blue);
+      border-radius: 8px;
+      padding: 0.85rem 1.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-secondary:hover { background: var(--blue-light); }
+    .hero-trust {
+      margin-top: 2rem;
+      font-size: 0.82rem;
+      color: #9ca3af;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-trust span::before { content: "✓ "; color: #22c55e; font-weight: 700; }
+
+    /* ── PROBLEM ── */
+    #problem { background: var(--bg-alt); border-bottom: 1px solid var(--border); }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .problem-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .problem-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .problem-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
+    .problem-card p { font-size: 0.9rem; }
+
+    /* ── SOLUTION ── */
+    #solution {}
+    .solution-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 680px) { .solution-inner { grid-template-columns: 1fr; gap: 2rem; } }
+    .solution-visual {
+      background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+      border-radius: 12px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      border: 1px solid #bfdbfe;
+    }
+    .solution-list { list-style: none; margin-top: 1.25rem; }
+    .solution-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-bottom: 0.85rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .solution-list li::before {
+      content: "✓";
+      background: #dcfce7;
+      color: #16a34a;
+      font-weight: 800;
+      font-size: 0.75rem;
+      border-radius: 50%;
+      width: 1.3rem;
+      height: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── BENEFITS ── */
+    #benefits { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .benefit-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .benefit-icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
+    .benefit-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text); }
+    .benefit-card p { font-size: 0.85rem; }
+
+    /* ── POUR QUI ── */
+    #pourqui {}
+    .pourqui-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .pourqui-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      border-top: 3px solid var(--blue);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .pourqui-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0; color: var(--text); }
+    .pourqui-desc { font-size: 0.95rem; line-height: 1.7; color: var(--muted); }
+    .pourqui-cta {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 2px solid var(--blue-light);
+      padding-bottom: 2px;
+      transition: border-color 0.15s;
+    }
+    .pourqui-cta:hover { border-color: var(--blue); }
+
+    /* ── PROCESS ── */
+    #process { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.75rem;
+    }
+    .step-num {
+      background: var(--blue);
+      color: #fff;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step h3 { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .step p { font-size: 0.875rem; max-width: 220px; }
+
+    /* ── REASSURANCE ── */
+    #reassurance {}
+    .reassurance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .reassurance-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: background 0.18s, border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+    }
+    .reassurance-card:hover {
+      background: var(--blue-light);
+      border-color: #bfdbfe;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(26,86,219,0.1);
+    }
+    .reassurance-card:hover .reassurance-icon svg { stroke: var(--blue-dark); }
+    .reassurance-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .reassurance-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--text); }
+    .reassurance-card p { font-size: 0.85rem; }
+
+    /* ── FORM ── */
+    #contact { background: linear-gradient(160deg, #f0f6ff 0%, #ffffff 100%); border-top: 1px solid var(--border); }
+    .form-wrapper {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .form-wrapper h2 { margin-bottom: 0.5rem; }
+    .form-wrapper > p { font-size: 0.95rem; margin-bottom: 2rem; }
+    form { display: flex; flex-direction: column; gap: 1rem; text-align: left; }
+    label { font-size: 0.85rem; font-weight: 600; color: var(--text); display: block; margin-bottom: 0.3rem; }
+    input, textarea, select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--text);
+      background: #fff;
+      transition: border-color 0.15s;
+      outline: none;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--blue); }
+    textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .btn-submit {
+      width: 100%;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: var(--blue-dark); transform: translateY(-1px); }
+    .form-note { text-align: center; font-size: 0.8rem; color: #9ca3af; margin-top: 0.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      padding: 2rem 1.25rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    footer strong { color: #fff; }
+
+    /* ── SUCCESS ── */
+    #success-msg {
+      display: none;
+      background: #dcfce7;
+      border: 1px solid #86efac;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      color: #15803d;
+      font-weight: 600;
+    }
+
+    /* ── NEW FORM FIELDS ── */
+    .hidden-field { display: none; margin-top: 0.5rem; }
+    .radio-group { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+    }
+    .radio-item input { width: auto; margin: 0; cursor: pointer; }
+    .radio-item:hover { border-color: var(--blue); background: var(--blue-light); }
+
+    .btn-small {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-small:hover { border-color: var(--blue); color: var(--blue); }
+
+    .calc-container {
+      background: var(--blue-light);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #bfdbfe;
+      margin-top: 0.75rem;
+    }
+    .calc-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    .calc-row label { font-size: 0.7rem; color: var(--blue-dark); margin-bottom: 0.2rem; }
+    .calc-row input { padding: 0.4rem 0.6rem; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo-wrap">
+      <span class="nav-logo">Opalis <b>Solaire</b></span>
+      <span class="nav-slogan">Expert en protection thermique des vitrages.</span>
+    </a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="realisations.html">Nos Réalisations</a></li>
+      <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+      <li class="mobile-only"><a href="index.html#contact" class="nav-cta">Demander un devis</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta desktop-only">Demander un devis</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-overlay"></div>
+  <img src="poseur-film.jpg" alt="Poseur installant un film anti-chaleur sur une baie vitrée" class="hero-bg-img">
+  <div class="hero-inner" style="position: relative; z-index: 2;">
+    <span class="hero-badge">🌞 Valence · Lyon · Auvergne-Rhône-Alpes · Devis gratuit</span>
+    <h1 style="color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">Trop chaud dans vos locaux ?<br/>On s'en occupe, <em style="color: #60a5fa;">sans travaux.</em></h1>
+    <p class="hero-sub" style="color: rgba(255,255,255,0.9); text-shadow: 0 1px 4px rgba(0,0,0,0.3);">Poseur de film solaire anti-chaleur pour vitrages, intervenant à Valence, Lyon et dans toute la région Auvergne-Rhône-Alpes. Résultat visible dès le premier jour, sans fermer votre établissement.</p>
+    <div class="hero-actions">
+      <a href="tel:+33600000000" class="btn-primary" id="hero-call-btn">📞 Être rappelé</a>
+      <a href="#contact" class="btn-secondary" id="hero-devis-btn" style="background: rgba(255,255,255,0.1); color: #fff; border-color: #fff;">Demander un devis</a>
+    </div>
+    <div class="hero-trust" style="color: rgba(255,255,255,0.8);">
+      <span>Devis sous 12h</span>
+      <span>Pose sans démolition</span>
+      <span>Résultat immédiat</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  #hero {
+    position: relative;
+    padding: 8rem 1.25rem 6rem;
+    overflow: hidden;
+    background: #000;
+  }
+  .hero-bg-img {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    z-index: 1;
+  }
+  .hero-bg-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+    z-index: 1;
+  }
+</style>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <p class="section-label">Le problème</p>
+    <h2>L'été, vos vitrages vous coûtent cher.<br/>En confort et en énergie.</h2>
+    <p>Les grandes baies vitrées et les façades exposées transforment vos locaux en étuve dès les premières chaleurs. La clim tourne non-stop, vos équipes souffrent, et la facture s'alourdit. Ce n'est pas une fatalité.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thermometer"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 1 1 4 0Z"/></svg>
+        </div>
+        <h3>Chaleur insupportable</h3>
+        <p>La clim tourne à fond mais la température reste élevée. Normal : le problème vient du vitrage, pas de l'installation.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14.5 14 3l-2.5 7h8.5L10 21l2.5-7H4z"/></svg>
+        </div>
+        <h3>Facture énergie en hausse</h3>
+        <p>La climatisation peut représenter jusqu'à 30 % de votre consommation électrique estivale. Un poste qui se réduit facilement.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-frown"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
+        </div>
+        <h3>Marchandises et mobilier abîmés</h3>
+        <p>Les rayons UV décolorent vos produits en vitrine, vos meubles et vos équipements. Une protection anti-UV règle le problème durablement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution">
+  <div class="container">
+    <div class="solution-inner">
+      <div class="solution-visual" style="padding:0; overflow:hidden; border:none; background:none;">
+        <img src="/Users/louis/.gemini/antigravity/brain/8a182a3d-5e67-40dc-ac07-23b2eaaf0ccd/veranda_confort_png_1776858983210.png" alt="Confort véranda" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+      </div>
+      <div>
+        <p class="section-label">La solution</p>
+        <h2>L'installation de film solaire :<br/>simple, rapide, durable</h2>
+        <p>Un film anti-chaleur posé directement sur vos vitrages existants réduit la baisse de température ressentie jusqu'à 10°C, sans aucun travaux de maçonnerie ni démolition. Nous intervenons à Valence, Lyon et dans toute la région.</p>
+        <ul class="solution-list">
+          <li>Pose en quelques heures, sans fermer votre établissement</li>
+          <li>Compatible avec tous types de vitrages existants</li>
+          <li>Baisse de température ressentie dès le premier jour</li>
+          <li>Durée de vie de 10 à 15 ans, garantie fabricant incluse</li>
+          <li>Discret à l'intérieur, design à l'extérieur</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section id="roi">
+  <div class="container">
+    <p class="section-label">Impact mesurable</p>
+    <h2>Des résultats concrets,<br/>dès le premier jour</h2>
+    <p>Voici ce qui change vraiment dans vos locaux après notre intervention. Des chiffres mesurés, pas des estimations.</p>
+    <div class="roi-grid">
+      <div class="roi-card">
+        <div class="roi-num">-8°C</div>
+        <div class="roi-label">de température ressentie en moyenne l'été.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-num">-30%</div>
+        <div class="roi-label">d'économie sur votre facture de climatisation.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-num">83%</div>
+        <div class="roi-label">moins cher qu'un remplacement complet de vos vitrages.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFORT VISUEL -->
+<section id="confort-visuel">
+  <div class="container">
+    <p class="section-label">Confort visuel</p>
+    <h2>Protégé à l'extérieur,<br/>lumineux à l'intérieur</h2>
+    <p>Un film solaire bien choisi ne réduit pas la luminosité de vos espaces. Il arrête la chaleur, pas la lumière.</p>
+    <div class="split-visual">
+      <div class="split-side">
+        <img src="/Users/louis/.gemini/antigravity/brain/8a182a3d-5e67-40dc-ac07-23b2eaaf0ccd/exterior_mirror_film_1776859978169.png" alt="Effet miroir extérieur">
+        <div class="split-caption">
+          <strong>Côté extérieur</strong>
+          <span>Effet miroir ou teinté – discrétion et design</span>
+        </div>
+      </div>
+      <div class="split-side">
+        <img src="/Users/louis/.gemini/antigravity/brain/8a182a3d-5e67-40dc-ac07-23b2eaaf0ccd/interior_clear_view_1776860005717.png" alt="Vue intérieure claire">
+        <div class="split-caption">
+          <strong>Côté intérieur</strong>
+          <span>Vue dégagée, lumière naturelle préservée</span>
+        </div>
+      </div>
+    </div>
+    <div class="confort-text">
+      Nous proposons des <strong>films miroir sans tain</strong> pour préserver l'intimité de vos bureaux et salles de réunion, ainsi que des <strong>films haute clarté</strong> qui filtrent la chaleur tout en préservant la luminosité naturelle de vos locaux, même en hiver.
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits">
+  <div class="container">
+    <p class="section-label">Les bénéfices</p>
+    <h2>Une solution, plusieurs avantages</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon" style="color: var(--blue);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 1 1 4 0Z"/></svg>
+        </div>
+        <h3>Jusqu'à -10°C ressentis</h3>
+        <p>Réduction significative de la chaleur intérieure, même par forte canicule.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon" style="color: var(--blue);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </div>
+        <h3>Économies d'énergie</h3>
+        <p>Moins de climatisation = moins de consommation et une facture allégée.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon" style="color: var(--blue);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
+        <h3>Confort retrouvé</h3>
+        <p>Vos espaces redeviennent agréables à vivre et à travailler toute l'année.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon" style="color: var(--blue);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+        </div>
+        <h3>Protection UV 99%</h3>
+        <p>Protégez vos meubles, vos stocks et vos équipements du vieillissement prématuré.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section id="pourqui">
+  <div class="container">
+    <p class="section-label">Pour qui ?</p>
+    <h2>Nous intervenons à Valence, Lyon<br/>et dans toute la région</h2>
+    <div class="pourqui-grid">
+      <div class="pourqui-card">
+        <h3>🏢 Bureaux &amp; open-spaces</h3>
+        <p class="pourqui-desc">Vos équipes méritent de travailler dans de bonnes conditions. Nous posons des films solaires sur vos façades vitrées pour réduire la chaleur et baisser votre consommation de climatisation. Résultat immédiat : moins de chaleur, et <strong>-91% d'éblouissement sur les écrans</strong> de vos salariés. Aucune interruption d'activité.</p>
+        <a href="#contact" class="pourqui-cta">Demander un devis bureaux</a>
+      </div>
+      <div class="pourqui-card">
+        <h3>🏪 Commerces &amp; vitrines</h3>
+        <p class="pourqui-desc">Vos produits en vitrine souffrent du soleil et vos clients ne s'attardent pas dans un espace surchauffé. Notre film anti-UV bloque <strong>99% des rayons UV</strong> pour stopper la décoloration de vos marchandises, tout en maintenant une température agréable sans masquer votre vitrine.</p>
+        <a href="#contact" class="pourqui-cta">Demander un devis commerce</a>
+      </div>
+      <div class="pourqui-card">
+        <h3>🏠 Particuliers</h3>
+        <p class="pourqui-desc">Véranda inutilisable en été, velux qui chauffe la chambre, baie vitrée plein sud... Nous intervenons sur tous les types de vitrages résidentiels et vous rendons vos espaces à vivre, sans travaux lourds.</p>
+        <a href="#contact" class="pourqui-cta">Demander un devis particulier</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <p class="section-label">Comment ça se passe ?</p>
+    <h2>Trois étapes, c'est tout</h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Vous nous contactez</h3>
+        <p>Par téléphone ou via le formulaire. Nous vous répondons sous 12h pour cerner votre besoin.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Diagnostic gratuit sur place</h3>
+        <p>Nous nous déplaçons, évaluons vos vitrages et vous remettons un devis clair, sans surprise.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Installation en quelques heures</h3>
+        <p>Pose soignée de votre film anti-chaleur ou film solaire. Résultat visible le jour même, espace laissé propre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REASSURANCE -->
+<section id="reassurance">
+  <div class="container">
+    <p class="section-label">Pourquoi nous choisir ?</p>
+    <h2>Un artisan local, pas une franchise</h2>
+    <div class="reassurance-grid">
+      <div class="reassurance-card">
+        <div class="reassurance-icon" style="color: var(--blue);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <h3>Valence, Lyon et alentours</h3>
+          <p>Nous connaissons la région et ses contraintes climatiques. Pas de sous-traitant, pas de frais de déplacement cachés. Vous savez à qui vous avez affaire.</p>
+        </div>
+      </div>
+      <div class="reassurance-card">
+        <div class="reassurance-icon" style="color: var(--blue);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div>
+          <h3>Réactivité et intervention rapide</h3>
+          <p>Devis sous 12h, <strong>intervention rapide</strong>. En moyenne, comptez seulement 1 semaine entre votre premier contact et la pose finale du film.</p>
+        </div>
+      </div>
+      <div class="reassurance-card">
+        <div class="reassurance-icon" style="color: var(--blue);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.272 1.272L3 12l5.813 1.912a2 2 0 0 1 1.272 1.272L12 21l1.912-5.813a2 2 0 0 1 1.272-1.272L21 12l-5.813-1.912a2 2 0 0 1-1.272-1.272L12 3Z"/></svg>
+        </div>
+        <div>
+          <h3>Finitions soignées, garanties</h3>
+          <p>Pose sans bulles ni traces. On ne part pas avant que le résultat soit parfait. Film garanti 10 à 15 ans selon le produit choisi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section id="contact">
+  <div class="container">
+    <div class="form-wrapper">
+      <p class="section-label">Contact</p>
+      <h2>On vous rappelle, c'est gratuit</h2>
+      <p>Laissez-nous vos coordonnées. Nous vous contactons sous 12h pour faire le point sur votre projet et vous donner une première estimation par téléphone, sans déplacement.</p>
+
+      <div id="success-msg">
+        ✅ Merci ! Votre demande a bien été envoyée. Nous vous recontactons très rapidement.
+      </div>
+
+      <form id="contact-form" novalidate>
+        <div class="form-row">
+          <div>
+            <label for="nom">Nom *</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+          </div>
+          <div>
+            <label for="telephone">Téléphone *</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="06 xx xx xx xx" required />
+          </div>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.fr" />
+        </div>
+        <div>
+          <label for="type">Type de local</label>
+          <select id="type" name="type">
+            <option value="">— Sélectionnez —</option>
+            <option value="bureau">Bureaux / Open-space</option>
+            <option value="commerce">Commerce / Vitrine</option>
+            <option value="particulier">Particulier (maison, véranda…)</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+
+        <!-- Sous-catégories pour Particuliers -->
+        <div id="particulier-options" class="hidden-field">
+          <label>Précisez le type de projet</label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="particulier_sub" value="fenetre"> Fenêtre classique</label>
+            <label class="radio-item"><input type="radio" name="particulier_sub" value="baie"> Baie vitrée</label>
+            <label class="radio-item"><input type="radio" name="particulier_sub" value="veranda"> Véranda</label>
+            <label class="radio-item"><input type="radio" name="particulier_sub" value="velux"> Velux</label>
+            <label class="radio-item"><input type="radio" name="particulier_sub" value="autre"> Autre</label>
+          </div>
+        </div>
+
+        <!-- Estimation Surface -->
+        <div style="margin-top: 0.5rem;">
+          <label for="surface">Surface vitrée totale (m²) - <span style="font-weight:400; font-size:0.8rem; color:var(--muted);">Optionnel</span></label>
+          <div style="display:flex; gap:0.5rem; align-items:center;">
+            <input type="number" id="surface" name="surface" placeholder="ex: 12" step="0.1">
+            <button type="button" id="toggle-calc" class="btn-small">Aider au calcul</button>
+          </div>
+          <p style="font-size:0.75rem; color:var(--muted); margin-top:0.3rem;">Cela nous permet de vous donner une <strong>estimation de prix rapide par téléphone</strong>.</p>
+        </div>
+
+        <!-- Mini Calculateur -->
+        <div id="calculator-box" class="hidden-field calc-container">
+          <div class="calc-row">
+            <div>
+              <label>Nb de vitres</label>
+              <input type="number" id="calc-nb" value="1" min="1">
+            </div>
+            <div>
+              <label>Largeur moy. (m)</label>
+              <input type="number" id="calc-w" placeholder="1.20" step="0.01">
+            </div>
+            <div>
+              <label>Hauteur moy. (m)</label>
+              <input type="number" id="calc-h" placeholder="1.50" step="0.01">
+            </div>
+          </div>
+          <button type="button" id="apply-calc" class="btn-secondary" style="width:100%; padding:0.5rem; margin-top:0.75rem; font-size:0.85rem;">Calculer et appliquer</button>
+        </div>
+        <div>
+          <label for="message">Message (optionnel)</label>
+          <textarea id="message" name="message" placeholder="Décrivez brièvement votre projet (surface estimée, type de vitrage…)"></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">📩 Être rappelé rapidement</button>
+        <p class="form-note">Devis gratuit · Sans engagement · Réponse sous 12h</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-main">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-about">
+        <a href="index.html" class="nav-logo" style="color:#fff; margin-bottom:1rem; display:block;">Opalis <b style="background:var(--blue); padding:0.1rem 0.35rem; border-radius:5px;">Solaire</b></a>
+        <p>Expert en protection thermique des vitrages. Nous installons des films solaires haute performance pour les professionnels et particuliers en Auvergne-Rhône-Alpes.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="realisations.html">Nos Réalisations</a></li>
+          <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+          <li><a href="index.html#contact">Demander un devis</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Nos Solutions</h4>
+        <ul>
+          <li><a href="savoir-faire.html#solutions">Film Anti-Chaleur</a></li>
+          <li><a href="savoir-faire.html#solutions">Film Anti-UV</a></li>
+          <li><a href="savoir-faire.html#solutions">Miroir Sans Tain</a></li>
+          <li><a href="savoir-faire.html#solutions">Film 4 Saisons</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-info">
+          <div class="footer-contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <a href="tel:+33699555091">06 99 55 50 91</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a>
+          </div>
+          <p style="font-size:0.85rem; margin-top:0.5rem; line-height:1.4;">Intervention : Lyon, Valence, Grenoble, Saint-Étienne.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Opalis Solaire. Tous droits réservés.</p>
+      <div class="footer-legal">
+        <a href="legal.html">Mentions Légales</a>
+        <a href="legal.html">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Gestion de l'affichage des options Particuliers
+  document.getElementById('type').addEventListener('change', function() {
+    const particulierOptions = document.getElementById('particulier-options');
+    if (this.value === 'particulier') {
+      particulierOptions.style.display = 'block';
+    } else {
+      particulierOptions.style.display = 'none';
+    }
+  });
+
+  // Toggle du mini-calculateur
+  document.getElementById('toggle-calc').addEventListener('click', function() {
+    const calcBox = document.getElementById('calculator-box');
+    calcBox.style.display = (calcBox.style.display === 'block') ? 'none' : 'block';
+    if (calcBox.style.display === 'block') {
+      this.textContent = 'Fermer le calcul';
+    } else {
+      this.textContent = 'Aider au calcul';
+    }
+  });
+
+  // Calcul de la surface
+  document.getElementById('apply-calc').addEventListener('click', function() {
+    const nb = parseFloat(document.getElementById('calc-nb').value) || 0;
+    const w = parseFloat(document.getElementById('calc-w').value) || 0;
+    const h = parseFloat(document.getElementById('calc-h').value) || 0;
+    
+    if (nb > 0 && w > 0 && h > 0) {
+      const total = (nb * w * h).toFixed(2);
+      document.getElementById('surface').value = total;
+      document.getElementById('calculator-box').style.display = 'none';
+      document.getElementById('toggle-calc').textContent = 'Aider au calcul';
+    } else {
+      alert('Veuillez remplir toutes les valeurs (Nombre, Largeur, Hauteur).');
+    }
+  });
+
+  // Soumission du formulaire
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const btn = document.getElementById('submit-btn');
+    const nom = document.getElementById('nom').value.trim();
+    const tel = document.getElementById('telephone').value.trim();
+    
+    if (!nom || !tel) {
+      alert('Merci de renseigner votre nom et votre téléphone.');
+      return;
+    }
+
+    const email = document.getElementById('email').value.trim();
+    const type = document.getElementById('type').value;
+    const surface = document.getElementById('surface').value;
+    const message = document.getElementById('message').value.trim();
+    
+    let particulier_sub = '';
+    if (type === 'particulier') {
+      const radio = document.querySelector('input[name="particulier_sub"]:checked');
+      if (radio) particulier_sub = radio.value;
+    }
+
+    const payload = { nom, telephone: tel, email, type, particulier_sub, surface, message, source: 'Site Web Opalis Solaire' };
+
+    // Mode chargement
+    const originalText = btn.innerHTML;
+    btn.innerHTML = 'Envoi en cours...';
+    btn.disabled = true;
+
+    try {
+      await fetch('https://n8n.srv903375.hstgr.cloud/webhook-test/neuraflow-opalis-solaire-new-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      // Succès
+      this.style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    } catch (err) {
+      alert('Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous appeler directement.');
+      console.error('Erreur Webhook n8n:', err);
+    } finally {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+    }
+  });
+
+  
+</script>
+
+
+<script src="main.js"></script>
+</body>
+</html>

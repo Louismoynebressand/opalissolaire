@@ -1,0 +1,91 @@
+/* === CSS PARTAGÉ POUR TOUTES LES PAGES PROJETS === */
+@import url('global.css');
+
+.breadcrumb { max-width: 860px; margin: 1.5rem auto; padding: 0 1.25rem; font-size: 0.82rem; color: var(--muted); }
+.breadcrumb a { color: var(--blue); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.project-layout { max-width: 860px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+.project-header { margin-bottom: 2rem; }
+.project-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; background: var(--blue-light); color: var(--blue); padding: 0.25rem 0.7rem; border-radius: 4px; margin-bottom: 0.8rem; }
+.project-header h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; color: var(--text); line-height: 1.25; margin-bottom: 0.75rem; }
+.project-header .intro { font-size: 1.05rem; color: var(--muted); max-width: 680px; }
+
+.ba-container { position: relative; aspect-ratio: 16/9; overflow: hidden; user-select: none; cursor: ew-resize; border-radius: 12px; margin-bottom: 2rem; border: 1px solid var(--border); }
+.ba-after, .ba-before { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.ba-after img, .ba-before img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.ba-before { clip-path: inset(0 50% 0 0); }
+.ba-handle { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 3px; height: 100%; background: #fff; z-index: 3; cursor: ew-resize; }
+.ba-handle::after { content: "◀ ▶"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--blue); color: #fff; font-size: 0.7rem; padding: 0.4rem 0.6rem; border-radius: 20px; white-space: nowrap; }
+.ba-label-before, .ba-label-after { position: absolute; top: 0.75rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.25rem 0.6rem; border-radius: 4px; z-index: 4; }
+.ba-label-before { left: 0.75rem; background: rgba(0,0,0,0.5); color: #fff; }
+.ba-label-after { right: 0.75rem; background: rgba(26,86,219,0.85); color: #fff; }
+
+.specs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 0.75rem; margin-bottom: 2.5rem; }
+.spec-item { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; }
+.spec-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.2rem; }
+.spec-value { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+
+.project-body h2 { font-size: 1.25rem; font-weight: 800; color: var(--text); margin: 2.5rem 0 1rem; }
+.project-body p { color: var(--muted); margin-bottom: 1.2rem; line-height: 1.75; }
+.project-body ul { color: var(--muted); padding-left: 1.5rem; margin-bottom: 1.5rem; }
+.project-body li { margin-bottom: 0.5rem; line-height: 1.7; }
+
+.back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; font-weight: 600; color: var(--blue); text-decoration: none; margin-top: 3rem; border-bottom: 1px solid transparent; }
+.back-link:hover { border-color: var(--blue); }
+
+/* === SECTION CONVICTION === */
+.convert-section {
+  background: #0f172a;
+  border-radius: 20px;
+  padding: 4rem 2.5rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+.convert-section h2 { color: #fff; font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 800; margin-bottom: 0.5rem; }
+.convert-section .convert-sub { color: #94a3b8; font-size: 1rem; margin-bottom: 3rem; }
+.convert-args { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; text-align: left; }
+@media (max-width: 768px) { .convert-args { grid-template-columns: 1fr; } }
+.convert-arg {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.convert-arg .ca-icon { font-size: 1.8rem; margin-bottom: 0.3rem; }
+.convert-arg strong { color: #fff; font-size: 1rem; font-weight: 700; }
+.convert-arg span { color: #94a3b8; font-size: 0.875rem; line-height: 1.6; }
+
+.btn-convert {
+  display: inline-block;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff !important;
+  border-radius: 10px;
+  padding: 1.1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  box-shadow: 0 4px 20px rgba(245,158,11,0.3);
+}
+.btn-convert:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(245,158,11,0.45); }
+
+/* === SECTION CHANTIERS SIMILAIRES === */
+.related-section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+.related-section h2 { font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 1.5rem; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+.related-card { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: #fff; }
+.related-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+.related-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+.related-info { padding: 1rem; }
+.related-cat { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--blue); margin-bottom: 0.2rem; }
+.related-title { display: block; font-size: 0.875rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+
+@media (max-width: 640px) {
+  .convert-section { padding: 3rem 1.25rem; border-radius: 0; margin-left: -1.25rem; margin-right: -1.25rem; }
+  .specs-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .specs-grid { grid-template-columns: 1fr; }
+}
