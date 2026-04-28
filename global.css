@@ -192,3 +192,38 @@ nav.hidden { transform: translateY(-100%); }
   .footer-about { order: 4; }
 }
 
+
+
+/* STICKY CALL BUTTON */
+.sticky-call-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--blue);
+  color: white;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(26, 86, 219, 0.4);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.sticky-call-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(26, 86, 219, 0.6);
+  background-color: var(--blue-dark);
+  color: white;
+}
+@media (max-width: 768px) {
+  .sticky-call-btn {
+    bottom: 20px;
+    right: 20px;
+    font-size: 0.9rem;
+    padding: 12px 18px;
+  }
+}
