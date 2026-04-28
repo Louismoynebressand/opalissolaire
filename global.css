@@ -90,6 +90,28 @@ nav.hidden { transform: translateY(-100%); }
 }
 .nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
 
+.nav-cta-alt {
+  background: var(--blue-light);
+  color: var(--blue) !important;
+  padding: 0.5rem 1.25rem;
+  border: 1.5px solid var(--blue);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+.nav-cta-alt:hover { 
+  background: var(--blue); 
+  color: #fff !important;
+  border-color: var(--blue);
+  box-shadow: 0 4px 12px rgba(26, 86, 219, 0.2);
+  transform: translateY(-2px); 
+}
+
 .nav-burger {
   display: none;
   background: none;

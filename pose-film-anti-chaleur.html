@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pose Film Anti-Chaleur | -87% de chaleur rejetée | Devis Pro</title>
+  <meta name="description" content="Expert en pose de film anti-chaleur pour bureaux et vitrages. Baissez la température de vos locaux de 5 à 8°C. Découvrez notre filtre haute performance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="global.css" />
+  <style>
+    /* Specific styles for SEO page */
+    .seo-hero {
+      position: relative;
+      padding: 10rem 1.25rem 8rem;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+    .seo-hero-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      z-index: 1;
+    }
+    .seo-hero-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.5), rgba(0, 0, 0, 0.6));
+      z-index: 1;
+    }
+    .seo-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .seo-badge {
+      display: inline-block;
+      background: rgba(96, 165, 250, 0.2);
+      color: #93c5fd;
+      border: 1px solid rgba(96, 165, 250, 0.4);
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+    .seo-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .seo-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .seo-hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .btn-outline-white {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline-white:hover { background: #fff; color: var(--text); }
+
+    /* Problem Section */
+    .seo-problem {
+      padding: 6rem 1.25rem;
+      background: #fff;
+      text-align: center;
+    }
+    .seo-problem-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .seo-problem h2 {
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    .seo-problem-intro {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+    }
+    .seo-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .seo-card {
+      background: var(--bg-alt);
+      padding: 2.5rem 1.5rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .seo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    .seo-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--blue);
+    }
+    .seo-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    /* Solution Section */
+    .seo-solution {
+      padding: 6rem 1.25rem;
+      background: var(--bg-alt);
+    }
+    .seo-solution-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (max-width: 800px) {
+      .seo-solution-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .seo-solution-img {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    .seo-solution-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .seo-list {
+      list-style: none;
+      margin-top: 2rem;
+    }
+    .seo-list li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .seo-list li::before {
+      content: '✅';
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      margin-top: 2px;
+    }
+
+    /* Inter CTA */
+    .seo-inter-cta {
+      background: #0f172a;
+      padding: 5rem 1.25rem;
+      text-align: center;
+      color: #fff;
+    }
+    .seo-inter-cta h2 { color: #fff; margin-bottom: 1rem; }
+    .seo-inter-cta p { color: #94a3b8; font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+    /* B2B Section */
+    .seo-b2b {
+      padding: 6rem 1.25rem;
+      background: #fff;
+    }
+    .seo-b2b-box {
+      background: linear-gradient(135deg, var(--blue-light) 0%, #fff 100%);
+      border: 1px solid var(--blue);
+      border-radius: 16px;
+      padding: 4rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .seo-b2b-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 6px; height: 100%;
+      background: var(--blue);
+    }
+    .seo-b2b-box h3 {
+      color: var(--blue-dark);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .seo-b2b-box p {
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    /* Expertise */
+    .seo-expertise {
+      padding: 6rem 1.25rem;
+      background: var(--bg-alt);
+      text-align: center;
+    }
+    .seo-expertise h2 { margin-bottom: 3rem; }
+    .seo-expertise-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    @media (max-width: 800px) { .seo-expertise-grid { grid-template-columns: 1fr; } }
+    .seo-exp-card {
+      background: #fff;
+      padding: 2.5rem 1.5rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+    .seo-exp-card h3 {
+      color: var(--blue);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    /* FAQ */
+    .seo-faq {
+      padding: 6rem 1.25rem;
+      background: #fff;
+    }
+    .seo-faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .seo-faq h2 { text-align: center; margin-bottom: 3rem; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+    }
+    .faq-question {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--blue);
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-question::after { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 500px; /* arbitrary large max-height */
+      margin-top: 1rem;
+    }
+
+    /* Final CTA */
+    .seo-final {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      padding: 6rem 1.25rem;
+      text-align: center;
+      color: #fff;
+    }
+    .seo-final h2 { color: #fff; font-size: 2.5rem; margin-bottom: 1.5rem; }
+    .seo-final p { font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 2.5rem; }
+    .seo-final .btn-primary { background: #fff; color: var(--blue); font-size: 1.2rem; padding: 1.2rem 2.5rem; }
+    .seo-final .btn-primary:hover { background: var(--bg-alt); }
+    .seo-final .btn-outline-white { font-size: 1.2rem; padding: 1.2rem 2.5rem; }
+    
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo-wrap">
+      <span class="nav-logo">Opalis <b>Solaire</b></span>
+      <span class="nav-slogan">Expert en protection thermique des vitrages.</span>
+    </a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="realisations.html">Nos Réalisations</a></li>
+      <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+      <li><a href="simulateur.html" class="nav-cta-alt">Simulateur</a></li>
+      <li class="mobile-only"><a href="index.html#contact" class="nav-cta">Demander un devis</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta desktop-only">Demander un devis</a>
+  </div>
+</nav>
+
+<!-- 1. SECTION HERO -->
+<section class="seo-hero">
+  <img src="hero_bureau_france.png" class="seo-hero-bg" alt="Immeuble de bureaux professionnel et classique en France équipé de vitrages anti-chaleur" title="Bâtiment d'entreprise français protégé par nos films solaires">
+  <div class="seo-hero-overlay"></div>
+  <div class="seo-hero-content">
+    <div class="seo-badge">📍 Expert Régional • Valence & Auvergne-Rhône-Alpes</div>
+    <h1>Pose de Film Anti-Chaleur : Stoppez jusqu'à 87% de la chaleur solaire.</h1>
+    <p>La solution professionnelle pour climatiser vos locaux sans travaux. Baissez la température de 5 à 8°C et réduisez drastiquement vos factures d'énergie.</p>
+    <div class="seo-hero-actions">
+      <a href="simulateur.html" class="btn-primary">➜ Simuler mes économies</a>
+      <a href="index.html#contact" class="btn-outline-white">Demander un Audit Gratuit</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. SECTION PROBLÈME -->
+<section class="seo-problem">
+  <div class="seo-problem-container">
+    <h2>Vos bureaux se transforment en serre dès les premiers rayons du soleil ?</h2>
+    <p class="seo-problem-intro">L'architecture moderne fait la part belle aux grandes surfaces vitrées. Le problème ? En été, l'effet de serre rend vos locaux invivables, épuise vos équipes et fait exploser votre budget climatisation. Les stores intérieurs traditionnels ne suffisent pas : une fois que la chaleur a traversé la vitre, il est déjà trop tard. <br><br><strong>C'est ici qu'intervient l'installation d'un film fenêtre anti-chaleur haute performance.</strong></p>
+    
+    <div class="seo-problem-grid">
+      <div class="seo-card">
+        <div class="seo-icon">🔥</div>
+        <h3>Inconfort thermique</h3>
+        <p>Baisse de productivité et plaintes des collaborateurs à cause d'une température excessive dans les bureaux.</p>
+      </div>
+      <div class="seo-card">
+        <div class="seo-icon">💸</div>
+        <h3>Factures hors de contrôle</h3>
+        <p>La climatisation tourne à plein régime, sans succès, alourdissant considérablement vos charges fixes.</p>
+      </div>
+      <div class="seo-card">
+        <div class="seo-icon">☀️</div>
+        <h3>Éblouissement</h3>
+        <p>Reflets insupportables sur les écrans d'ordinateur qui fatiguent la vue et compliquent le travail sur poste.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SECTION LA SOLUTION TECHNIQUE -->
+<section class="seo-solution">
+  <div class="seo-solution-inner">
+    <div>
+      <h2>Un bouclier thermique invisible, appliqué directement sur vos vitrages</h2>
+      <p style="color: var(--muted); font-size: 1.1rem; margin-bottom: 1.5rem;">Nous ne posons pas de simples adhésifs. Nous installons un véritable filtre anti-chaleur pour fenêtre de classe industrielle (qualité supérieure certifiée M1).</p>
+      <p style="color: var(--text);">Notre solution phare, appliquée en pose extérieure pour stopper les rayons UV et infrarouges avant qu'ils ne pénètrent le verre, offre des performances inégalées sur le marché :</p>
+      <ul class="seo-list">
+        <li><strong>87% d'énergie solaire rejetée :</strong> Une efficacité redoutable grâce à la métallisation multicouche.</li>
+        <li><strong>67% d'éblouissement réduit :</strong> Retrouvez le confort visuel sur vos écrans sans fermer les volets.</li>
+        <li><strong>Transparence préservée :</strong> La lumière naturelle entre, la chaleur reste dehors.</li>
+        <li><strong>Esthétique premium :</strong> Un aspect "miroir" extérieur contemporain qui modernise vos façades tout en supprimant le vis-à-vis.</li>
+      </ul>
+    </div>
+    <div class="seo-solution-img">
+      <img src="comparatif_teinte_bureau.png" alt="Vue depuis l'intérieur d'un cabinet professionnel montrant l'efficacité du film anti-chaleur sans altérer la luminosité" title="Confort de travail optimisé grâce au filtre solaire sur les vitrages">
+    </div>
+  </div>
+</section>
+
+<!-- 4. SECTION CTA INTERMÉDIAIRE -->
+<section class="seo-inter-cta">
+  <h2>Combien coûterait l'installation pour vos vitrages ?</h2>
+  <p>Découvrez votre budget estimé en 30 secondes ou demandez une étude personnalisée de vos locaux.</p>
+  <div class="seo-hero-actions">
+    <a href="simulateur.html" class="btn-primary">📊 Faire une simulation en ligne</a>
+    <a href="index.html#contact" class="btn-outline-white">📝 Demander un devis précis</a>
+  </div>
+</section>
+
+<!-- 5. SECTION B2B & RÈGLEMENTATION -->
+<section class="seo-b2b">
+  <div class="seo-b2b-box">
+    <h3>Transition Énergétique & Décret Tertiaire : Mettez-vous en conformité</h3>
+    <p>Vous dirigez une entreprise ou gérez un parc immobilier ? La pose de film solaire anti-chaleur est aujourd'hui l'un des leviers d'action les plus rentables (ROI atteint en 2 à 3 ans) pour répondre aux obligations du Décret Tertiaire.<br><br>Au lieu de remplacer l'intégralité de vos menuiseries, l'application de nos films optimise instantanément les performances énergétiques de vos bâtiments.</p>
+  </div>
+</section>
+
+<!-- 6. SECTION EXPERTISE -->
+<section class="seo-expertise">
+  <div class="container">
+    <h2>L'importance d'une pose de film anti-chaleur professionnelle</h2>
+    <p style="max-width: 700px; margin: 0 auto 3rem; color: var(--muted); font-size: 1.1rem;">La qualité du film compte pour 50% du résultat. Les 50% restants résident dans l'expertise de l'installateur. Une pose mal exécutée entraîne des bulles, un décollement prématuré, voire un risque de "choc thermique" pouvant fissurer vos vitrages.</p>
+    <div class="seo-expertise-grid">
+      <div class="seo-exp-card">
+        <h3>Préparation chirurgicale</h3>
+        <p>Nettoyage extrême, grattage minutieux et décontamination de vos vitres et encadrements.</p>
+      </div>
+      <div class="seo-exp-card">
+        <h3>Scellement périphérique</h3>
+        <p>Pour les poses extérieures, nous appliquons systématiquement un joint de scellement (silicone neutre) sur les bords pour empêcher toute oxydation ou infiltration.</p>
+      </div>
+      <div class="seo-exp-card">
+        <h3>Durabilité maximale</h3>
+        <p>Nos films longue durée bénéficient d'une durée de vie estimée entre 10 et 15 ans.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. SECTION FAQ SEO -->
+<section class="seo-faq">
+  <div class="seo-faq-container">
+    <h2>Questions fréquentes sur l'installation de films anti-chaleur</h2>
+    
+    <div class="faq-item">
+      <div class="faq-question">Le film anti-chaleur assombrit-il la pièce ?</div>
+      <div class="faq-answer">
+        Contrairement aux stores fermés, le film solaire est conçu pour filtrer les spectres nocifs (Infrarouges et UV) tout en laissant passer la lumière visible. Vous perdez la chaleur suffocante, mais vous conservez la luminosité naturelle de vos locaux.
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">Faut-il poser le film à l'intérieur ou à l'extérieur ?</div>
+      <div class="faq-answer">
+        Pour un rejet de chaleur optimal, notamment sur les doubles vitrages modernes, la pose extérieure est fortement recommandée. Elle évite au vitrage intérieur d'absorber la chaleur et élimine les risques de casse thermique. C'est pourquoi nous utilisons des films résistants aux intempéries avec une couche anti-rayures renforcée.
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">Est-ce efficace pour les particuliers (Baies vitrées, Vérandas) ?</div>
+      <div class="faq-answer">
+        Absolument. Si notre expertise cible en priorité les entreprises, les particuliers possédant de grandes baies vitrées orientées plein sud ou des vérandas surchauffées bénéficient de la même technologie industrielle pour retrouver un intérieur frais.
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- 8. SECTION APPEL À L'ACTION FINAL -->
+<section class="seo-final">
+  <div class="container">
+    <h2>Prêt à faire baisser le thermomètre ?</h2>
+    <p>N'attendez pas la prochaine canicule. Bloquez la chaleur dès maintenant avec une solution durable et garantie.</p>
+    <div class="seo-hero-actions">
+      <a href="simulateur.html" class="btn-primary">➜ 📊 Lancer la Simulation Gratuite</a>
+      <a href="index.html#contact" class="btn-outline-white">➜ 📞 Obtenir un Devis Personnalisé</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-main">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-about">
+        <a href="index.html" class="nav-logo" style="color:#fff; margin-bottom:1rem; display:block;">Opalis <b style="background:var(--blue); padding:0.1rem 0.35rem; border-radius:5px;">Solaire</b></a>
+        <p>Expert en protection thermique des vitrages. Nous installons des films solaires haute performance pour les professionnels et particuliers en Auvergne-Rhône-Alpes.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="realisations.html">Nos Réalisations</a></li>
+          <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+          <li><a href="index.html#contact">Demander un devis</a></li>
+          <li><a href="pose-film-anti-chaleur.html">Pose Film Anti-Chaleur</a></li>
+          <li><a href="film-anti-uv-vitrine-transparent.html">Film Anti-UV Vitrine</a></li>
+          <li><a href="film-solaire-miroir-sans-tain-bureau.html">Film Miroir / Dépoli</a></li>
+          <li><a href="film-anti-chaleur-velux-veranda.html">Film Velux & Véranda</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Nos Solutions</h4>
+        <ul>
+          <li><a href="pose-film-anti-chaleur.html">Pose Film Anti-Chaleur</a></li>
+          <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+          <li><a href="simulateur.html">Simulateur de Prix</a></li>
+          <li><a href="realisations.html">Nos Réalisations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-info">
+          <div class="footer-contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <a href="tel:+33699555091">06 99 55 50 91</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a>
+          </div>
+          <p style="font-size:0.85rem; margin-top:0.5rem; line-height:1.4;">Intervention : Lyon, Valence, Grenoble, Saint-Étienne.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Opalis Solaire. Tous droits réservés.</p>
+      <div class="footer-legal">
+        <a href="legal.html">Mentions Légales</a>
+        <a href="legal.html">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Script pour l'accordéon FAQ
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      // Optionnel : fermer les autres items
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+        }
+      });
+      item.classList.toggle('active');
+    });
+  });
+</script>
+<script src="main.js"></script>
+</body>
+</html>

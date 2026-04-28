@@ -1,0 +1,22 @@
+{
+  "buildCommand": "node generate-sitemap.js",
+  "outputDirectory": ".",
+  "installCommand": "echo 'No install needed'",
+  "framework": null,
+  "routes": [
+    {
+      "src": "/sitemap.xml",
+      "headers": {
+        "Cache-Control": "public, max-age=86400, s-maxage=86400"
+      },
+      "dest": "/sitemap.xml"
+    },
+    {
+      "src": "/robots.txt",
+      "headers": {
+        "Cache-Control": "public, max-age=86400"
+      },
+      "dest": "/robots.txt"
+    }
+  ]
+}

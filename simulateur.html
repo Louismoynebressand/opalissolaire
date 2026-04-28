@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Simulateur de Prix Film Solaire Anti-Chaleur | Opalis Solaire</title>
+<meta name="description" content="Estimez le prix de pose de votre film solaire anti-chaleur en 30 secondes. Tarifs par m², économies climatisation, devis gratuit sous 24h."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="global.css"/>
+<style>
+body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);}
+.sim-hero{background:#f8faff;padding:4rem 1.25rem 3rem;text-align:center;border-bottom:1px solid var(--border);}
+.sim-hero h1{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;margin-bottom:.75rem;color:var(--text);}
+.sim-hero h2{font-size:1.05rem;font-weight:400;color:var(--muted);max-width:560px;margin:0 auto;}
+.sim-wrap{max-width:720px;margin:-2rem auto 3rem;padding:0 1.25rem 5rem; position: relative; z-index: 10;}
+.progress{display:flex;gap:0;margin-bottom:2rem;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.05); border: 1px solid var(--border);}
+.prog-step{flex:1;padding:.8rem;text-align:center;font-size:.8rem;font-weight:700;color:var(--muted);transition:.3s;border-right:1px solid var(--border);}
+.prog-step:last-child{border-right:none;}
+.prog-step.active{background:var(--blue);color:#fff;border-color:var(--blue);}
+.prog-step.done{background:var(--blue-light);color:var(--blue);}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2.5rem;box-shadow:0 10px 40px rgba(0,0,0,.08); transition: all 0.3s ease;}
+.card h3{font-size:1.25rem;font-weight:800;margin-bottom:.5rem; color: var(--text);}
+.card .sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem;}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem;}
+@media (max-width: 500px) { .choice-grid{grid-template-columns:1fr;} }
+.choice{border:2px solid var(--border);border-radius:12px;padding:1.5rem 1rem;text-align:center;cursor:pointer;transition:.2s; background: #fff;}
+.choice:hover{border-color: #93c5fd; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,86,219,0.08);}
+.choice.selected{border-color:var(--blue);background:var(--blue-light); box-shadow: 0 0 0 4px rgba(26,86,219,0.1);}
+.choice .ico{font-size:2.5rem;margin-bottom:.75rem;}
+.choice strong{display:block;font-size:1rem;font-weight:700; color: var(--text);}
+.form-field{margin-bottom:1.5rem;}
+.form-field label{display:block;font-size:.9rem;font-weight:700;margin-bottom:.5rem; color: var(--text);}
+.form-field input,.form-field select{width:100%;padding:1rem 1.25rem;border:1.5px solid var(--border);border-radius:10px;font-size:1rem;font-family:inherit;outline:none;transition:.2s; background: var(--bg-alt);}
+.form-field input:focus,.form-field select:focus{border-color:var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(26,86,219,0.1);}
+.opt-label{font-size:.75rem;color:var(--muted);font-weight:500; margin-left:.35rem;}
+.btn-next{width:100%;background:var(--blue);color:#fff;border:none;border-radius:12px;padding:1.25rem;font-size:1.1rem;font-weight:800;cursor:pointer;transition:.2s;margin-top:1rem; display: flex; justify-content: center; align-items: center; gap: 0.5rem;}
+.btn-next:hover{background:var(--blue-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,86,219,0.2);}
+.btn-back{background:none;border:none;color:var(--muted);font-size:.9rem;font-weight:600;cursor:pointer;margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:.35rem; transition: 0.2s;}
+.btn-back:hover{color:var(--blue); transform: translateX(-4px);}
+.step{display:none;}
+.step.active{display:block;animation:slideUpFade 0.4s ease forwards;}
+@keyframes slideUpFade{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
+
+/* Live Calculator UI */
+.live-calc-container {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.calc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.calc-header h4 { font-size: 1rem; font-weight: 700; color: var(--text); }
+.calc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  align-items: center;
+}
+@media (max-width: 500px) {
+  .calc-row { grid-template-columns: 1fr 1fr; }
+  .calc-row .del-btn { grid-column: span 2; }
+}
+.calc-row input {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 100%;
+}
+.calc-row input:focus { border-color: var(--blue); outline: none; }
+.del-btn {
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.del-btn:hover { background: #fecaca; }
+.add-row-btn {
+  background: none;
+  border: 2px dashed var(--border);
+  color: var(--blue);
+  font-weight: 700;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-bottom: 1.5rem;
+}
+.add-row-btn:hover { border-color: var(--blue); background: var(--blue-light); }
+.live-total-box {
+  background: #fff;
+  border: 2px solid var(--blue);
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(26,86,219,0.1);
+}
+.live-total-box .total-label { font-size: 0.95rem; font-weight: 700; color: var(--blue-dark); }
+.live-total-box .total-value { font-size: 1.5rem; font-weight: 800; color: var(--blue); }
+
+/* Results */
+.result-price{background:linear-gradient(135deg,#1a56db,#1240b0);color:#fff;border-radius:16px;padding:2.5rem;text-align:center;margin-bottom:1.5rem; box-shadow: 0 10px 30px rgba(26,86,219,0.2);}
+.result-price .label{font-size:.9rem;font-weight:700;opacity:.9;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem;}
+.result-price .range{font-size:clamp(2.2rem,8vw,3.5rem);font-weight:800;letter-spacing:-.02em; line-height: 1;}
+.result-price .note{font-size:.85rem;opacity:.8;margin-top:1rem;}
+.result-block{background:var(--bg-alt);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1rem;font-size:1rem;line-height:1.6;}
+.result-block strong{display:flex; align-items: center; gap: 0.5rem; font-size:1.1rem;margin-bottom:.5rem; color: var(--text);}
+.result-cta{display:block;width:100%;text-align:center;background:var(--blue);color:#fff;border-radius:12px;padding:1.25rem;font-size:1.1rem;font-weight:800;margin-top:1.5rem;text-decoration:none; transition: 0.2s;}
+.result-cta:hover{background:var(--blue-dark); transform: translateY(-2px);}
+.error-msg{color:#dc2626;font-size:.85rem;margin-top:.5rem;font-weight:600;display:none;}
+.loader{text-align:center;padding:3rem;display:none;}
+.loader svg{animation:spin 1s linear infinite; stroke: var(--blue);}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* SEO block */
+.seo-block{background:#fff;border-top:1px solid var(--border);padding:5rem 1.25rem;}
+.seo-block .container{max-width:800px;margin:0 auto;}
+.seo-block h3{font-size:1.2rem;font-weight:800;margin:2rem 0 .75rem;}
+.seo-block p{color:var(--muted);font-size:1rem;line-height:1.8;}
+.vbtn{padding:.65rem 1.25rem;border:2px solid var(--border);background:#fff;color:var(--muted);border-radius:8px;font-weight:700;font-size:.9rem;cursor:pointer;transition:.2s;}
+.vbtn:hover,.vbtn.active{border-color:var(--blue);background:var(--blue-light);color:var(--blue);}  
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo-wrap">
+      <span class="nav-logo">Opalis <b>Solaire</b></span>
+      <span class="nav-slogan">Expert en protection thermique des vitrages.</span>
+    </a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="realisations.html">Nos Réalisations</a></li>
+      <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+      <li><a href="simulateur.html" class="nav-cta-alt">Simulateur</a></li>
+      <li class="mobile-only"><a href="index.html#contact" class="nav-cta">Demander un devis</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta desktop-only">Demander un devis</a>
+  </div>
+</nav>
+
+<div class="sim-hero">
+  <div class="container">
+    <span class="section-label">Outil gratuit & sans engagement</span>
+    <h1>Simulateur de Prix — Film Solaire</h1>
+    <h2>Obtenez une fourchette de budget en quelques secondes. Un expert vous recontacte sous 24h pour affiner.</h2>
+  </div>
+</div>
+
+<div class="sim-wrap">
+  <!-- PROGRESS -->
+  <div class="progress">
+    <div class="prog-step active" id="prog-1">1. Profil</div>
+    <div class="prog-step" id="prog-2">2. Mesures</div>
+    <div class="prog-step" id="prog-3">3. Résultats</div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step active" id="step-1">
+    <div class="card">
+      <h3>Quel est votre projet ?</h3>
+      <p class="sub">Sélectionnez votre profil pour adapter nos calculs.</p>
+      <div class="choice-grid">
+        <div class="choice" id="choice-pro" onclick="selectProfile('pro')">
+          <div class="ico">🏢</div>
+          <strong>Professionnel</strong>
+          <span style="font-size:.85rem;color:var(--muted)">Bureaux, commerces, tertiaire</span>
+        </div>
+        <div class="choice" id="choice-part" onclick="selectProfile('part')">
+          <div class="ico">🏠</div>
+          <strong>Particulier</strong>
+          <span style="font-size:.85rem;color:var(--muted)">Maisons, appartements, vérandas</span>
+        </div>
+      </div>
+      <p id="err-profile" class="error-msg">Veuillez sélectionner votre profil.</p>
+    </div>
+  </div>
+
+  <!-- STEP 2: MESURES -->
+  <div class="step" id="step-2">
+    <button class="btn-back" onclick="goBack(1)">← Retour</button>
+    <div class="card">
+      <h3>Renseignez votre projet</h3>
+      <p class="sub">Le calcul de surface se met à jour en temps réel.</p>
+
+      <!-- TYPE DE BESOIN (Commun) -->
+      <div class="form-field" id="project-need-container" style="margin-bottom: 1.5rem;">
+        <label style="display:block;font-size:.9rem;font-weight:700;margin-bottom:.6rem;">Votre besoin principal *</label>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+          <button type="button" class="need-btn" onclick="setNeed('anti-chaleur')" id="btn-need-anti-chaleur" style="flex:1;padding:.75rem;border:2px solid var(--blue);background:var(--blue);color:#fff;border-radius:10px;font-weight:700;cursor:pointer;transition:.2s;min-width:140px;">Film Anti-Chaleur / Anti-UV</button>
+          <button type="button" class="need-btn" onclick="setNeed('depoli')" id="btn-need-depoli" style="flex:1;padding:.75rem;border:2px solid var(--border);background:#fff;color:var(--muted);border-radius:10px;font-weight:700;cursor:pointer;transition:.2s;min-width:140px;">Film Dépoli / Intimité</button>
+          <button type="button" class="need-btn" onclick="setNeed('autre')" id="btn-need-autre" style="flex:1;padding:.75rem;border:2px solid var(--border);background:#fff;color:var(--muted);border-radius:10px;font-weight:700;cursor:pointer;transition:.2s;min-width:140px;">Autre / Sur-mesure</button>
+        </div>
+        <input type="hidden" id="project-need" value="anti-chaleur">
+      </div>
+
+      <!-- PARTICULIER: type selector -->
+      <div class="form-field" id="part-type-container" style="display:none;">
+        <label>Type de vitrage *</label>
+        <select id="part-type" onchange="onPartTypeChange()">
+          <option value="classique">Fenêtres classiques ou Baies vitrées</option>
+          <option value="velux">Velux &amp; Fenêtres de toit</option>
+          <option value="veranda">Véranda</option>
+        </select>
+      </div>
+
+      <!-- PRO: input mode toggle -->
+      <div id="pro-mode-container" style="display:none; margin-bottom:1.5rem;">
+        <label style="display:block;font-size:.9rem;font-weight:700;margin-bottom:.6rem;">Comment souhaitez-vous renseigner la surface ?</label>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+          <button type="button" id="btn-mode-direct" onclick="setProMode('direct')" style="flex:1;padding:.75rem;border:2px solid var(--blue);background:var(--blue);color:#fff;border-radius:10px;font-weight:700;cursor:pointer;transition:.2s;">Surface vitrée (m²)</button>
+          <button type="button" id="btn-mode-build" onclick="setProMode('build')" style="flex:1;padding:.75rem;border:2px solid var(--border);background:#fff;color:var(--muted);border-radius:10px;font-weight:700;cursor:pointer;transition:.2s;">Surface du bâtiment (m²)</button>
+          <button type="button" id="btn-mode-calc" onclick="setProMode('calc')" style="flex:1;padding:.75rem;border:2px solid var(--border);background:#fff;color:var(--muted);border-radius:10px;font-weight:700;cursor:pointer;transition:.2s;">Calculer par dimensions</button>
+        </div>
+      </div>
+
+      <!-- PRO MODE 1: bâtiment m² + % -->
+      <div id="pro-build-section" style="display:none;">
+        <div class="form-field">
+          <label>Surface totale du bâtiment (m²) *</label>
+          <input type="number" id="pro-build-m2" placeholder="ex: 400" min="1" oninput="calcProBuild()"/>
+        </div>
+        <div class="form-field">
+          <label>Part vitrée estimée <span style="color:var(--muted);font-weight:500;font-size:.85rem;">(% de la surface plancher)</span></label>
+          <div style="display:flex;gap:.75rem;align-items:center;">
+            <input type="range" id="pro-pct" min="10" max="70" value="30" oninput="calcProBuild()" style="flex:1;accent-color:var(--blue);">
+            <span id="pro-pct-val" style="font-size:1.2rem;font-weight:800;color:var(--blue);min-width:3rem;text-align:center;">30%</span>
+          </div>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:.3rem;">30% = moyenne bureaux standard. Ajustez selon votre configuration réelle.</p>
+        </div>
+        <div class="live-total-box" style="margin-bottom:1rem;">
+          <span class="total-label">Surface vitrée estimée :</span>
+          <span class="total-value"><span id="live-m2-build">0.00</span> m²</span>
+        </div>
+      </div>
+
+      <!-- PRO MODE 2: direct m² vitrée -->
+      <div id="pro-direct-section" style="display:none;">
+        <div class="form-field">
+          <label>Surface vitrée à traiter (m²) *</label>
+          <input type="number" id="pro-direct-m2" placeholder="ex: 120" min="1" oninput="calcProDirect()"/>
+        </div>
+        <div class="live-total-box" style="margin-bottom:1rem;">
+          <span class="total-label">Surface saisie :</span>
+          <span class="total-value"><span id="live-m2-direct">0.00</span> m²</span>
+        </div>
+      </div>
+
+      <!-- PRO MODE 3 / PARTICULIER: live calc -->
+      <div id="live-calc-section">
+        <div class="live-calc-container">
+          <div class="calc-header"><h4>Dimensions (largeur × hauteur en cm)</h4></div>
+          <div id="calc-rows"></div>
+          <button class="add-row-btn" onclick="addCalcRow()">+ Ajouter une fenêtre</button>
+          <div class="live-total-box">
+            <span class="total-label">Surface Totale Calculée :</span>
+            <span class="total-value"><span id="live-m2">0.00</span> m²</span>
+          </div>
+        </div>
+        <div class="form-field" id="pro-facture-container" style="display:none;">
+          <label>Facture climatisation annuelle (€) <span class="opt-label">Optionnel</span></label>
+          <input type="number" id="pro-facture" placeholder="ex: 4500" min="0"/>
+        </div>
+      </div>
+
+      <!-- VERANDA CONFIGURATOR -->
+      <div id="veranda-section" style="display:none;">
+        <div class="form-field">
+          <label>Surface au sol de la véranda (m²) *</label>
+          <input type="number" id="veranda-m2" placeholder="ex: 18" min="1" oninput="calcVeranda()"/>
+        </div>
+        <div class="form-field">
+          <label>Combien de côtés à filmer ?</label>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;">
+            <button type="button" class="vbtn" id="vbtn-2" onclick="setVerandaSides(2)">2 côtés</button>
+            <button type="button" class="vbtn" id="vbtn-3" onclick="setVerandaSides(3)">3 côtés</button>
+            <button type="button" class="vbtn" id="vbtn-4" onclick="setVerandaSides(4)">4 côtés (tout autour)</button>
+          </div>
+        </div>
+        <div class="form-field">
+          <label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;">
+            <input type="checkbox" id="veranda-toit" onchange="calcVeranda()" style="width:20px;height:20px;accent-color:var(--blue);">
+            <span>Inclure le toit / la toiture vitrée</span>
+          </label>
+        </div>
+        <div class="live-total-box" style="margin-bottom:1rem;">
+          <span class="total-label">Surface estimée à traiter :</span>
+          <span class="total-value"><span id="live-m2-veranda">0.00</span> m²</span>
+        </div>
+        <div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:10px;padding:1rem;margin-bottom:1rem;font-size:.9rem;color:#92400e;">
+          ⚠️ Les vérandas ont des configurations très variées. Cette estimation est indicative. Un expert vous contactera pour affiner et répondre à vos questions.
+        </div>
+      </div>
+
+      <button class="btn-next" onclick="goStep3()">Obtenir mon estimation <span>→</span></button>
+    </div>
+  </div>
+
+
+  <!-- STEP 3: CONTACT & RESULTS -->
+  <div class="step" id="step-3">
+    <button class="btn-back" onclick="goBack(2)">← Retour aux mesures</button>
+    <div class="card" id="contact-card">
+      <h3>Dernière étape !</h3>
+      <p class="sub">Saisissez vos coordonnées pour découvrir immédiatement votre budget estimatif et vérifier la faisabilité dans votre zone.</p>
+      
+      <div class="form-field">
+        <label>Code postal *</label>
+        <input type="text" id="contact-cp" placeholder="ex: 26000" maxlength="5"/>
+        <p id="err-cp" class="error-msg">Code postal valide requis.</p>
+      </div>
+      <div class="form-field">
+        <label>Email *</label>
+        <input type="email" id="contact-email" placeholder="vous@exemple.fr"/>
+        <p id="err-email" class="error-msg">Email valide requis.</p>
+      </div>
+      <div class="form-field">
+        <label>Nom & Prénom <span class="opt-label">Optionnel</span></label>
+        <input type="text" id="contact-nom" placeholder="Jean Dupont"/>
+      </div>
+      <div class="form-field">
+        <label>Téléphone *</label>
+        <div style="display:flex; gap:0.5rem;">
+          <div style="background:#f1f5f9; border:1px solid var(--border); border-radius:8px; padding:0 1rem; display:flex; align-items:center; font-weight:600; color:var(--text);">+33</div>
+          <input type="tel" id="contact-tel" placeholder="6 00 00 00 00" oninput="formatPhone(this)" maxlength="14" style="flex:1;"/>
+        </div>
+        <p id="err-tel" class="error-msg">Téléphone valide requis.</p>
+      </div>
+      
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin: 1.5rem 0; font-size: 0.85rem; color: #475569; display: flex; align-items: start; gap: 0.75rem;">
+        <span style="font-size: 1.25rem;">🔒</span>
+        <div>Vos coordonnées seront uniquement utilisées pour vous recontacter concernant votre projet. Elles ne seront jamais revendues, ni utilisées pour l'envoi de communications commerciales. Si votre projet n'aboutit pas, ces données seront définitivement supprimées.</div>
+      </div>
+      
+      <div class="loader" id="loader">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        <p style="color:var(--blue);font-size:.95rem;font-weight:600;margin-top:1rem">Génération de votre estimation…</p>
+      </div>
+      
+      <p style="text-align:center; font-weight:600; color:var(--text); margin-bottom: 0.75rem;">Vous obtiendrez une estimation immédiatement.</p>
+      <button class="btn-next" id="btn-submit" onclick="submitForm()">Afficher mon devis en ligne</button>
+      <p id="err-submit" class="error-msg" style="display:none;text-align:center;margin-top:.75rem"></p>
+    </div>
+
+    <!-- RESULT VIEW -->
+    <div id="result-view" style="display:none;">
+      <div class="result-price">
+        <div class="label">Estimation Fourniture &amp; Pose experte</div>
+        <div class="range" id="res-range">— €</div>
+        <div class="note">Tarif <span id="res-tax"></span> estimatif • Dépend de l'accessibilité sur site</div>
+      </div>
+      <div class="result-block" id="res-argum"></div>
+      <div class="result-block" id="res-eco" style="display:none">
+        <strong>❄️ Économie estimée sur la climatisation</strong>
+        <span id="res-eco-text"></span>
+      </div>
+      <div class="result-block">
+        <strong>💬 À noter sur le tarif</strong>
+        Cette estimation est indicative et basée sur la surface renseignée. Le prix final varie selon le film choisi, l’exposition solaire de vos vitrages, leur type (simple / double vitrage) et leur accessibilité. Votre expert affinera ces éléments lors de l’audit gratuit.
+      </div>
+      <div class="result-block" style="background:#f0fdf4; border-color:#bbf7d0;">
+        <strong style="color:#16a34a; font-size:1.05rem;">✅ Votre demande a bien été envoyée !</strong>
+        <span style="display:block; margin-top:0.5rem;">Ceci est une première estimation. Notre équipe s'occupe de vous recontacter très prochainement pour discuter de votre projet avec vous, valider la faisabilité technique et vous proposer un devis précis sur mesure si vous le souhaitez.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SEO BLOCK -->
+<section class="seo-block">
+  <div class="container">
+    <span class="section-label">Pourquoi réaliser une simulation ?</span>
+    <h2>Un chiffrage précis pour des solutions sur-mesure</h2>
+    <h3>L'importance d'une estimation personnalisée</h3>
+    <p>Chaque vitrage est différent. L'orientation de vos façades, la surface à traiter et les contraintes techniques de votre bâtiment déterminent le type de film solaire anti-chaleur à appliquer. Notre simulateur analyse ces critères pour vous fournir une première estimation la plus juste possible avant notre audit technique.</p>
+    <h3>Films solaires haute performance</h3>
+    <p>Nous installons exclusivement des films de qualité professionnelle (nano-céramique, métallisés, etc.) conçus pour bloquer jusqu'à 87% de l'énergie solaire et 99% des UV. Cette transparence sur la qualité garantit une excellente durabilité (10 à 15 ans) et une réelle efficacité thermique en été comme en hiver.</p>
+    <h3>Une pose sans interruption d'activité</h3>
+    <p>Que ce soit pour des bureaux en open-space ou une véranda résidentielle, l'installation se fait directement sur vos vitrages existants. Pas de bruit, pas de poussière, pas de gros travaux. Nos techniciens interviennent rapidement pour améliorer votre confort thermique de manière immédiate.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-main">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-about">
+        <a href="index.html" class="nav-logo" style="color:#fff; margin-bottom:1rem; display:block;">Opalis <b style="background:var(--blue); padding:0.1rem 0.35rem; border-radius:5px;">Solaire</b></a>
+        <p>Expert en protection thermique des vitrages. Nous installons des films solaires haute performance pour les professionnels et particuliers en Auvergne-Rhône-Alpes.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="realisations.html">Nos Réalisations</a></li>
+          <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+          <li><a href="index.html#contact">Demander un devis</a></li>
+          <li><a href="pose-film-anti-chaleur.html">Pose Film Anti-Chaleur</a></li>
+          <li><a href="film-anti-uv-vitrine-transparent.html">Film Anti-UV Vitrine</a></li>
+          <li><a href="film-solaire-miroir-sans-tain-bureau.html">Film Miroir / Dépoli</a></li>
+          <li><a href="film-anti-chaleur-velux-veranda.html">Film Velux & Véranda</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Nos Solutions</h4>
+        <ul>
+          <li><a href="pose-film-anti-chaleur.html">Pose Film Anti-Chaleur</a></li>
+          <li><a href="savoir-faire.html">Notre Savoir-Faire</a></li>
+          <li><a href="simulateur.html">Simulateur de Prix</a></li>
+          <li><a href="realisations.html">Nos Réalisations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-info">
+          <div class="footer-contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <a href="tel:+33699555091">06 99 55 50 91</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a>
+          </div>
+          <p style="font-size:0.85rem; margin-top:0.5rem; line-height:1.4;">Intervention : Lyon, Valence, Grenoble, Saint-Étienne.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Opalis Solaire. Tous droits réservés.</p>
+      <div class="footer-legal">
+        <a href="legal.html">Mentions Légales</a>
+        <a href="legal.html">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── STATE
+let profile = null, totalSurface = 0, totalQty = 0, proMode = 'build', verandaSides = 2;
+let currentNeed = 'anti-chaleur';
+const WEBHOOK_URL = 'https://n8n.srv903375.hstgr.cloud/webhook/neuraflow-opalis-solaire-new-form';
+
+document.getElementById('nav-burger').addEventListener('click',()=>{ document.getElementById('nav-links').classList.toggle('open'); });
+
+function setNeed(need) {
+  currentNeed = need;
+  document.getElementById('project-need').value = need;
+  ['anti-chaleur', 'depoli', 'autre'].forEach(n => {
+    const btn = document.getElementById('btn-need-' + n);
+    if(btn) {
+      btn.style.background = n === need ? 'var(--blue)' : '#fff';
+      btn.style.color = n === need ? '#fff' : 'var(--muted)';
+      btn.style.borderColor = n === need ? 'var(--blue)' : 'var(--border)';
+    }
+  });
+}
+
+function formatPhone(input) {
+  let v = input.value.replace(/\D/g, '');
+  if (v.startsWith('0')) v = v.substring(1);
+  let res = '';
+  for (let i = 0; i < v.length; i++) {
+    if (i > 0 && i % 2 === 1) res += ' ';
+    res += v[i];
+  }
+  input.value = res.trim();
+}
+
+function setProgress(step){ [1,2,3].forEach(i=>{ const el=document.getElementById('prog-'+i); if(el) el.className='prog-step'+(i<step?' done':i===step?' active':''); }); }
+function showStep(id){ document.querySelectorAll('.step').forEach(s=>s.classList.remove('active')); document.getElementById('step-'+id).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+function goBack(to){ setProgress(to); showStep(to); }
+
+function selectProfile(p){
+  profile=p;
+  document.getElementById('choice-pro').classList.toggle('selected',p==='pro');
+  document.getElementById('choice-part').classList.toggle('selected',p==='part');
+  document.getElementById('err-profile').style.display='none';
+  if(p==='pro'){
+    document.getElementById('pro-mode-container').style.display='block';
+    document.getElementById('part-type-container').style.display='none';
+    document.getElementById('pro-facture-container').style.display='block';
+    setProMode('build');
+  } else {
+    document.getElementById('pro-mode-container').style.display='none';
+    document.getElementById('part-type-container').style.display='block';
+    document.getElementById('pro-facture-container').style.display='none';
+    document.getElementById('pro-build-section').style.display='none';
+    document.getElementById('pro-direct-section').style.display='none';
+    document.getElementById('live-calc-section').style.display='block';
+    if(document.getElementById('calc-rows').children.length===0) addCalcRow();
+  }
+  setTimeout(()=>{ setProgress(2); showStep(2); }, 300);
+}
+
+function setProMode(mode){
+  proMode=mode;
+  ['build','direct','calc'].forEach(m=>{
+    const btn=document.getElementById('btn-mode-'+m);
+    if(btn){ btn.style.background=m===mode?'var(--blue)':'#fff'; btn.style.color=m===mode?'#fff':'var(--muted)'; btn.style.borderColor=m===mode?'var(--blue)':'var(--border)'; }
+  });
+  document.getElementById('pro-build-section').style.display=mode==='build'?'block':'none';
+  document.getElementById('pro-direct-section').style.display=mode==='direct'?'block':'none';
+  document.getElementById('live-calc-section').style.display=mode==='calc'?'block':'none';
+  if(mode==='calc' && document.getElementById('calc-rows').children.length===0) addCalcRow();
+  if(mode==='build') calcProBuild();
+  if(mode==='direct') calcProDirect();
+}
+
+function calcProBuild(){
+  const m2=parseFloat(document.getElementById('pro-build-m2').value)||0;
+  const pct=parseFloat(document.getElementById('pro-pct').value)||30;
+  document.getElementById('pro-pct-val').textContent=pct+'%';
+  const vitree=(m2*pct/100);
+  totalSurface=vitree;
+  document.getElementById('live-m2-build').textContent=vitree.toFixed(2);
+}
+
+function calcProDirect(){
+  const m2=parseFloat(document.getElementById('pro-direct-m2').value)||0;
+  totalSurface=m2;
+  document.getElementById('live-m2-direct').textContent=m2.toFixed(2);
+}
+
+function addCalcRow(){
+  const container=document.getElementById('calc-rows');
+  const id=Date.now();
+  const row=document.createElement('div'); row.className='calc-row'; row.id='row-'+id;
+  row.innerHTML=`<input type="number" placeholder="Largeur (cm)" class="calc-w" oninput="calculateLive()" min="0">
+    <input type="number" placeholder="Hauteur (cm)" class="calc-h" oninput="calculateLive()" min="0">
+    <input type="number" placeholder="Qté" class="calc-q" value="1" oninput="calculateLive()" min="1">
+    <button type="button" class="del-btn" onclick="removeCalcRow('${id}')">✕</button>`;
+  container.appendChild(row); calculateLive();
+}
+function removeCalcRow(id){ const r=document.getElementById('row-'+id); if(r) r.remove(); if(!document.getElementById('calc-rows').children.length) addCalcRow(); calculateLive(); }
+function calculateLive(){
+  let m2=0,q=0;
+  document.querySelectorAll('.calc-row').forEach(row=>{
+    const w=parseFloat(row.querySelector('.calc-w').value)||0;
+    const h=parseFloat(row.querySelector('.calc-h').value)||0;
+    const qty=parseFloat(row.querySelector('.calc-q').value)||0;
+    if(w>0&&h>0&&qty>0){ m2+=(w/100)*(h/100)*qty; q+=qty; }
+  });
+  totalSurface=m2; totalQty=q;
+  const el=document.getElementById('live-m2'); if(el){ el.style.opacity='.5'; setTimeout(()=>{ el.textContent=m2.toFixed(2); el.style.opacity='1'; },100); }
+}
+
+function onPartTypeChange(){
+  const type=document.getElementById('part-type').value;
+  document.getElementById('live-calc-section').style.display=(type==='veranda')?'none':'block';
+  document.getElementById('veranda-section').style.display=(type==='veranda')?'block':'none';
+  if(type!=='veranda'&&!document.getElementById('calc-rows').children.length) addCalcRow();
+}
+
+function setVerandaSides(n){
+  verandaSides=n;
+  [2,3,4].forEach(i=>{ const b=document.getElementById('vbtn-'+i); if(b) b.classList.toggle('active',i===n); });
+  calcVeranda();
+}
+function calcVeranda(){
+  const m2=parseFloat(document.getElementById('veranda-m2').value)||0;
+  const hasToit=document.getElementById('veranda-toit').checked;
+  // Rough perimeter-based estimate: sides surface ≈ sides * sqrt(m2) * avg_height(2.2m)
+  const side=Math.sqrt(m2); const avgH=2.2;
+  let surface=verandaSides*side*avgH;
+  if(hasToit) surface+=m2;
+  totalSurface=surface;
+  const el=document.getElementById('live-m2-veranda'); if(el) el.textContent=surface.toFixed(2);
+}
+
+function goStep3(){
+  const type=profile==='part'?document.getElementById('part-type').value:'';
+  if(profile==='pro'){
+    if(proMode==='build'&&!document.getElementById('pro-build-m2').value){ alert('Veuillez saisir la surface du bâtiment.'); return; }
+    if(proMode==='direct'&&!document.getElementById('pro-direct-m2').value){ alert('Veuillez saisir la surface vitrée.'); return; }
+    if(proMode==='calc'&&totalSurface===0){ alert('Veuillez renseigner les dimensions.'); return; }
+  } else {
+    if(type!=='veranda'&&totalSurface===0){ alert('Veuillez renseigner les dimensions.'); return; }
+    if(type==='veranda'&&!document.getElementById('veranda-m2').value){ alert('Veuillez saisir la surface de la véranda.'); return; }
+  }
+  setProgress(3); showStep(3);
+}
+
+function calculateFinalPrice(){
+  let minP,maxP,ecoMin=null,ecoMax=null;
+  if(profile==='pro'){
+    const vitree=totalSurface;
+    minP=Math.round(vitree*120); maxP=Math.round(vitree*220); // 120€ à 220€ (parfois jusqu'à 250€)
+    const facture=+document.getElementById('pro-facture').value||0;
+    if(facture>0){ ecoMin=Math.round(facture*.20); ecoMax=Math.round(facture*.25); }
+  } else {
+    const type=document.getElementById('part-type').value;
+    if(type==='classique'){ const s=Math.max(totalSurface,totalQty); minP=Math.round(s*110); maxP=Math.round(s*150); }
+    else if(type==='velux'){ minP=totalQty*180; maxP=totalQty*250; } // 180€+ par unité
+    else { minP=Math.round(totalSurface*150); maxP=Math.round(totalSurface*220); if(minP<800)minP=800; if(maxP<1500)maxP=1500; } // Véranda
+  }
+  return {minP,maxP,ecoMin,ecoMax};
+}
+
+async function submitForm(){
+  const nom=document.getElementById('contact-nom')?.value.trim() || "Client Simulateur";
+  const cp=document.getElementById('contact-cp').value.trim();
+  const email=document.getElementById('contact-email').value.trim();
+  const tel=document.getElementById('contact-tel').value.trim();
+  let ok=true;
+  if(!cp||cp.length<4){ document.getElementById('err-cp').style.display='block'; ok=false; } else document.getElementById('err-cp').style.display='none';
+  if(!email||!email.includes('@')){ document.getElementById('err-email').style.display='block'; ok=false; } else document.getElementById('err-email').style.display='none';
+  if(!tel||tel.replace(/\D/g, '').length<9){ document.getElementById('err-tel').style.display='block'; ok=false; } else document.getElementById('err-tel').style.display='none';
+  if(!ok) return;
+  const result=calculateFinalPrice();
+  
+  const payload = {
+    nom: nom,
+    telephone: "+33 " + tel,
+    email: email,
+    type: profile === 'part' ? 'particulier' : 'professionnel',
+    besoin_specifique: profile === 'part' ? (document.getElementById('part-type')?.value || '') : currentNeed,
+    surface: totalSurface.toFixed(2).toString(),
+    message: "Demande d'audit via Simulateur.",
+    estimation_calculee: `${result.minP} € - ${result.maxP} €`,
+    code_postal: cp,
+    source: "simulateur-site-web-opalis-solaire"
+  };
+  if(profile==='pro' && document.getElementById('pro-facture')?.value){
+    payload.facture_clim_estimee = document.getElementById('pro-facture').value + " €/an";
+  }
+  document.getElementById('btn-submit').style.display='none';
+  document.getElementById('loader').style.display='block';
+  if(WEBHOOK_URL){ try{ await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); } catch(e){ console.warn(e); } }
+  document.getElementById('loader').style.display='none';
+  document.getElementById('contact-card').style.display='none';
+  document.getElementById('result-view').style.display='block';
+  document.getElementById('res-range').textContent=result.minP.toLocaleString('fr-FR')+' € – '+result.maxP.toLocaleString('fr-FR')+' €';
+  document.getElementById('res-tax').textContent=profile==='pro'?'HT':'TTC';
+  const argumEl=document.getElementById('res-argum');
+  if(profile==='pro') argumEl.innerHTML='<strong>🌍 Décret Tertiaire</strong>Nos films participent à vos obligations de réduction énergétique (-40% d\'ici 2030) pour un budget 83% inférieur au remplacement des menuiseries.';
+  else argumEl.innerHTML='<strong>🌡️ Confort immédiat</strong>Baissez la température ressentie jusqu\'à 8°C et bloquez 99% des UV dès le lendemain de la pose.';
+  if(result.ecoMin){ document.getElementById('res-eco-text').textContent='Entre '+result.ecoMin.toLocaleString('fr-FR')+' € et '+result.ecoMax.toLocaleString('fr-FR')+' € par an.'; document.getElementById('res-eco').style.display='block'; }
+}
+</script>
+</body>
+</html>

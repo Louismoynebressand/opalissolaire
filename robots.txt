@@ -1,0 +1,14 @@
+# robots.txt — Opalis Solaire
+# Généré pour Google Search Console
+
+User-agent: *
+Allow: /
+
+# Sitemap — mis à jour automatiquement à chaque déploiement
+Sitemap: https://opalissolaire.fr/sitemap.xml
+
+# Bloquer les fichiers inutiles pour les crawlers
+Disallow: /generate-sitemap.js
+Disallow: /vercel.json
+Disallow: /package.json
+Disallow: /package-lock.json
