@@ -1221,12 +1221,21 @@
     btn.disabled = true;
 
     try {
-      await fetch('https://n8n.srv903375.hstgr.cloud/webhook-test/neuraflow-opalis-solaire-new-form', {
+      await fetch('https://n8n.srv903375.hstgr.cloud/webhook/neuraflow-opalis-solaire-new-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
       // Succès
+
+      if(typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17195022553/FGiuCKKh6tsaENnxnIdA',
+            'value': 1.0,
+            'currency': 'EUR'
+        });
+      }
+
       this.style.display = 'none';
       document.getElementById('success-msg').style.display = 'block';
     } catch (err) {

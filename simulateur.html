@@ -657,7 +657,15 @@ async function submitForm(){
   }
   document.getElementById('btn-submit').style.display='none';
   document.getElementById('loader').style.display='block';
-  if(WEBHOOK_URL){ try{ await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); } catch(e){ console.warn(e); } }
+  if(WEBHOOK_URL){ try{ await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      if(typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17195022553/FGiuCKKh6tsaENnxnIdA',
+            'value': 1.0,
+            'currency': 'EUR'
+        });
+      }
+ } catch(e){ console.warn(e); } }
   document.getElementById('loader').style.display='none';
   document.getElementById('contact-card').style.display='none';
   document.getElementById('result-view').style.display='block';
