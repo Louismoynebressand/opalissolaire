@@ -173,6 +173,16 @@ body{padding-top:70px;font-family:'"Inter"',sans-serif;color:#334155;background:
   </div>
 </section>
 
+<!-- CTA INTERMEDIAIRE -->
+<section class="vx-cta-mid">
+  <h2>Prêt à retrouver des nuits fraîches sous les toits ?</h2>
+  <p>Ne laissez plus la chaleur vous dicter où vivre dans votre maison. Estimez le coût de votre installation (pose pro incluse) en quelques clics.</p>
+  <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+    <a href="/simulateur" class="btn-teal" style="background:#fff; color:#0ea5e9;">📊 Calculer mon budget en ligne immédiatement</a>
+    <a href="#contact" class="btn-outline-t" style="color:#fff; border-color:rgba(255,255,255,0.4);">📞 Être rappelé par un expert</a>
+  </div>
+</section>
+
 <!-- SOLUTION 1 : EXPERTISE EXTERIEURE -->
 <section id="solutions" class="vx-sol1">
   <div class="vx-sol1-inner">
@@ -248,13 +258,6 @@ body{padding-top:70px;font-family:'"Inter"',sans-serif;color:#334155;background:
   </div>
 </section>
 
-<!-- CTA INTERMEDIAIRE -->
-<section class="vx-cta-mid">
-  <h2>Prêt à retrouver des nuits fraîches sous les toits ?</h2>
-  <p>Ne laissez plus la chaleur vous dicter où vivre dans votre maison. Estimez le coût de votre installation (pose pro incluse) en quelques clics.</p>
-  <a href="/simulateur" class="btn-teal" style="display:inline-block;background:#fff;color:#0ea5e9;">📊 Calculer mon budget en ligne immédiatement</a>
-</section>
-
 <!-- GALERIE RÉSULTATS -->
 <section class="vx-gallery">
   <div class="vx-gallery-cnt">
@@ -303,6 +306,97 @@ body{padding-top:70px;font-family:'"Inter"',sans-serif;color:#334155;background:
     <div class="faq-item">
       <div class="faq-q">Faut-il équiper absolument toutes les vitres de la véranda ?</div>
       <div class="faq-a">Pas forcément ! Pour casser l'effet de serre, la priorité absolue est d'équiper la toiture (qui reçoit le soleil verticalement) ainsi que les façades exposées Sud/Sud-Ouest. Les vitrages exposés au Nord peuvent souvent être laissés tels quels pour optimiser votre budget. Notre audit gratuit sert justement à cibler les zones stratégiques.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section id="contact" style="padding: 5rem 1.25rem; background: #f8fafc;">
+  <div class="container" style="max-width:1100px; margin:0 auto;">
+    <div class="form-wrapper" style="background:#fff; padding:3rem; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.05); max-width:700px; margin:0 auto;">
+      <p style="font-size:.85rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#0d9488; margin-bottom:.75rem;">Contact</p>
+      <h2 style="font-size:clamp(1.5rem,3.5vw,2.2rem); font-weight:800; color:#0f172a; margin-bottom:1.5rem;">On vous rappelle, c'est gratuit</h2>
+      
+      <div style="background: #eff6ff; border-left: 4px solid #0ea5e9; padding: 1rem; border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;">
+        <strong style="color: #0284c7; font-size: 0.95rem; display:block; margin-bottom: 0.3rem;">📞 Appelez-nous au 07 82 85 20 08</strong>
+        <span style="font-size: 0.9rem; color: #334155; line-height: 1.5; display:block;">Si nous ne sommes pas joignables, remplissez le formulaire ci-dessous : nous vous rappelons généralement en quelques minutes.</span>
+      </div>
+
+      <div id="success-msg">
+        ✅ Merci ! Votre demande a bien été envoyée. Nous vous recontactons très rapidement.
+      </div>
+
+      <form id="contact-form" novalidate>
+        <div class="form-row">
+          <div>
+            <label for="nom">Nom *</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+          </div>
+          <div>
+            <label for="telephone">Téléphone *</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="06 xx xx xx xx" required />
+          </div>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.fr" />
+        </div>
+        <div>
+          <label for="type">Type de projet</label>
+          <select id="type" name="type">
+            <option value="">— Sélectionnez —</option>
+            <option value="particulier">Particulier (Velux, véranda, baie vitrée...)</option>
+            <option value="bureau">Bureaux / Tertiaire</option>
+            <option value="commerce">Commerce / Autre</option>
+          </select>
+        </div>
+
+        <!-- Sous-catégories pour Particuliers -->
+        <div id="particulier-options" class="hidden-field" style="margin-top:1rem;">
+          <label>Précisez :</label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="particulier_sub" value="velux"> Velux / Toiture</label>
+            <label class="radio-item"><input type="radio" name="particulier_sub" value="veranda"> Véranda</label>
+            <label class="radio-item"><input type="radio" name="particulier_sub" value="baie"> Fenêtre / Baie</label>
+            <label class="radio-item"><input type="radio" name="particulier_sub" value="autre"> Autre</label>
+          </div>
+        </div>
+
+        <!-- Estimation Surface -->
+        <div style="margin-top: 1rem;">
+          <label for="surface">Surface vitrée totale (m²) - <span style="font-weight:400; font-size:0.8rem; color:#64748b;">Optionnel</span></label>
+          <div style="display:flex; gap:0.5rem; align-items:center;">
+            <input type="number" id="surface" name="surface" placeholder="ex: 12" step="0.1">
+            <button type="button" id="toggle-calc" class="btn-small">Aider au calcul</button>
+          </div>
+        </div>
+
+        <!-- Mini Calculateur -->
+        <div id="calculator-box" class="hidden-field calc-container" style="margin-top:1rem; padding:1rem; background:#f1f5f9; border-radius:8px;">
+          <div class="calc-row">
+            <div>
+              <label>Nb vitres</label>
+              <input type="number" id="calc-nb" value="1" min="1">
+            </div>
+            <div>
+              <label>Largeur (m)</label>
+              <input type="number" id="calc-w" placeholder="1.20" step="0.01">
+            </div>
+            <div>
+              <label>Hauteur (m)</label>
+              <input type="number" id="calc-h" placeholder="1.50" step="0.01">
+            </div>
+          </div>
+          <button type="button" id="apply-calc" class="btn-secondary" style="width:100%; padding:0.5rem; margin-top:0.75rem; font-size:0.85rem;">Calculer et appliquer</button>
+        </div>
+        
+        <div style="margin-top:1rem;">
+          <label for="message">Message (optionnel)</label>
+          <textarea id="message" name="message" placeholder="Décrivez brièvement votre projet..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn" style="margin-top:1.5rem; width:100%; background:#0d9488; color:#fff; padding:1rem; border:none; border-radius:8px; font-weight:700; font-size:1.05rem; cursor:pointer;">📩 Être rappelé rapidement</button>
+        <p class="form-note" style="text-align:center; font-size:0.85rem; color:#64748b; margin-top:1rem;">Devis gratuit · Sans engagement · Réponse sous 12h</p>
+      </form>
     </div>
   </div>
 </section>
