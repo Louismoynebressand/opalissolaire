@@ -1,0 +1,14 @@
+{
+  "name": "opalis-solaire",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Site statique Opalis Solaire — conseil, fourniture et pose de films pour vitrages",
+  "scripts": {
+    "dev": "node scripts/preview-server.mjs",
+    "start": "node scripts/preview-server.mjs",
+    "build": "node scripts/sync-layout.mjs && node generate-sitemap.js",
+    "check": "python3 scripts/check-site.py && node --test tests/contact.test.cjs && node tests/simulateur.test.cjs",
+    "seo": "python3 scripts/prepare-seo.py"
+  },
+  "engines": { "node": ">=18" }
+}

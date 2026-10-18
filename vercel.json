@@ -1,5 +1,5 @@
 {
-  "buildCommand": "node generate-sitemap.js",
+  "buildCommand": "npm run build",
   "outputDirectory": ".",
   "installCommand": "echo 'No install needed'",
   "framework": null,

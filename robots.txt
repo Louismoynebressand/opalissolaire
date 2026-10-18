@@ -12,3 +12,9 @@ Disallow: /generate-sitemap.js
 Disallow: /vercel.json
 Disallow: /package.json
 Disallow: /package-lock.json
+
+# Sources et outils de développement, sans contenu destiné au référencement
+Disallow: /docs/
+Disallow: /templates/
+Disallow: /scripts/
+Disallow: /tests/

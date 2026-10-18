@@ -18,6 +18,8 @@ const SITE_URL = process.env.SITE_URL || 'https://opalissolaire.fr';
 
 // Pages à exclure du sitemap (ex: pages légales peu utiles pour le SEO)
 const EXCLUDED_PAGES = [
+  'exemple-vitrine-film-transparent.html',
+  'exemple-film-solaire-salon.html',
   // 'legal.html', // décommentez si vous voulez exclure les mentions légales
 ];
 
@@ -26,6 +28,17 @@ const PAGE_CONFIG = {
   'index.html':                   { priority: '1.0', changefreq: 'weekly' },
   'realisations.html':            { priority: '0.9', changefreq: 'weekly' },
   'savoir-faire.html':            { priority: '0.8', changefreq: 'monthly' },
+  'particuliers.html':            { priority: '0.9', changefreq: 'monthly' },
+  'professionnels.html':          { priority: '0.9', changefreq: 'monthly' },
+  'commerces.html':               { priority: '0.9', changefreq: 'monthly' },
+  'film-securite-vitrage.html':    { priority: '0.9', changefreq: 'monthly' },
+  'film-anti-graffiti-vitrage.html': { priority: '0.8', changefreq: 'monthly' },
+  'film-securite-vitrage-maison.html': { priority: '0.9', changefreq: 'monthly' },
+  'film-anti-effraction-vitrine-commerce.html': { priority: '0.9', changefreq: 'monthly' },
+  'combiner-film-solaire-et-securite-vitrage.html': { priority: '0.8', changefreq: 'monthly' },
+  'film-solaire-double-vitrage-compatibilite.html': { priority: '0.8', changefreq: 'monthly' },
+  'film-anti-uv-maison-proteger-meubles-parquet.html': { priority: '0.8', changefreq: 'monthly' },
+  'mise-en-securite-vitrage-casse.html': { priority: '0.9', changefreq: 'monthly' },
   'legal.html':                   { priority: '0.3', changefreq: 'yearly' },
   // pages projet
   'projet-sas-entree-vitre.html': { priority: '0.7', changefreq: 'monthly' },
@@ -34,13 +47,15 @@ const PAGE_CONFIG = {
   'projet-open-space-lyon.html':  { priority: '0.7', changefreq: 'monthly' },
   'projet-velux.html':            { priority: '0.7', changefreq: 'monthly' },
   'projet-verriere-toit.html':    { priority: '0.7', changefreq: 'monthly' },
+  'projet-facade-vitree-film-solaire.html': { priority: '0.7', changefreq: 'monthly' },
+  'projet-vitrines-valence-lyon.html': { priority: '0.7', changefreq: 'monthly' },
+  'projet-films-solaires-baies-maison.html': { priority: '0.7', changefreq: 'monthly' },
 };
 
 const DEFAULT_CONFIG = { priority: '0.6', changefreq: 'monthly' };
 // ───────────────────────────────────────────────────────────────────
 
 const ROOT = __dirname;
-const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 
 // Récupère tous les fichiers .html à la racine
 const htmlFiles = fs.readdirSync(ROOT)
@@ -58,14 +73,13 @@ htmlFiles.forEach(f => console.log(`   - ${f}`));
 // Génère les entrées XML
 const urls = htmlFiles.map(file => {
   const config = PAGE_CONFIG[file] || DEFAULT_CONFIG;
-  // index.html → URL racine, les autres → /nom-de-page.html
+  // Même convention que cleanUrls dans vercel.json et les liens canoniques.
   const loc = file === 'index.html'
     ? `${SITE_URL}/`
-    : `${SITE_URL}/${file}`;
+    : `${SITE_URL}/${file.slice(0, -5)}`;
 
   return `  <url>
     <loc>${loc}</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>${config.changefreq}</changefreq>
     <priority>${config.priority}</priority>
   </url>`;
@@ -87,4 +101,4 @@ fs.writeFileSync(outputPath, xml, 'utf8');
 
 console.log(`\n🗺️  sitemap.xml généré avec succès → ${outputPath}`);
 console.log(`   Base URL utilisée : ${SITE_URL}`);
-console.log(`   Date de modification : ${today}`);
+// Pas de lastmod artificiel : un build ne signifie pas que toutes les pages ont changé.

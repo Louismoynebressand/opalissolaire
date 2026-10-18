@@ -1,343 +1,51 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Film Miroir Sans Tain & Dépoli | Anti-Regard pour Bureaux</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="description" content="Protégez vos bureaux des regards indiscrets et supprimez les reflets sur vos écrans. Pose pro de films miroir sans tain, dépolis et vitrophanie sur-mesure."/>
-<link rel="canonical" href="https://opalissolaire.fr/film-solaire-miroir-sans-tain-bureau.html"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="global.css"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{padding-top:70px;font-family:'"Inter"',sans-serif;color:#1e293b;background:#f8fafc;font-size:16px;line-height:1.6;}
-:root{--blue:#0284c7;--blue-dark:#0369a1;--slate-900:#0f172a;--slate-800:#1e293b;--slate-700:#334155;--slate-100:#f1f5f9;--bg:#fff;}
-/* HERO */
-.mst-hero{position:relative;padding:10rem 1.25rem 8rem;background:#0f172a;color:#fff;text-align:center;overflow:hidden;}
-.mst-hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.8;z-index:1;}
-.mst-hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(15,23,42,0.5),rgba(30,41,59,0.4));z-index:1;}
-.mst-hero-content{position:relative;z-index:2;max-width:850px;margin:0 auto;}
-.mst-badge{display:inline-block;background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.3);padding:.4rem 1.1rem;border-radius:999px;font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1.5rem;}
-.mst-hero h1{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:1.5rem;letter-spacing:-.02em;}
-.mst-hero h1 em{background:linear-gradient(90deg,#7dd3fc,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal;}
-.mst-hero p{font-size:1.15rem;color:rgba(255,255,255,.85);margin-bottom:2.5rem;max-width:750px;margin-left:auto;margin-right:auto;line-height:1.75;}
-.mst-hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.btn-cyan{background:#0284c7;color:#fff;padding:1rem 2rem;border-radius:8px;font-weight:700;font-size:1.05rem;text-decoration:none;transition:.2s;}
-.btn-cyan:hover{background:#0369a1;transform:translateY(-2px);}
-.btn-outline{background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,.4);padding:1rem 2rem;border-radius:8px;font-weight:700;font-size:1.05rem;text-decoration:none;transition:.2s;}
-.btn-outline:hover{background:#fff;color:#0f172a;}
-/* PROBLEM */
-.mst-problem{padding:6rem 1.25rem;background:#fff;text-align:center;}
-.mst-problem .cnt{max-width:900px;margin:0 auto;}
-.mst-problem h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;margin-bottom:1.5rem;color:#0f172a;}
-.mst-prob-intro{font-size:1.1rem;color:#475569;margin-bottom:3.5rem;line-height:1.8;}
-.mst-prob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;}
-.mst-prob-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:2.5rem 1.5rem;text-align:center;transition:.2s;}
-.mst-prob-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.05);transform:translateY(-5px);}
-.mst-prob-icon{font-size:2.5rem;margin-bottom:1rem;}
-.mst-prob-card h3{font-size:1.15rem;font-weight:700;color:#0f172a;margin-bottom:.75rem;}
-.mst-prob-card p{font-size:.95rem;color:#475569;line-height:1.6;}
-/* SOLUTION 1 */
-.mst-sol1{padding:6rem 1.25rem;background:#f1f5f9;}
-.mst-sol1-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-@media(max-width:800px){.mst-sol1-inner{grid-template-columns:1fr;gap:2.5rem;}}
-.mst-sol1-img{border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,0.15);}
-.mst-sol1-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:350px;}
-.mst-sol1-text h2{font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:800;margin-bottom:1.25rem;color:#0f172a;}
-.mst-list{list-style:none;margin-top:2rem;}
-.mst-list li{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem;}
-.mst-list li .ck{background:#0284c7;color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;margin-top:2px;}
-.mst-list li div h4{font-size:1.05rem;font-weight:700;color:#0f172a;margin-bottom:.25rem;}
-.mst-list li div p{font-size:.95rem;color:#475569;}
-/* SOLUTION 2 */
-.mst-sol2{padding:6rem 1.25rem;background:#fff;}
-.mst-sol2-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;direction:rtl;}
-.mst-sol2-text{direction:ltr;}
-.mst-sol2-img{direction:ltr;border-radius:16px;overflow:hidden;}
-.mst-sol2-img img{width:100%;object-fit:cover;display:block;border:1px solid #e2e8f0;border-radius:16px;}
-@media(max-width:800px){.mst-sol2-inner{grid-template-columns:1fr;direction:ltr;}}
-/* CTA MID */
-.mst-cta-mid{background:#0f172a;padding:5rem 1.25rem;text-align:center;}
-.mst-cta-mid h2{font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:800;color:#fff;margin-bottom:1.25rem;}
-.mst-cta-mid p{color:#94a3b8;font-size:1.1rem;max-width:600px;margin:0 auto 2.5rem;}
-/* INSTALLATION */
-.mst-install{padding:6rem 1.25rem;background:#f8fafc;}
-.mst-install-box{max-width:800px;margin:0 auto;background:#fff;border-radius:16px;padding:3.5rem;box-shadow:0 10px 40px rgba(0,0,0,.05);border:1px solid #e2e8f0;}
-@media(max-width:600px){.mst-install-box{padding:2rem 1.25rem;}}
-.mst-install-box h2{font-size:1.8rem;font-weight:800;color:#0f172a;margin-bottom:1.5rem;text-align:center;}
-.mst-install-box > p{text-align:center;color:#475569;margin-bottom:2.5rem;}
-.inst-feat{display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1.5rem;}
-.inst-ico{background:#e0f2fe;color:#0284c7;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;}
-/* FAQ */
-.mst-faq{padding:6rem 1.25rem;background:#fff;}
-.mst-faq-cnt{max-width:800px;margin:0 auto;}
-.mst-faq h2{font-size:clamp(1.5rem,3.5vw,2rem);font-weight:800;text-align:center;margin-bottom:3rem;color:#0f172a;}
-.faq-item{border-bottom:1px solid #e2e8f0;padding:1.5rem 0;}
-.faq-q{font-size:1.15rem;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:#0f172a;}
-.faq-q::after{content:'"+"';font-size:1.5rem;color:#0284c7;transition:transform .3s;flex-shrink:0;margin-left:1rem;}
-.faq-item.open .faq-q::after{transform:rotate(45deg);}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:#475569;font-size:1rem;line-height:1.75;}
-.faq-item.open .faq-a{max-height:400px;margin-top:1rem;}
-/* FINAL CTA */
-.mst-final{background:linear-gradient(135deg,#0284c7 0%,#0369a1 100%);padding:6rem 1.25rem;text-align:center;}
-.mst-final h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:1.25rem;color:#fff;}
-.mst-final p{font-size:1.2rem;color:rgba(255,255,255,.9);margin-bottom:2.5rem;max-width:650px;margin-left:auto;margin-right:auto;}
-</style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17195022553"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17195022553');
-</script>
-</head>
-<body>
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo-wrap">
-      <span class="nav-logo">Opalis <b>Solaire</b></span>
-      <span class="nav-slogan">Expert en protection thermique des vitrages.</span>
-    </a>
-    <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="/">Accueil</a></li>
-      <li><a href="/realisations">Nos Réalisations</a></li>
-      <li><a href="/savoir-faire">Notre Savoir-Faire</a></li>
-      <li><a href="/simulateur" class="nav-cta-alt">Simulateur</a></li>
-      <li class="mobile-only"><a href="/#contact" class="nav-cta">Demander un devis</a></li>
-    </ul>
-    <a href="/#contact" class="nav-cta desktop-only">Demander un devis</a>
+<html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f6f2">
+<title>Pose de film miroir &amp; dépoli pour intimité vitrage | Opalis Solaire</title><meta name="description" content="Films miroir, dépolis et décoratifs pour maisons et bureaux : choisissez la lumière et la confidentialité. Conseil et pose à Valence, Lyon et en Rhône-Alpes."><link rel="canonical" href="https://opalissolaire.fr/film-solaire-miroir-sans-tain-bureau">
+<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="opalis.css"><link rel="stylesheet" href="pro.css"><link rel="stylesheet" href="editorial.css">
+<script src="opalis.js" defer></script><script src="editorial.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Pose de film miroir & dépoli pour intimité vitrage", "url": "https://opalissolaire.fr/film-solaire-miroir-sans-tain-bureau", "image": "https://opalissolaire.fr/assets/cloison-bureau-film-depoli-confidentialite.webp", "provider": {"@type": "HomeAndConstructionBusiness", "@id": "https://opalissolaire.fr/#entreprise", "name": "Opalis Solaire", "telephone": "+33782852008"}, "areaServed": {"@type": "AdministrativeArea", "name": "Auvergne-Rhône-Alpes"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://opalissolaire.fr/"}, {"@type": "ListItem", "position": 2, "name": "Intimité, miroir & dépoli", "item": "https://opalissolaire.fr/film-solaire-miroir-sans-tain-bureau"}]}]}</script><script async src="https://www.googletagmanager.com/gtag/js?id=AW-17195022553"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17195022553');</script>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Opalis Solaire">
+<meta property="og:title" content="Pose de film miroir &amp; dépoli pour intimité vitrage | Opalis Solaire">
+<meta property="og:description" content="Films miroir, dépolis et décoratifs pour maisons et bureaux : choisissez la lumière et la confidentialité. Conseil et pose à Valence, Lyon et en Rhône-Alpes.">
+<meta property="og:url" content="https://opalissolaire.fr/film-solaire-miroir-sans-tain-bureau">
+<meta property="og:image" content="https://opalissolaire.fr/assets/cloison-bureau-film-depoli-confidentialite.webp">
+<meta name="twitter:card" content="summary_large_image">
+<script id="page-seo" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","@id":"https://opalissolaire.fr/film-solaire-miroir-sans-tain-bureau#questions","mainEntity":[{"@type":"Question","name":"Peut-on voir à travers un film miroir la nuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, si l’intérieur est éclairé et l’extérieur sombre, le contraste peut s’inverser. L’effet miroir ne garantit pas l’intimité permanente. Nous abordons ce point avant le choix."}},{"@type":"Question","name":"Le film dépoli laisse-t-il passer la lumière ?","acceptedAnswer":{"@type":"Answer","text":"Il diffuse la lumière selon le produit tout en masquant la vue directe. La transmission lumineuse et l’apparence dépendent de la référence et du vitrage."}},{"@type":"Question","name":"Peut-on ne traiter qu’une partie d’une cloison ?","acceptedAnswer":{"@type":"Answer","text":"Oui, le périmètre peut être étudié avec les hauteurs, les zones de vision et l’aménagement. Nous définissons avec vous les parties à couvrir et les parties laissées transparentes."}},{"@type":"Question","name":"Un film miroir est-il aussi un film de sécurité ?","acceptedAnswer":{"@type":"Answer","text":"Pas nécessairement. Un aspect miroir n’indique pas à lui seul un classement de sécurité. Certaines références combinent des fonctions, mais cela doit être vérifié pour le système retenu."}},{"@type":"Question","name":"Proposez-vous aussi ces solutions pour les particuliers ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Fenêtres sur rue, baies vitrées ou séparations intérieures peuvent être étudiées pour un logement. Le besoin de vue, de lumière et d’intimité guide la réponse."}}]}]}</script>
+</head><body class="opalis-site"><div class="page-progress" aria-hidden="true"></div><!-- OPALIS_HEADER_START -->
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Opalis Solaire, accueil"><svg class="brand-symbol" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M22 1v7m0 28v7M1 22h7m28 0h7M7.15 7.15l4.95 4.95m19.8 19.8 4.95 4.95M7.15 36.85l4.95-4.95m19.8-19.8 4.95-4.95" stroke="currentColor" stroke-width="1.6"/></svg><span class="brand-name">opalis<span>solaire</span></span></a>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="site-menu" aria-expanded="false"><span></span><span></span></button>
+    <div class="site-menu" id="site-menu" role="navigation" aria-label="Navigation principale">
+      <details class="nav-dropdown"><summary>Vos besoins <span aria-hidden="true">⌄</span></summary><div class="mega-menu"><div class="mega-intro"><p class="mega-eyebrow">Une solution posée pour vous</p><p>Qu’est-ce qui vous<br><em>changerait la vie ?</em></p><span>Nous étudions vos vitrages, fournissons le film adapté et réalisons la pose.</span><a href="savoir-faire.html#diagnostic">M’aider à choisir ↗</a></div><div class="mega-links"><a href="pose-film-anti-chaleur.html"><strong>Réduire la chaleur & l’éblouissement</strong><span>Films solaires pour maisons et locaux</span></a><a href="film-securite-vitrage-maison.html"><strong>Sécuriser les vitrages de ma maison</strong><span>Renforcer une fenêtre sans remplacer tout le vitrage</span></a><a href="film-anti-effraction-vitrine-commerce.html"><strong>Protéger une vitrine de commerce</strong><span>Films de sécurité selon le risque visé</span></a></div><div class="mega-links"><a href="mise-en-securite-vitrage-casse.html"><strong>Mettre en sécurité un vitrage cassé</strong><span>Une solution provisoire à étudier après un bris</span></a><a href="film-anti-uv-vitrine-transparent.html"><strong>Limiter l’exposition aux UV</strong><span>Mobilier, marchandises et vitrines</span></a><a href="film-anti-graffiti-vitrage.html"><strong>Protéger des tags & des rayures</strong><span>Une protection de surface remplaçable</span></a></div></div></details>
+      <details class="nav-dropdown"><summary>Votre espace <span aria-hidden="true">⌄</span></summary><div class="mega-menu"><div class="mega-intro"><p class="mega-eyebrow">Du lieu à la solution</p><p>Votre espace.<br><em>Nos réponses.</em></p><span>Une maison, une boutique et un bâtiment de bureaux ne demandent pas la même approche.</span><a href="index.html#contact">Décrire mon projet ↗</a></div><div class="mega-links"><a href="particuliers.html"><strong>Ma maison ou mon appartement</strong><span>Pièces de vie, baies vitrées et intimité</span></a><a href="film-anti-chaleur-velux-veranda.html"><strong>Ma véranda ou ma fenêtre de toit</strong><span>Retrouver le confort sous le soleil</span></a><a href="commerces.html"><strong>Ma boutique & ma vitrine</strong><span>Anti-éclats, protection renforcée, solaire et UV</span></a></div><div class="mega-links"><a href="professionnels.html"><strong>Mes bureaux ou mon bâtiment</strong><span>Un accompagnement pour les professionnels</span></a><a href="professionnels.html?categorie=intimite#gammes-pro"><strong>Mes cloisons & espaces confidentiels</strong><span>Réunions, accueil et confidentialité</span></a><a href="professionnels.html?categorie=specialites#gammes-pro"><strong>Un besoin technique particulier</strong><span>Anti-buée, surfaces et applications spécifiques</span></a></div></div></details>
+      <details class="nav-dropdown"><summary>Nos réalisations <span aria-hidden="true">⌄</span></summary><div class="mega-menu"><div class="mega-intro"><p class="mega-eyebrow">Des chantiers à découvrir</p><p>Avant. Après.<br><em>Concrètement.</em></p><span>Explorez les photos et les détails de nos interventions.</span><a href="realisations.html">Tous les avant / après ↗</a></div><div class="mega-links"><a href="projet-baie-vitree-salon.html"><strong>Baie vitrée de salon</strong><span>Maison · Confort et intimité</span></a><a href="projet-velux.html"><strong>Fenêtre de toit</strong><span>Maison · Protection solaire</span></a><a href="projet-verriere-toit.html"><strong>Verrière de toiture</strong><span>Confort sous les vitrages</span></a></div><div class="mega-links"><a href="projet-open-space-lyon.html"><strong>Hall d’entreprise</strong><span>Professionnels · Film miroir</span></a><a href="projet-batiment-tertiaire.html"><strong>Façade de bâtiment tertiaire</strong><span>Professionnels · Contrôle solaire</span></a><a href="projet-sas-entree-vitre.html"><strong>Sas d’entrée vitré</strong><span>Professionnels · Discrétion et lumière</span></a></div></div></details>
+      <details class="nav-dropdown"><summary>Notre accompagnement <span aria-hidden="true">⌄</span></summary><div class="mega-menu mega-menu-compact"><div class="mega-intro"><p class="mega-eyebrow">Votre installateur</p><p>Conseiller.<br>Fournir. <em>Poser.</em></p><span>Un interlocuteur pour faire les bons choix et soigner leur mise en œuvre.</span><a href="tel:+33782852008">07 82 85 20 08 ↗</a></div><div class="mega-links"><a href="savoir-faire.html#demarche"><strong>Notre démarche sur mesure</strong><span>Du diagnostic à la pose</span></a><a href="savoir-faire.html#mise-en-oeuvre"><strong>Notre savoir-faire de pose</strong><span>Préparation, application et finitions</span></a><a href="index.html#explorateur"><strong>Explorer les rendus</strong><span>Teintes et lumière, en images</span></a></div><div class="mega-links"><a href="simulateur.html"><strong>Estimer mon budget</strong><span>Une première indication, avant l’étude</span></a><a href="efficacite-film-solaire.html"><strong>L’efficacité réelle des films</strong><span>Mesures, études et conditions du résultat</span></a><a href="index.html#contact"><strong>Demander un devis gratuit</strong><span>Parlons de votre besoin</span></a></div></div></details>
+      <a class="mobile-contact" href="tel:+33782852008">07 82 85 20 08</a>
+    </div>
+    <div class="header-actions"><a class="header-phone" href="tel:+33782852008" aria-label="Appeler le 07 82 85 20 08"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.6 1.7L8.7 10.5a16 16 0 0 0 4.8 4.8l1.3-1.3a2 2 0 0 1 1.7-.6l2.8.5a2 2 0 0 1 1.7 2Z"/></svg><span>07 82 85 20 08</span></a><a class="header-cta" href="index.html#contact">Devis & conseil <span aria-hidden="true">↗</span></a></div>
   </div>
-</nav>
-
-<!-- HERO -->
-<section class="mst-hero">
-  <img src="amenagement-bureau-moderne-protection-solaire.png" class="mst-hero-bg" alt="Grand open space d'entreprise très lumineux subissant les apports solaires sur ses vitrages" title="Bureaux d'entreprise nécessitant une protection solaire et anti-éblouissement">
-  <div class="mst-hero-overlay"></div>
-  <div class="mst-hero-content">
-    <div class="mst-badge">Aménagement Tertiaire • Confidentialité & Confort de Travail</div>
-    <h1>Film Solaire Miroir Sans Tain : Travaillez à l'abri <em>des regards et des reflets</em>.</h1>
-    <p>Bureaux en RDC, open spaces, salles de réunion : retrouvez votre intimité tout en laissant entrer la lumière naturelle. La solution anti-éblouissement pour un confort visuel immédiat.</p>
-    <div class="mst-hero-actions">
-      <a href="/#contact" class="btn-cyan">Demander un devis pour mes locaux</a>
-      <a href="#solutions" class="btn-outline">Découvrir nos solutions</a>
-    </div>
+<noscript><style>.menu-toggle{display:none!important}.site-header .header-inner{height:auto;min-height:74px;flex-wrap:wrap;padding-block:16px}.site-menu{display:block!important;position:static!important;width:100%;max-height:none;order:3;padding:0}.nav-dropdown>summary{padding:15px 0}.site-menu .mega-menu{position:static;box-shadow:none}.contact-form{display:none}.audience-panel[hidden]{display:grid!important}</style></noscript>
+</header>
+<!-- OPALIS_HEADER_END -->
+<main id="main"><div class="wrap ed-breadcrumb" aria-label="Fil d’Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span>Intimité, miroir & dépoli</span></div>
+<section class="ed-hero" aria-labelledby="page-title"><div class="wrap ed-hero-grid"><div class="ed-hero-copy reveal"><p class="eyebrow">Film miroir, dépoli & intimité sur vitrage</p><h1 id="page-title">Gardez la lumière.<br><em>Choisissez les regards.</em></h1><p class="ed-lead">Un bureau trop exposé, une fenêtre sur rue ou une cloison sans confidentialité : nous sélectionnons et posons un film d’intimité en fonction de ce que vous souhaitez voir, cacher ou laisser passer.</p><div class="ed-actions"><a class="button button-dark" href="index.html?besoin=intimite#contact">Parler de mon besoin d’intimité <span aria-hidden="true">↗</span></a><a class="text-link" href="#comprendre">Miroir ou dépoli ? <span aria-hidden="true">↓</span></a></div><p class="ed-meta">Conseil, fourniture & pose · Particuliers et professionnels<br>Valence · Lyon · Grenoble · Saint-Étienne</p></div><figure class="ed-hero-media reveal"><img src="assets/cloison-bureau-film-depoli-confidentialite.webp" alt="Cloison en verre dépoli illustrant une confidentialité avec lumière diffuse" class="" fetchpriority="high" decoding="async" width="1024" height="1024"><div class="ed-image-caption"><span>Une solution sur le vitrage existant</span><p>Miroir, dépoli ou décor.<br>Le rendu doit servir votre usage.</p></div></figure></div></section><div class="page-jumpnav" aria-label="Dans cette page"><div class="wrap"><a href="#comprendre">Choisir le rendu</a><a href="#jour-nuit">Miroir de jour & de nuit</a><a href="#depoli">Dépoli & décor</a><a href="#pose">Notre pose</a><a href="#questions">Questions</a><a href="#devis">Mon devis</a></div></div><div class="ed-proof-strip"><div class="wrap"><div class="ed-proof"><span>01</span><div><strong>Le regard comme point de départ</strong><p>Occulter, filtrer ou conserver la vue.</p></div></div><div class="ed-proof"><span>02</span><div><strong>La lumière est déterminante</strong><p>L’effet miroir varie avec le contraste lumineux.</p></div></div><div class="ed-proof"><span>03</span><div><strong>Un projet de pose</strong><p>Conseil, découpe et finitions adaptées au vitrage.</p></div></div></div></div><section class="ed-section " id="comprendre"><div class="wrap"><div class="ed-intro reveal"><p class="eyebrow">Des effets qui ne répondent pas au même besoin</p><h2 class="section-heading">Miroir ou dépoli ?<br><em>Tout part de l’usage.</em></h2><p>L’intimité n’a pas le même sens dans un salon, une salle de réunion ou un espace d’accueil. Nous distinguons les rendus avant de sélectionner la référence.</p></div><div class="ed-feature-grid"><article class="ed-feature reveal"><span class="ed-feature-index">01 / MIROIR</span><h3>Limiter les regards en journée.</h3><p>L’effet réfléchissant peut préserver la discrétion quand l’extérieur est plus lumineux. La vue vers l’extérieur reste possible selon la teinte, avec une transmission lumineuse modifiée.</p><a class="text-link" href="#jour-nuit">Voir le principe ↗</a></article><article class="ed-feature reveal"><span class="ed-feature-index">02 / DÉPOLI</span><h3>Masquer la vue directe.</h3><p>Le film dépoli diffuse la lumière et empêche une vision nette à travers la zone traitée. Les silhouettes et ombres peuvent rester perceptibles selon l’éclairage et la distance.</p><a class="text-link" href="#depoli">Comprendre le dépoli ↗</a></article><article class="ed-feature reveal"><span class="ed-feature-index">03 / DÉCOR</span><h3>Organiser la transparence.</h3><p>Bandes, surfaces partielles, couleurs ou motifs : un décor peut signaler un vitrage ou rythmer une cloison. La couverture se pense avec le niveau de confidentialité attendu.</p></article></div></div></section><section class="ed-section ed-section-sage" id="jour-nuit"><div class="wrap ed-split"><div class="ed-copy reveal"><p class="eyebrow">L’effet miroir dépend de la lumière</p><h2 class="section-heading">Le jour, le regard change.<br><em>La nuit aussi.</em></h2><p>Un film miroir ne crée pas une intimité permanente dans les deux sens. Il dépend de la différence d’éclairage entre intérieur et extérieur.</p><p>Ce point est essentiel pour une fenêtre sur rue, un accueil ou un bureau utilisé le soir. Si vous souhaitez masquer la vue dans toutes ces situations, nous étudions un dépoli ou une autre réponse adaptée.</p><ul><li>Conserver la vue : un objectif à distinguer de l’occultation.</li><li>Penser les éclairages et les horaires d’utilisation.</li><li>Prévoir le besoin d’intimité du soir dès le départ.</li></ul></div><div class="ed-day-demo reveal" data-day-demo><img src="assets/film-miroir-exterieur-protection-solaire.webp" alt="Illustration d’une façade réfléchissante pour expliquer l’effet miroir" class="" loading="lazy" decoding="async" width="1024" height="1024"><div class="ed-day-controls" role="group" aria-label="Comprendre l’effet miroir selon l’éclairage"><button type="button" data-light-mode="day" aria-pressed="true">En journée</button><button type="button" data-light-mode="night" aria-pressed="false">La nuit</button></div><div class="ed-day-caption" aria-live="polite"><h3 data-day-title>La journée : un effet de discrétion.</h3><p data-day-copy>Quand l’extérieur est plus lumineux que l’intérieur, le rendu réfléchissant peut limiter les regards depuis la rue.</p><p>Schéma d’ambiance : ne reproduit pas la vue réelle d’un film.</p></div></div></div></section><section class="ed-section " id="depoli"><div class="wrap ed-split"><div class="ed-copy reveal"><p class="eyebrow">Cloisons, fenêtres & espaces d’accueil</p><h2 class="section-heading">Diffuser la lumière.<br><em>Protéger la confidentialité.</em></h2><p>Le dépoli est souvent pertinent pour une salle de réunion ou une fenêtre dont on ne souhaite pas conserver la vue directe. Il transforme la transparence en une lumière diffuse.</p><p>Nous définissons la surface à couvrir, les lignes de coupe et les zones éventuellement laissées transparentes. Le rendu doit rester cohérent avec l’aménagement et les usages du lieu.</p><ul><li>Une couverture complète ou partielle selon le besoin.</li><li>Des bandes ou décors à préparer avec la circulation des personnes.</li><li>Une vérification du résultat attendu selon l’éclairage.</li></ul><div class="ed-actions"><a class="text-link" href="index.html?profil=professionnel&amp;besoin=intimite#contact">Faire étudier mes cloisons ↗</a></div></div><figure class="ed-media reveal"><img src="assets/vitrophanie-design-bureau-entreprise.webp" alt="Cloisons vitrées décorées illustrant un aménagement de bureau" class="" loading="lazy" decoding="async" width="1024" height="1024"><figcaption>Illustration d’aménagement ; le décor final se définit avec vous.</figcaption></figure></div></section><section class="ed-section ed-section-sage" id="solaire"><div class="wrap ed-split"><figure class="ed-media reveal"><img src="assets/open-space-film-miroir-sans-tain.webp" alt="Bureau vitré illustrant les enjeux conjoints de lumière, de reflets et d’intimité" class="" loading="lazy" decoding="async" width="1024" height="1024"></figure><div class="ed-copy reveal"><p class="eyebrow">Quand plusieurs besoins se rencontrent</p><h2 class="section-heading">Intimité et confort.<br><em>Un équilibre à composer.</em></h2><p>Un film miroir de contrôle solaire peut associer un rendu réfléchissant à une réduction des apports solaires. Un film décoratif ou dépoli ne doit pas être considéré automatiquement comme une protection anti-chaleur.</p><p>Nous vérifions les fonctions de la référence retenue et la compatibilité avec votre vitrage. La confidentialité, la lumière et le confort sont discutés ensemble, sans supposer qu’un seul aspect visuel garantit toutes les performances.</p><div class="ed-actions"><a class="text-link" href="pose-film-anti-chaleur.html">Comprendre les films solaires ↗</a></div></div></div></section><section class="ed-section" id="pose"><div class="wrap"><p class="eyebrow">Conseiller, fournir, poser</p><h2 class="section-heading">Un interlocuteur.<br><em>Du début aux finitions.</em></h2><div class="ed-journey"><article class="ed-journey-item reveal"><span class="ed-journey-number">01</span><div><span class="ed-stage">LE BESOIN</span><h3>Votre quotidien guide le projet.</h3></div><p>Une pièce trop chaude, des reflets, une vitrine exposée ou un besoin d’intimité : nous mettons des mots précis sur le résultat attendu.</p></article><article class="ed-journey-item reveal"><span class="ed-journey-number">02</span><div><span class="ed-stage">LE VITRAGE</span><h3>Un support à comprendre.</h3></div><p>Composition du verre, orientation, dimensions, ombrages et conditions d’accès : ces éléments orientent la sélection et la face de pose.</p></article><article class="ed-journey-item reveal"><span class="ed-journey-number">03</span><div><span class="ed-stage">LA PRÉCONISATION</span><h3>Une solution expliquée.</h3></div><p>Nous présentons le rendu, les bénéfices, les limites et le périmètre de pose. Le devis correspond à votre projet et à la solution retenue.</p></article><article class="ed-journey-item reveal"><span class="ed-journey-number">04</span><div><span class="ed-stage">LA POSE</span><h3>Du soin, jusque dans les finitions.</h3></div><p>Préparation du support, découpe et application selon les prescriptions du fabricant. Nous transmettons les consignes de séchage et d’entretien.</p></article></div></div></section><section class="section pro-cta" id="devis"><div class="wrap pro-cta-grid"><div><p class="eyebrow">Votre installateur en Auvergne-Rhône-Alpes</p><h2 class="section-heading">Votre espace.<br><em>Votre degré d’intimité.</em></h2><p>Expliquez-nous ce que vous souhaitez voir et cacher, à quels moments de la journée. Nous vous proposons un rendu et une pose adaptés.</p></div><div class="pro-cta-actions"><a class="button" href="index.html?besoin=intimite#contact">Demander mon devis gratuit <span aria-hidden="true">↗</span></a><a class="pro-phone" href="tel:+33782852008">07 82 85 20 08</a></div></div></section><section class="ed-section" id="questions"><div class="wrap ed-faq-grid"><div class="reveal"><p class="eyebrow">Des réponses pour décider</p><h2 class="section-heading">Les regards, la lumière.<br><em>En pratique.</em></h2></div><div class="faq-list reveal"><details><summary>Peut-on voir à travers un film miroir la nuit ?</summary><p>Oui, si l’intérieur est éclairé et l’extérieur sombre, le contraste peut s’inverser. L’effet miroir ne garantit pas l’intimité permanente. Nous abordons ce point avant le choix.</p></details><details><summary>Le film dépoli laisse-t-il passer la lumière ?</summary><p>Il diffuse la lumière selon le produit tout en masquant la vue directe. La transmission lumineuse et l’apparence dépendent de la référence et du vitrage.</p></details><details><summary>Peut-on ne traiter qu’une partie d’une cloison ?</summary><p>Oui, le périmètre peut être étudié avec les hauteurs, les zones de vision et l’aménagement. Nous définissons avec vous les parties à couvrir et les parties laissées transparentes.</p></details><details><summary>Un film miroir est-il aussi un film de sécurité ?</summary><p>Pas nécessairement. Un aspect miroir n’indique pas à lui seul un classement de sécurité. Certaines références combinent des fonctions, mais cela doit être vérifié pour le système retenu.</p></details><details><summary>Proposez-vous aussi ces solutions pour les particuliers ?</summary><p>Oui. Fenêtres sur rue, baies vitrées ou séparations intérieures peuvent être étudiées pour un logement. Le besoin de vue, de lumière et d’intimité guide la réponse.</p></details></div></div></section><section class="ed-section"><div class="wrap"><p class="eyebrow">Un besoin, plusieurs façons d’y répondre</p><h2 class="section-heading">Pour avancer dans<br><em>votre projet.</em></h2><div class="ed-related"><a class="ed-related-card reveal" href="projet-baie-vitree-salon.html"><div class="ed-related-image"><img src="assets/baie-vitree-apres.webp" alt="Un effet miroir sur une baie vitrée" class="" loading="lazy" decoding="async" width="1024" height="1024"></div><small>Chantier résidentiel</small><h3>Un effet miroir sur une baie vitrée</h3><p>Découvrez les photos réelles et les choix du chantier.</p><span class="text-link">Découvrir <span aria-hidden="true">↗</span></span></a><a class="ed-related-card reveal" href="pose-film-anti-chaleur.html"><div class="ed-related-image"><img src="assets/hero-architecture.webp" alt="Comprendre le film anti-chaleur" class="" loading="lazy" decoding="async" width="1536" height="1024"></div><small>Confort solaire</small><h3>Comprendre le film anti-chaleur</h3><p>Les apports solaires, le choix de lumière et l’étude du vitrage.</p><span class="text-link">Découvrir <span aria-hidden="true">↗</span></span></a><a class="ed-related-card reveal" href="savoir-faire.html"><div class="ed-related-image"><img src="assets/pose-film-sur-vitrage.webp" alt="Du besoin à la pose" class="" loading="lazy" decoding="async" width="1500" height="1000"></div><small>Notre accompagnement</small><h3>Du besoin à la pose</h3><p>Le diagnostic du vitrage et les étapes de votre projet.</p><span class="text-link">Découvrir <span aria-hidden="true">↗</span></span></a></div></div></section>
+</main>
+<!-- OPALIS_FOOTER_START -->
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-intro"><a class="brand" href="index.html"><svg class="brand-symbol" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M22 1v7m0 28v7M1 22h7m28 0h7M7.15 7.15l4.95 4.95m19.8 19.8 4.95 4.95M7.15 36.85l4.95-4.95m19.8-19.8 4.95-4.95" stroke="currentColor" stroke-width="1.6"/></svg><span class="brand-name">opalis<span>solaire</span></span></a><p>Votre installateur de films pour vitrages.<br>Conseil, fourniture et pose sur mesure.<br>Auvergne-Rhône-Alpes.</p></div>
+    <div><h2>Vos espaces</h2><a href="particuliers.html">Maisons & appartements</a><a href="commerces.html">Boutiques & vitrines</a><a href="professionnels.html">Bureaux & bâtiments</a><a href="realisations.html">Nos réalisations</a><a href="savoir-faire.html">Notre savoir-faire</a></div>
+    <div><h2>Nos solutions</h2><a href="pose-film-anti-chaleur.html">Chaleur & éblouissement</a><a href="film-securite-vitrage.html#anti-eclats">Films de sécurité</a><a href="film-securite-vitrage-maison.html">Sécurité à la maison</a><a href="film-anti-effraction-vitrine-commerce.html">Sécurité des vitrines</a><a href="mise-en-securite-vitrage-casse.html">Vitrage cassé : mise en sécurité</a><a href="film-anti-graffiti-vitrage.html">Protection anti-graffiti</a><a href="simulateur.html">Estimer mon budget</a></div>
+    <div><h2>Parlons de votre projet</h2><a class="footer-phone" href="tel:+33782852008">07 82 85 20 08 <span aria-hidden="true">↗</span></a><a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a><p>Valence · Lyon · Grenoble<br>Saint-Étienne et alentours</p></div>
   </div>
-</section>
-
-<!-- PROBLEM -->
-<section class="mst-problem">
-  <div class="cnt">
-    <p style="font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#0284c7;margin-bottom:.75rem;">Le problème</p>
-    <h2>Vos bureaux vitrés ressemblent-ils à un aquarium ?</h2>
-    <p class="mst-prob-intro">Le verre est le matériau star de l'architecture d'entreprise moderne. Il apporte lumière et design, mais il crée deux problèmes majeurs au quotidien : le manque cruel de confidentialité (surtout en rez-de-chaussée) et un éblouissement constant sur les écrans d'ordinateur.<br><br>Fermer les stores toute la journée ? C'est travailler à la lumière artificielle, ce qui fatigue les yeux et démotive les équipes.</p>
-    <div class="mst-prob-grid">
-      <div class="mst-prob-card">
-        <div class="mst-prob-icon">👀</div>
-        <h3>Zéro intimité</h3>
-        <p>Passants ou collègues peuvent observer vos écrans et vos réunions confidentielles à tout moment.</p>
-      </div>
-      <div class="mst-prob-card">
-        <div class="mst-prob-icon">💻</div>
-        <h3>Inconfort visuel</h3>
-        <p>Les reflets du soleil rendent la lecture sur écran presque impossible sans plisser les yeux en permanence.</p>
-      </div>
-      <div class="mst-prob-card">
-        <div class="mst-prob-icon">🌡️</div>
-        <h3>Surchauffe</h3>
-        <p>Les grandes fenêtres exposées transforment rapidement vos bureaux en serres dès les premiers rayons.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SOLUTION 1 -->
-<section id="solutions" class="mst-sol1">
-  <div class="mst-sol1-inner">
-    <div class="mst-sol1-text">
-      <p style="font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#0284c7;margin-bottom:.75rem;">Solution 1</p>
-      <h2>Le Film Solaire Effet Miroir : Voir sans être vu</h2>
-      <p style="color:#475569;font-size:1.05rem;line-height:1.75;">C'est la solution plébiscitée pour les façades et les bureaux en rez-de-chaussée. Grâce à notre gamme de films semi-métallisés, nous transformons vos vitrages en boucliers visuels et thermiques redoutables.</p>
-      <ul class="mst-list">
-        <li>
-          <span class="ck">✓</span>
-          <div><h4>Confidentialité absolue le jour</h4><p>L'effet miroir renvoie l'image de l'extérieur, empêchant quiconque de voir à l'intérieur.</p></div>
-        </li>
-        <li>
-          <span class="ck">✓</span>
-          <div><h4>Anti-éblouissement puissant</h4><p>Réduit les reflets sur vos écrans jusqu'à 67%. Finie la fatigue oculaire en fin de journée.</p></div>
-        </li>
-        <li>
-          <span class="ck">✓</span>
-          <div><h4>Rejet de chaleur (Bonus)</h4><p>Stoppe jusqu'à 65% de l'énergie solaire, soulageant instantanément votre système de climatisation.</p></div>
-        </li>
-        <li>
-          <span class="ck">✓</span>
-          <div><h4>Lumière conservée</h4><p>Vous profitez de la vue extérieure et de la lumière naturelle sans assombrir la pièce de manière excessive.</p></div>
-        </li>
-      </ul>
-    </div>
-    <div class="mst-sol1-img">
-      <img src="open-space-film-miroir-sans-tain.png" alt="Façade extérieure de bureaux au rez-de-chaussée avec film miroir sans tain pour la confidentialité" title="Film miroir sans tain protégeant un open space des regards de la rue">
-    </div>
-  </div>
-</section>
-
-<!-- SOLUTION 2 -->
-<section class="mst-sol2">
-  <div class="mst-sol2-inner">
-    <div class="mst-sol2-text">
-      <p style="font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#0284c7;margin-bottom:.75rem;">Solution 2</p>
-      <h2 style="font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:800;color:#0f172a;margin-bottom:1.25rem;">Salles de réunion & Cloisons intérieures : L'élégance du film dépoli</h2>
-      <p style="color:#475569;font-size:1.05rem;line-height:1.75;margin-bottom:2rem;">Le miroir sans tain est parfait pour l'extérieur, mais pour vos cloisons intérieures ou pour conserver un maximum de luminosité, nous proposons des solutions d'aménagement plus douces et personnalisables.</p>
-      <div style="margin-bottom:1.5rem;">
-        <h4 style="font-size:1.1rem;font-weight:700;color:#0f172a;display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;">🌫️ Le Film Dépoli (Effet Sablé)</h4>
-        <p style="color:#475569;font-size:.95rem;">Il floute la vision tout en laissant passer une lumière diffuse. Idéal pour cloisonner un espace de manière élégante, sans créer de sensation d'enfermement.</p>
-      </div>
-      <div>
-        <h4 style="font-size:1.1rem;font-weight:700;color:#0f172a;display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;">✂️ La Vitrophanie Sur-Mesure</h4>
-        <p style="color:#475569;font-size:.95rem;">Ne couvrez pas toute la vitre ! Nous pouvons réaliser des découpes personnalisées (bandes, formes géométriques, logo de votre entreprise) pour allier confidentialité partielle et identité visuelle forte.</p>
-      </div>
-    </div>
-    <div class="mst-sol2-img">
-      <img src="cloison-bureau-film-depoli-confidentialite.png" alt="Cloison vitrée intérieure de salle de réunion décorée avec des bandes de film dépoli d'intimité" title="Film dépoli sur cloisons de bureau pour la confidentialité des réunions">
-    </div>
-  </div>
-</section>
-<!-- CTA MID -->
-<section class="mst-cta-mid">
-  <h2>Miroir extérieur ou dépoli intérieur ?</h2>
-  <p>Nos experts vous conseillent sur la meilleure solution technique selon l'exposition et l'architecture de vos locaux.</p>
-  <a href="/#contact" class="btn-cyan" style="display:inline-block;">📞 Planifier la visite d'un technicien conseil</a>
-</section>
-
-<!-- INSTALLATION PRO -->
-<section class="mst-install">
-  <div class="mst-install-box">
-    <h2>Une application sans faille, au millimètre près</h2>
-    <p>L'application d'un film de confidentialité en milieu professionnel ne tolère aucune imperfection (bulles, rayures, bords qui se décollent). Notre méthode d'intervention :</p>
-    <div>
-      <div class="inst-feat">
-        <div class="inst-ico">🤫</div>
-        <div><h4 style="font-size:1.05rem;font-weight:700;color:#0f172a;margin-bottom:.25rem;">Pose sans interruption</h4><p style="font-size:.95rem;color:#475569;">Nous intervenons selon vos horaires pour ne pas perturber le travail de vos collaborateurs (matin, soir ou week-end).</p></div>
-      </div>
-      <div class="inst-feat">
-        <div class="inst-ico">🛡️</div>
-        <div><h4 style="font-size:1.05rem;font-weight:700;color:#0f172a;margin-bottom:.25rem;">Scellement périphérique</h4><p style="font-size:.95rem;color:#475569;">Pour les poses de films solaires en extérieur, nous appliquons un joint spécifique pour prévenir toute oxydation.</p></div>
-      </div>
-      <div class="inst-feat">
-        <div class="inst-ico">✨</div>
-        <div><h4 style="font-size:1.05rem;font-weight:700;color:#0f172a;margin-bottom:.25rem;">Finition parfaite</h4><p style="font-size:.95rem;color:#475569;">Que ce soit pour un grand film miroir ou la pose minutieuse d'une vitrophanie découpée, le résultat est optiquement irréprochable.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="mst-faq">
-  <div class="mst-faq-cnt">
-    <h2>Questions fréquentes sur les films anti-regard</h2>
-    <div class="faq-item">
-      <div class="faq-q">L'effet "Miroir sans tain" fonctionne-t-il la nuit ?</div>
-      <div class="faq-a">Le principe du miroir sans tain repose sur le jeu de lumière (le côté le plus lumineux devient un miroir). En journée, l'extérieur étant plus lumineux que vos bureaux, l'effet miroir vous protège. La nuit, si vos bureaux sont éclairés et qu'il fait sombre dehors, l'effet s'inverse. C'est pourquoi nous conseillons le film miroir pour un usage diurne, et le film dépoli si vous cherchez une intimité 24h/24.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Peut-on personnaliser un film dépoli ?</div>
-      <div class="faq-a">Tout à fait. L'application d'un film dépoli n'a pas besoin de recouvrir la totalité de la vitre. Nous créons fréquemment des jeux de bandes, des formes design ou des découpes intégrant votre logo pour habiller vos cloisons tout en structurant l'espace visuel.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Le film miroir va-t-il plonger mes bureaux dans le noir ?</div>
-      <div class="faq-a">Non, la génération actuelle de films solaires semi-métallisés (type argent moyen) est conçue pour bloquer la chaleur et les regards, tout en préservant une excellente transmission de la lumière naturelle. Vos collaborateurs travailleront dans une ambiance lumineuse, mais sans être éblouis.</div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="mst-final">
-  <div style="max-width:700px;margin:0 auto;">
-    <h2>Redonnez à vos équipes l'intimité dont elles ont besoin</h2>
-    <p>Salles de réunion, bureaux en RDC ou vitrines exposées : obtenez un chiffrage rapide et découvrez toutes nos options de personnalisation.</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <a href="/simulateur" class="btn-cyan" style="background:#fff;color:#0284c7;">➜ 📊 Obtenir un Devis Gratuit</a>
-      <a href="/#contact" class="btn-outline">➜ 📅 Demander un rendez-vous conseil</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer-main">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col footer-about">
-        <a href="/" class="nav-logo" style="color:#fff;margin-bottom:1rem;display:block;">Opalis <b style="background:var(--blue);padding:.1rem .35rem;border-radius:5px;">Solaire</b></a>
-        <p>Expert en protection thermique des vitrages. Films solaires haute performance pour professionnels et particuliers en Auvergne-Rhône-Alpes.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/realisations">Nos Réalisations</a></li>
-          <li><a href="/savoir-faire">Notre Savoir-Faire</a></li>
-          <li><a href="/#contact">Demander un devis</a></li>
-          <li><a href="/pose-film-anti-chaleur">Pose Film Anti-Chaleur</a></li>
-          <li><a href="/film-anti-uv-vitrine-transparent">Film Anti-UV Vitrine</a></li>
-          <li><a href="/film-solaire-miroir-sans-tain-bureau">Film Miroir / Dépoli</a></li>
-          <li><a href="/film-anti-chaleur-velux-veranda">Film Velux & Véranda</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Nos Solutions</h4>
-        <ul>
-          <li><a href="/pose-film-anti-chaleur">Pose Film Anti-Chaleur</a></li>
-          <li><a href="/savoir-faire">Notre Savoir-Faire</a></li>
-          <li><a href="/simulateur">Simulateur de Prix</a></li>
-          <li><a href="/realisations">Nos Réalisations</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <div class="footer-contact-info">
-          <div class="footer-contact-item">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-            <a href="tel:+33782852008">07 82 85 20 08</a>
-          </div>
-          <div class="footer-contact-item">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            <a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a>
-          </div>
-          <p style="font-size:.85rem;margin-top:.5rem;">Intervention : Lyon, Valence, Grenoble, Saint-Etienne.</p>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Opalis Solaire. Tous droits réservés.</p>
-      <div class="footer-legal">
-        <a href="/legal">Mentions Légales</a>
-        <a href="/legal">CGV</a>
-      </div>
-    </div>
-  </div>
+  <div class="wrap footer-bottom-new"><span>© 2026 Opalis Solaire</span><span>La technique au service du confort.</span><a href="legal.html">Mentions légales & confidentialité</a><button class="cookie-settings" type="button" data-cookie-settings>Préférences de cookies</button></div>
 </footer>
-
-<script>
-document.getElementById("nav-burger").addEventListener("click",()=>document.getElementById("nav-links").classList.toggle("open"));
-document.querySelectorAll(".faq-item").forEach(item=>{
-  item.querySelector(".faq-q").addEventListener("click",()=>{
-    document.querySelectorAll(".faq-item").forEach(o=>{if(o!==item)o.classList.remove("open");});
-    item.classList.toggle("open");
-  });
-});
-</script>
-<script src="main.js"></script>
-<a href="/#contact" class="sticky-call-btn desktop-only">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-  Appeler maintenant
-</a>
-</body>
-</html>
+<!-- OPALIS_FOOTER_END -->
+</body></html>

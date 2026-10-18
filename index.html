@@ -1,1260 +1,181 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Opalis Solaire | Film Anti-Chaleur Vitrages & Pose Professionnelle</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="description" content="Réduisez la chaleur dans vos bureaux, commerces et habitations grâce à la pose de films anti-chaleur sur vitrages. Intervention régionale, rapide et sans travaux. Demandez votre devis gratuit." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="global.css" />
-  <style>
-    /* Styles spécifiques à la Home Page */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>Installateur de films solaires & sécurité vitrages | Opalis Solaire</title>
+  <meta name="description" content="Installateur de films solaires, anti-éclats et de protection : diagnostic, fourniture et pose sur mesure pour maisons, boutiques et bureaux à Valence, Lyon et en Rhône-Alpes.">
+  <link rel="canonical" href="https://opalissolaire.fr/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Opalis Solaire">
+  <meta property="og:title" content="Installateur de films solaires &amp; sécurité vitrages | Opalis Solaire">
+  <meta property="og:description" content="Installateur de films solaires, anti-éclats et de protection : diagnostic, fourniture et pose sur mesure pour maisons, boutiques et bureaux à Valence, Lyon et en Rhône-Alpes.">
+  <meta property="og:url" content="https://opalissolaire.fr/">
+  <meta property="og:image" content="https://opalissolaire.fr/assets/hero-architecture.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/hero-architecture.webp" fetchpriority="high">
+  <link rel="stylesheet" href="opalis.css">
+  <link rel="stylesheet" href="security-pages.css">
+  <script src="opalis.js" defer></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://opalissolaire.fr/#entreprise","name":"Opalis Solaire","url":"https://opalissolaire.fr/","image":"https://opalissolaire.fr/assets/hero-architecture.webp","telephone":"+33782852008","email":"contact@opalissolaire.fr","areaServed":[{"@type":"AdministrativeArea","name":"Auvergne-Rhône-Alpes"},{"@type":"City","name":"Valence"},{"@type":"City","name":"Lyon"},{"@type":"City","name":"Grenoble"},{"@type":"City","name":"Saint-Étienne"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Films pour vitrages","itemListElement":[{"@type":"OfferCatalog","name":"Films de contrôle solaire et anti-UV"},{"@type":"OfferCatalog","name":"Films de sécurité et anti-graffiti"},{"@type":"OfferCatalog","name":"Films d’intimité et de décoration"}]}}
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<!-- Mesure publicitaire existante conservée -->
 
-    :root {
-      --blue: #1a56db;
-      --blue-dark: #1240b0;
-      --blue-light: #e8f0fe;
-      --amber: #f59e0b;
-      --text: #111827;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --bg: #ffffff;
-      --bg-alt: #f9fafb;
-      --radius: 10px;
-      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body { padding-top: 70px; 
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    /* ROI Section styles... */
-
-    /* ── ROI SECTION ── */
-    #roi { background: #0f172a; padding: 5rem 1.25rem; }
-    .roi-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      border-radius: 16px;
-      overflow: hidden;
-      margin-top: 3rem;
-      border: 1px solid #1e293b;
-    }
-    @media (max-width: 700px) { .roi-grid { grid-template-columns: 1fr; } }
-    .roi-card {
-      background: #111827;
-      padding: 3.5rem 2rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-    .roi-card + .roi-card { border-left: 1px solid #1e293b; }
-    @media (max-width: 700px) { .roi-card + .roi-card { border-left: none; border-top: 1px solid #1e293b; } }
-    .roi-num {
-      font-size: clamp(2.8rem, 7vw, 4.5rem);
-      font-weight: 800;
-      color: #60a5fa;
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-    .roi-label { font-size: 0.95rem; color: #64748b; line-height: 1.5; max-width: 220px; }
-    #roi h2 { color: #fff; margin-bottom: 0.5rem; }
-    #roi .section-label { color: #60a5fa; }
-    #roi > .container > p { color: #64748b; font-size: 1rem; max-width: 520px; }
-
-    /* ── CONFORT VISUEL ── */
-    #confort-visuel {}
-    .split-visual {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border-radius: 14px;
-      overflow: hidden;
-      margin-top: 2.5rem;
-      border: 1px solid var(--border);
-    }
-    @media (max-width: 640px) { .split-visual { grid-template-columns: 1fr; } }
-    .split-side { position: relative; aspect-ratio: 4/3; overflow: hidden; }
-    .split-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .split-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 1rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-      color: #fff;
-    }
-    .split-caption strong { display: block; font-size: 0.95rem; font-weight: 700; }
-    .split-caption span { font-size: 0.8rem; opacity: 0.85; }
-    .split-divider {
-      width: 3px;
-      background: #fff;
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .split-divider-badge {
-      background: var(--blue);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      padding: 0.3rem 0.5rem;
-      border-radius: 4px;
-      writing-mode: vertical-rl;
-      white-space: nowrap;
-    }
-    .confort-text {
-      max-width: 680px;
-      margin: 2rem auto 0;
-      text-align: center;
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.7;
-      padding: 1.25rem 1.5rem;
-      background: var(--blue-light);
-      border-radius: 10px;
-      border: 1px solid #bfdbfe;
-    }
-    .confort-text strong { color: var(--blue); }
-
-    /* ── SECTIONS ── */
-    section { padding: 4rem 1.25rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--blue);
-      margin-bottom: 0.75rem;
-    }
-    h1, h2, h3 { line-height: 1.25; }
-    h2 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    p { color: var(--muted); }
-    .text-dark { color: var(--text); }
-
-    /* ── HERO ── */
-    #hero {
-      background: linear-gradient(160deg, #f0f6ff 0%, #ffffff 60%);
-      padding: 5rem 1.25rem 4rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .hero-inner {
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: var(--blue-light);
-      color: var(--blue);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
-      margin-bottom: 1.25rem;
-    }
-    h1 {
-      font-size: clamp(1.9rem, 5vw, 2.8rem);
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 1rem;
-    }
-    h1 em { font-style: normal; color: var(--blue); }
-    .hero-sub {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 2rem;
-    }
-    .hero-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--blue);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 0.85rem 1.75rem;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.15s, transform 0.1s;
-    }
-    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
-    .btn-secondary {
-      background: transparent;
-      color: var(--blue);
-      border: 2px solid var(--blue);
-      border-radius: 8px;
-      padding: 0.85rem 1.75rem;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-    .btn-secondary:hover { background: var(--blue-light); }
-    .hero-trust {
-      margin-top: 2rem;
-      font-size: 0.82rem;
-      color: #9ca3af;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .hero-trust span::before { content: "✓ "; color: #22c55e; font-weight: 700; }
-
-    /* ── PROBLEM ── */
-    #problem { background: var(--bg-alt); border-bottom: 1px solid var(--border); }
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-    .problem-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-    }
-    .problem-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-    .problem-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
-    .problem-card p { font-size: 0.9rem; }
-
-    /* ── SOLUTION ── */
-    #solution {}
-    .solution-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    @media (max-width: 680px) { .solution-inner { grid-template-columns: 1fr; gap: 2rem; } }
-    .solution-visual {
-      background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
-      border-radius: 12px;
-      aspect-ratio: 4/3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      border: 1px solid #bfdbfe;
-    }
-    .solution-list { list-style: none; margin-top: 1.25rem; }
-    .solution-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      margin-bottom: 0.85rem;
-      font-size: 0.95rem;
-      color: var(--text);
-    }
-    .solution-list li::before {
-      content: "✓";
-      background: #dcfce7;
-      color: #16a34a;
-      font-weight: 800;
-      font-size: 0.75rem;
-      border-radius: 50%;
-      width: 1.3rem;
-      height: 1.3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* ── BENEFITS ── */
-    #benefits { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-    .benefit-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      text-align: center;
-    }
-    .benefit-icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
-    .benefit-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text); }
-    .benefit-card p { font-size: 0.85rem; }
-
-    /* ── POUR QUI ── */
-    #pourqui {}
-    .pourqui-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .pourqui-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem 1.75rem;
-      border-top: 3px solid var(--blue);
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .pourqui-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0; color: var(--text); }
-    .pourqui-desc { font-size: 0.95rem; line-height: 1.7; color: var(--muted); }
-    .pourqui-cta {
-      display: inline-block;
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--blue);
-      text-decoration: none;
-      border-bottom: 2px solid var(--blue-light);
-      padding-bottom: 2px;
-      transition: border-color 0.15s;
-    }
-    .pourqui-cta:hover { border-color: var(--blue); }
-
-    /* ── PROCESS ── */
-    #process { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0.75rem;
-    }
-    .step-num {
-      background: var(--blue);
-      color: #fff;
-      width: 2.4rem;
-      height: 2.4rem;
-      border-radius: 50%;
-      font-weight: 800;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .step h3 { font-size: 1rem; font-weight: 700; color: var(--text); }
-    .step p { font-size: 0.875rem; max-width: 220px; }
-
-    /* ── REASSURANCE ── */
-    #reassurance {}
-    .reassurance-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-    .reassurance-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      transition: background 0.18s, border-color 0.18s, transform 0.18s, box-shadow 0.18s;
-    }
-    .reassurance-card:hover {
-      background: var(--blue-light);
-      border-color: #bfdbfe;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(26,86,219,0.1);
-    }
-    .reassurance-card:hover .reassurance-icon svg { stroke: var(--blue-dark); }
-    .reassurance-icon { font-size: 1.6rem; flex-shrink: 0; }
-    .reassurance-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--text); }
-    .reassurance-card p { font-size: 0.85rem; }
-
-    /* ── FORM ── */
-    #contact { background: linear-gradient(160deg, #f0f6ff 0%, #ffffff 100%); border-top: 1px solid var(--border); }
-    .form-wrapper {
-      max-width: 560px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .form-wrapper h2 { margin-bottom: 0.5rem; }
-    .form-wrapper > p { font-size: 0.95rem; margin-bottom: 2rem; }
-    form { display: flex; flex-direction: column; gap: 1rem; text-align: left; }
-    label { font-size: 0.85rem; font-weight: 600; color: var(--text); display: block; margin-bottom: 0.3rem; }
-    input, textarea, select {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-family: inherit;
-      color: var(--text);
-      background: #fff;
-      transition: border-color 0.15s;
-      outline: none;
-    }
-    input:focus, textarea:focus, select:focus { border-color: var(--blue); }
-    textarea { resize: vertical; min-height: 100px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
-    .btn-submit {
-      width: 100%;
-      background: var(--blue);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 1rem;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
-      margin-top: 0.5rem;
-    }
-    .btn-submit:hover { background: var(--blue-dark); transform: translateY(-1px); }
-    .form-note { text-align: center; font-size: 0.8rem; color: #9ca3af; margin-top: 0.5rem; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #111827;
-      color: #9ca3af;
-      padding: 2rem 1.25rem;
-      text-align: center;
-      font-size: 0.85rem;
-    }
-    footer strong { color: #fff; }
-
-    /* ── SUCCESS ── */
-    #success-msg {
-      display: none;
-      background: #dcfce7;
-      border: 1px solid #86efac;
-      border-radius: 10px;
-      padding: 1.5rem;
-      text-align: center;
-      color: #15803d;
-      font-weight: 600;
-    }
-
-    /* ── NEW FORM FIELDS ── */
-    .hidden-field { display: none; margin-top: 0.5rem; }
-    .radio-group { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
-    .radio-item {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      background: #fff;
-      border: 1px solid var(--border);
-      padding: 0.4rem 0.75rem;
-      border-radius: 6px;
-    }
-    .radio-item input { width: auto; margin: 0; cursor: pointer; }
-    .radio-item:hover { border-color: var(--blue); background: var(--blue-light); }
-
-    .btn-small {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.5rem 0.8rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .btn-small:hover { border-color: var(--blue); color: var(--blue); }
-
-    .calc-container {
-      background: var(--blue-light);
-      padding: 1rem;
-      border-radius: 8px;
-      border: 1px solid #bfdbfe;
-      margin-top: 0.75rem;
-    }
-    .calc-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-    }
-    .calc-row label { font-size: 0.7rem; color: var(--blue-dark); margin-bottom: 0.2rem; }
-    .calc-row input { padding: 0.4rem 0.6rem; font-size: 0.85rem; }
-  </style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17195022553"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17195022553');
-</script>
+<script id="page-seo" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","@id":"https://opalissolaire.fr/#questions","mainEntity":[{"@type":"Question","name":"Un film solaire va-t-il assombrir ma pièce ?","acceptedAnswer":{"@type":"Answer","text":"Il existe des films presque invisibles, des neutres et des miroirs plus teintés. Tous modifient la transmission lumineuse à un degré différent. Nous choisissons avec vous l’équilibre adapté entre lumière, éblouissement et protection solaire. Le comparateur présente quatre références et leurs valeurs fabricant."}},{"@type":"Question","name":"Peut-on poser un film sur n’importe quel vitrage ?","acceptedAnswer":{"@type":"Answer","text":"La compatibilité se vérifie avant la pose : simple ou double vitrage, traitement existant, verre feuilleté, orientation et ombrages influencent le choix. Selon la référence et le support, la pose est intérieure ou extérieure. Il n’existe pas de film universel adapté à tous les cas."}},{"@type":"Question","name":"Quelle différence entre film solaire et film de sécurité ?","acceptedAnswer":{"@type":"Answer","text":"Le film solaire agit sur les apports solaires, les UV et l’éblouissement. Le film de sécurité vise notamment à maintenir les fragments de verre en cas de bris. Certaines références combinent plusieurs fonctions. Les classements dépendent du système testé. Trouver la protection adaptée à mon vitrage."}},{"@type":"Question","name":"Le film miroir protège-t-il des regards la nuit ?","acceptedAnswer":{"@type":"Answer","text":"L’effet miroir dépend de la différence de lumière entre les deux côtés du vitrage. Si l’intérieur est éclairé et l’extérieur sombre, l’intimité peut s’inverser. Pour une confidentialité permanente, nous étudions notamment un film dépoli ou une solution adaptée à l’usage."}},{"@type":"Question","name":"Combien vais-je gagner en température ou en énergie ?","acceptedAnswer":{"@type":"Answer","text":"Le résultat dépend du climat, de l’exposition, des surfaces vitrées, du vitrage, des ombrages et des équipements. Nous ne promettons pas un nombre de degrés ou une économie universelle. Une étude avec des hypothèses explicites permet d’évaluer l’intérêt de la solution pour votre bâtiment."}},{"@type":"Question","name":"Où intervenez-vous et comment obtenir un devis ?","acceptedAnswer":{"@type":"Answer","text":"Nous intervenons pour les particuliers et les professionnels en Auvergne-Rhône-Alpes, notamment à Valence, Lyon, Grenoble et Saint-Étienne. Appelez le 07 82 85 20 08 ou décrivez votre projet dans le formulaire. Le devis est gratuit et sans engagement."}}]}]}</script>
 </head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo-wrap">
-      <span class="nav-logo">Opalis <b>Solaire</b></span>
-      <span class="nav-slogan">Expert en protection thermique des vitrages.</span>
-    </a>
-    <button class="nav-burger" id="nav-burger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-
-      <li><a href="/">Accueil</a></li>
-      <li><a href="/realisations">Nos Réalisations</a></li>
-      <li><a href="/savoir-faire">Notre Savoir-Faire</a></li>
-      <li><a href="/simulateur" class="nav-cta-alt">Estimation en ligne</a></li>
-      <li class="mobile-only"><a href="/#contact" class="nav-cta">📞 Appel immédiat</a></li>
-    </ul>
-    <a href="/#contact" class="nav-cta desktop-only">⚡ Devis rapide par téléphone</a>
+<body class="opalis-site">
+<div class="page-progress" aria-hidden="true"></div>
+<!-- OPALIS_HEADER_START -->
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Opalis Solaire, accueil"><svg class="brand-symbol" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M22 1v7m0 28v7M1 22h7m28 0h7M7.15 7.15l4.95 4.95m19.8 19.8 4.95 4.95M7.15 36.85l4.95-4.95m19.8-19.8 4.95-4.95" stroke="currentColor" stroke-width="1.6"/></svg><span class="brand-name">opalis<span>solaire</span></span></a>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="site-menu" aria-expanded="false"><span></span><span></span></button>
+    <div class="site-menu" id="site-menu" role="navigation" aria-label="Navigation principale">
+      <details class="nav-dropdown"><summary>Vos besoins <span aria-hidden="true">⌄</span></summary><div class="mega-menu"><div class="mega-intro"><p class="mega-eyebrow">Une solution posée pour vous</p><p>Qu’est-ce qui vous<br><em>changerait la vie ?</em></p><span>Nous étudions vos vitrages, fournissons le film adapté et réalisons la pose.</span><a href="savoir-faire.html#diagnostic">M’aider à choisir ↗</a></div><div class="mega-links"><a href="pose-film-anti-chaleur.html"><strong>Réduire la chaleur & l’éblouissement</strong><span>Films solaires pour maisons et locaux</span></a><a href="film-securite-vitrage-maison.html"><strong>Sécuriser les vitrages de ma maison</strong><span>Renforcer une fenêtre sans remplacer tout le vitrage</span></a><a href="film-anti-effraction-vitrine-commerce.html"><strong>Protéger une vitrine de commerce</strong><span>Films de sécurité selon le risque visé</span></a></div><div class="mega-links"><a href="mise-en-securite-vitrage-casse.html"><strong>Mettre en sécurité un vitrage cassé</strong><span>Une solution provisoire à étudier après un bris</span></a><a href="film-anti-uv-vitrine-transparent.html"><strong>Limiter l’exposition aux UV</strong><span>Mobilier, marchandises et vitrines</span></a><a href="film-anti-graffiti-vitrage.html"><strong>Protéger des tags & des rayures</strong><span>Une protection de surface remplaçable</span></a></div></div></details>
+      <details class="nav-dropdown"><summary>Votre espace <span aria-hidden="true">⌄</span></summary><div class="mega-menu"><div class="mega-intro"><p class="mega-eyebrow">Du lieu à la solution</p><p>Votre espace.<br><em>Nos réponses.</em></p><span>Une maison, une boutique et un bâtiment de bureaux ne demandent pas la même approche.</span><a href="index.html#contact">Décrire mon projet ↗</a></div><div class="mega-links"><a href="particuliers.html"><strong>Ma maison ou mon appartement</strong><span>Pièces de vie, baies vitrées et intimité</span></a><a href="film-anti-chaleur-velux-veranda.html"><strong>Ma véranda ou ma fenêtre de toit</strong><span>Retrouver le confort sous le soleil</span></a><a href="commerces.html"><strong>Ma boutique & ma vitrine</strong><span>Anti-éclats, protection renforcée, solaire et UV</span></a></div><div class="mega-links"><a href="professionnels.html"><strong>Mes bureaux ou mon bâtiment</strong><span>Un accompagnement pour les professionnels</span></a><a href="professionnels.html?categorie=intimite#gammes-pro"><strong>Mes cloisons & espaces confidentiels</strong><span>Réunions, accueil et confidentialité</span></a><a href="professionnels.html?categorie=specialites#gammes-pro"><strong>Un besoin technique particulier</strong><span>Anti-buée, surfaces et applications spécifiques</span></a></div></div></details>
+      <details class="nav-dropdown"><summary>Nos réalisations <span aria-hidden="true">⌄</span></summary><div class="mega-menu"><div class="mega-intro"><p class="mega-eyebrow">Des chantiers à découvrir</p><p>Avant. Après.<br><em>Concrètement.</em></p><span>Explorez les photos et les détails de nos interventions.</span><a href="realisations.html">Tous les avant / après ↗</a></div><div class="mega-links"><a href="projet-baie-vitree-salon.html"><strong>Baie vitrée de salon</strong><span>Maison · Confort et intimité</span></a><a href="projet-velux.html"><strong>Fenêtre de toit</strong><span>Maison · Protection solaire</span></a><a href="projet-verriere-toit.html"><strong>Verrière de toiture</strong><span>Confort sous les vitrages</span></a></div><div class="mega-links"><a href="projet-open-space-lyon.html"><strong>Hall d’entreprise</strong><span>Professionnels · Film miroir</span></a><a href="projet-batiment-tertiaire.html"><strong>Façade de bâtiment tertiaire</strong><span>Professionnels · Contrôle solaire</span></a><a href="projet-sas-entree-vitre.html"><strong>Sas d’entrée vitré</strong><span>Professionnels · Discrétion et lumière</span></a></div></div></details>
+      <details class="nav-dropdown"><summary>Notre accompagnement <span aria-hidden="true">⌄</span></summary><div class="mega-menu mega-menu-compact"><div class="mega-intro"><p class="mega-eyebrow">Votre installateur</p><p>Conseiller.<br>Fournir. <em>Poser.</em></p><span>Un interlocuteur pour faire les bons choix et soigner leur mise en œuvre.</span><a href="tel:+33782852008">07 82 85 20 08 ↗</a></div><div class="mega-links"><a href="savoir-faire.html#demarche"><strong>Notre démarche sur mesure</strong><span>Du diagnostic à la pose</span></a><a href="savoir-faire.html#mise-en-oeuvre"><strong>Notre savoir-faire de pose</strong><span>Préparation, application et finitions</span></a><a href="index.html#explorateur"><strong>Explorer les rendus</strong><span>Teintes et lumière, en images</span></a></div><div class="mega-links"><a href="simulateur.html"><strong>Estimer mon budget</strong><span>Une première indication, avant l’étude</span></a><a href="efficacite-film-solaire.html"><strong>L’efficacité réelle des films</strong><span>Mesures, études et conditions du résultat</span></a><a href="index.html#contact"><strong>Demander un devis gratuit</strong><span>Parlons de votre besoin</span></a></div></div></details>
+      <a class="mobile-contact" href="tel:+33782852008">07 82 85 20 08</a>
+    </div>
+    <div class="header-actions"><a class="header-phone" href="tel:+33782852008" aria-label="Appeler le 07 82 85 20 08"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.6 1.7L8.7 10.5a16 16 0 0 0 4.8 4.8l1.3-1.3a2 2 0 0 1 1.7-.6l2.8.5a2 2 0 0 1 1.7 2Z"/></svg><span>07 82 85 20 08</span></a><a class="header-cta" href="index.html#contact">Devis & conseil <span aria-hidden="true">↗</span></a></div>
   </div>
-</nav>
+<noscript><style>.menu-toggle{display:none!important}.site-header .header-inner{height:auto;min-height:74px;flex-wrap:wrap;padding-block:16px}.site-menu{display:block!important;position:static!important;width:100%;max-height:none;order:3;padding:0}.nav-dropdown>summary{padding:15px 0}.site-menu .mega-menu{position:static;box-shadow:none}.contact-form{display:none}.audience-panel[hidden]{display:grid!important}</style></noscript>
+</header>
+<!-- OPALIS_HEADER_END -->
+<main id="main">
+  <section class="home-hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="tiny-dot"></span> Votre installateur · Conseil, fourniture & pose</p>
+          <h1 id="hero-title">Des vitrages<br>plus confortables.<br><em>Mieux protégés.</em></h1>
+          <p class="hero-lead"><strong>Pose de films solaires, anti-éclats et de protection.</strong>Votre maison chauffe ? Votre vitrine mérite d’être mieux protégée ? Nous étudions votre besoin, fournissons le film adapté et réalisons la pose à Valence, Lyon et en Rhône-Alpes.</p>
+          <div class="hero-buttons"><a class="button button-dark" href="#votre-projet">Trouver ma solution <span aria-hidden="true">↗</span></a><a class="text-link" href="#contact">Demander un devis <span aria-hidden="true">↗</span></a></div>
+          <div class="hero-bottom"><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 10 4 4 8-8"/></svg> Étude sur mesure</span><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 10 4 4 8-8"/></svg> Pose professionnelle</span><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 10 4 4 8-8"/></svg> Devis gratuit</span></div>
+        </div>
+        <figure class="hero-visual">
+          <img src="assets/hero-architecture.webp" fetchpriority="high" alt="Grande baie vitrée d’une maison contemporaine ouverte sur un paysage ensoleillé" decoding="async" width="1536" height="1024">
+          <span class="hero-image-tag">Le bon conseil. Le bon film. La bonne pose.</span><span class="hero-coordinate" aria-hidden="true"></span>
+          <div class="glass-note"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="m9 12 19-6 8 24-19 7Z"/><path d="m5 16 19-6 8 24-19 7Z"/><path d="m14 21 4 4 7-9"/></svg><div><p>Un film discret.<br>Une différence au quotidien.</p><small>Sur vos vitrages existants, sans les remplacer.</small></div><span aria-hidden="true">↗</span></div>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg-overlay"></div>
-  <img src="poseur-film.jpg" class="hero-bg-img" alt="Pose professionnelle de film solaire anti-chaleur sur baie vitrée par un technicien expert" title="Installation de film anti-chaleur sur vitrage par un expert Opalis Solaire">
-  <div class="hero-inner" style="position: relative; z-index: 2;">
-    <span class="hero-badge">📍 Valence • Lyon • Auvergne-Rhône-Alpes</span>
-    <h1 style="color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.4);">Réduisez jusqu’à -8°C dans vos bureaux<br/><em style="color: #60a5fa;">sans climatisation</em></h1>
-    <p class="hero-sub" style="color: rgba(255,255,255,0.92); text-shadow: 0 1px 4px rgba(0,0,0,0.35); font-size: 1.15rem; font-weight: 500; max-width: 600px; margin: 0 auto 1.5rem;">Fourniture et pose experte de films solaires anti-chaleur. Baissez la température de 5 à 8°C et réduisez vos factures de climatisation dès les premiers jours.</p>
-    <p style="color: #fff; font-weight: 700; margin-bottom: 2.5rem; display: inline-block; background: rgba(26,86,219,0.3); padding: 0.5rem 1.25rem; border-radius: 6px; border: 1px solid rgba(96,165,250,0.4);">🚀 Intervention sous 72h en Rhône-Alpes</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary" id="hero-audit-btn">🎯 Demander un Audit Gratuit</a>
-      <a href="/simulateur" class="btn-secondary" id="hero-budget-btn" style="background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.7); backdrop-filter: blur(4px);">Calculer mon budget</a>
+        </figure>
+      </div>
+      <div class="hero-index" aria-hidden="true"><span>Installateur de solutions pour vitrages</span><span class="index-rule"></span><span>Défiler pour découvrir ↓</span></div>
     </div>
-    <div class="hero-trust" style="color: rgba(255,255,255,0.9);">
-      <span><strong>Devis chiffré sous 24h</strong></span>
-      <span><strong>Pose sans interruption d'activité</strong></span>
-      <span><strong>Résultat immédiat garanti</strong></span>
+  </section>
+  <div class="quick-access"><div class="wrap quick-access-inner"><span class="quick-access-label">Accès direct</span><a href="commerces.html">Boutique & vitrine <span aria-hidden="true">↗</span></a><a href="film-securite-vitrage.html#anti-eclats">Protection anti-éclats <span aria-hidden="true">↗</span></a><a href="film-securite-vitrage.html#protection-renforcee">Protection renforcée <span aria-hidden="true">↗</span></a><a href="pose-film-anti-chaleur.html">Trop chaud derrière les vitres <span aria-hidden="true">↗</span></a></div></div>
+  <section class="need-section" id="votre-projet" aria-labelledby="needs-title"><div class="wrap"><div class="section-top reveal"><div><p class="eyebrow">Commencez par ce qui compte pour vous</p><h2 class="section-heading" id="needs-title">Votre problème est concret.<br><em>La solution aussi.</em></h2></div><p>Vous n’avez pas besoin de connaître une référence de film. Dites-nous ce qui vous gêne : nous nous occupons du choix technique et de la pose.</p></div><div class="need-toolbar"><p>Je cherche une solution pour…</p><div class="need-tabs" role="group" aria-label="Filtrer les solutions selon votre espace"><button type="button" data-space="tous" aria-pressed="true">Tout voir</button><button type="button" data-space="maison" aria-pressed="false">Ma maison</button><button type="button" data-space="boutique" aria-pressed="false">Ma boutique</button><button type="button" data-space="locaux" aria-pressed="false">Mes locaux</button></div></div><div class="need-grid">
+    <a class="need-card reveal" data-spaces="maison boutique locaux" href="pose-film-anti-chaleur.html"><svg class="need-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="16" cy="16" r="6"/><path d="M16 2v4m0 20v4M2 16h4m20 0h4M6 6l3 3m14 14 3 3M6 26l3-3M23 9l3-3"/></svg><span class="need-arrow" aria-hidden="true">↗</span><h3>Il fait trop chaud derrière mes vitres.</h3><p>Réduire les apports solaires et l’éblouissement, avec un rendu adapté à votre besoin de lumière.</p></a>
+    <a class="need-card reveal" data-spaces="maison boutique locaux" href="film-securite-vitrage.html#anti-eclats"><svg class="need-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M16 3 27 7v10c0 7-11 12-11 12S5 24 5 17V7Z"/><path d="m11 16 4 4 7-9"/></svg><span class="need-arrow" aria-hidden="true">↗</span><h3>Je veux limiter les éclats en cas de bris.</h3><p>Un film transparent pour aider à maintenir les fragments et renforcer la sécurité des personnes.</p></a>
+    <a class="need-card reveal" data-spaces="boutique locaux" href="film-securite-vitrage.html#protection-renforcee"><svg class="need-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 4h20v24H6ZM9 7h14v18H9M16 11v10m-5-5h10"/></svg><span class="need-arrow" aria-hidden="true">↗</span><h3>Je souhaite mieux protéger ma vitrine contre la casse.</h3><p>Une protection renforcée à étudier selon les chocs redoutés, le vitrage et sa fixation.</p></a>
+    <a class="need-card reveal" data-spaces="maison boutique locaux" href="film-anti-uv-vitrine-transparent.html"><svg class="need-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M5 5h22v22H5M13 5v22M17 9l6 6m-6 1 6 6M2 10h6m-6 7h6m-6 7h6"/></svg><span class="need-arrow" aria-hidden="true">↗</span><h3>Le soleil abîme mes meubles ou mes produits.</h3><p>Limiter l’exposition aux UV et ralentir une des causes de décoloration, sans masquer votre espace.</p></a>
+    <a class="need-card reveal" data-spaces="maison boutique locaux" href="film-solaire-miroir-sans-tain-bureau.html"><svg class="need-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M4 7h24v18H4M9 7v18m5-18v18m5-18v18m5-18v18"/></svg><span class="need-arrow" aria-hidden="true">↗</span><h3>J’ai besoin de plus d’intimité.</h3><p>Dépolis, effets miroir ou décors pour doser les regards et préserver la lumière.</p></a>
+    <a class="need-card reveal" data-spaces="boutique locaux" href="film-anti-graffiti-vitrage.html"><svg class="need-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 4h20v24H6M10 11l11 9m-9-11 10 9M6 28l20-4"/></svg><span class="need-arrow" aria-hidden="true">↗</span><h3>Mes vitrages subissent des tags ou des rayures.</h3><p>Une protection transparente que l’on entretient ou remplace selon la dégradation.</p></a>
+  </div><p class="need-summary" id="need-summary" role="status">6 points de départ. Un seul interlocuteur pour étudier et poser votre solution.</p></div></section>
+  <div class="installer-band"><div class="wrap installer-band-inner"><h2>Votre projet ne s’arrête pas<br>au choix d’un film.</h2><div class="installer-step"><span>01</span><div><h3>Nous vous conseillons.</h3><p>Votre lieu, vos priorités, vos contraintes.</p></div></div><div class="installer-step"><span>02</span><div><h3>Nous fournissons.</h3><p>Un film sélectionné pour votre vitrage.</p></div></div><div class="installer-step"><span>03</span><div><h3>Nous posons.</h3><p>Préparation, application et finitions.</p></div></div></div></div>
+  <section class="section range-section" id="gammes" aria-labelledby="ranges-title">
+    <div class="wrap">
+      <div class="section-top reveal"><div><p class="eyebrow">Des solutions qui s’adaptent à votre quotidien</p><h2 class="section-heading" id="ranges-title">Une fine couche.<br>Une <em>grande différence.</em></h2></div><p>Le soleil, les regards, les petits accidents du quotidien : un film technique transforme votre vitrage existant, selon ce qui compte pour vous.</p></div>
+      <div class="range-grid">
+        <a class="range-card reveal" href="#explorateur"><div class="range-image"><img src="assets/hero-architecture.webp" loading="lazy" alt="Baie vitrée lumineuse, illustration des usages du film solaire" decoding="async" width="1536" height="1024"><span class="range-number">01 / CONFORT</span><span class="range-arrow" aria-hidden="true">↗</span></div><h3>Maîtriser le soleil.</h3><p>Réduire les apports de chaleur et l’éblouissement. Filtrer les UV, en choisissant la lumière que vous laissez entrer.</p><div class="range-tags"><span>Anti-chaleur</span><span>Anti-UV</span><span>Confort visuel</span></div></a>
+        <a class="range-card reveal" href="film-securite-vitrage.html"><div class="range-image"><div class="security-art" role="img" aria-label="Illustration de couches de film transparent renforçant la protection d’un vitrage"><div class="art-grid"></div><div class="pane"></div><div class="pane"></div><div class="pane"></div><span class="art-label">Protection discrète / multicouche</span></div><span class="range-number">02 / SÉRÉNITÉ</span><span class="range-arrow" aria-hidden="true">↗</span></div><h3>Renforcer la protection.</h3><p>Maintenir les fragments en cas de bris et adapter la résistance au risque. Une préconisation et une pose adaptées au niveau de protection recherché.</p><div class="range-tags"><span>Sécurité</span><span>Anti-graffiti</span></div></a>
+        <a class="range-card reveal" href="professionnels.html?categorie=intimite#gammes-pro"><div class="range-image"><img src="assets/cloison-bureau-film-depoli-confidentialite.webp" loading="lazy" alt="Cloison de bureau avec un film dépoli pour préserver la confidentialité" decoding="async" width="1024" height="1024"><span class="range-number">03 / LIBERTÉ</span><span class="range-arrow" aria-hidden="true">↗</span></div><h3>Préserver votre intimité.</h3><p>Transparent, neutre, miroir, dépoli ou coloré. Habiller les espaces et doser les regards avec le bon rendu.</p><div class="range-tags"><span>Confidentialité</span><span>Décoration</span></div></a>
+      </div>
     </div>
+  </section>
+  <section class="section shop-spotlight" aria-labelledby="shop-title"><div class="wrap split-grid"><figure class="shop-visual reveal"><img src="assets/protection-anti-uv-vitrine-magasin.webp" loading="lazy" alt="Vitrine de boutique lumineuse, illustration des besoins de protection des commerces" decoding="async" width="1024" height="1024"><div class="shop-annotation"><span>Boutiques & vitrines</span><p>Être visible depuis la rue.<br>Protéger ce qui compte à l’intérieur.</p></div></figure><div class="shop-copy reveal"><p class="eyebrow">Vous possédez une boutique ?</p><h2 class="section-heading" id="shop-title">Une vitrine accueillante.<br><em>Une protection réfléchie.</em></h2><p>Vous cherchez une protection anti-éclats ou renforcée contre la casse ? Nous distinguons ces objectifs, étudions votre vitrine et vous proposons une solution fournie et posée, adaptée à votre commerce.</p><div class="shop-priorities"><a href="commerces.html#anti-eclats">Retenir les éclats ↗<span>Limiter la dispersion du verre après un bris.</span></a><a href="commerces.html#protection-renforcee">Renforcer la protection ↗<span>Étudier les chocs visés et l’ensemble vitré.</span></a><a href="commerces.html#soleil-uv">Gérer le soleil & les UV ↗<span>Améliorer le confort et préserver les produits.</span></a><a href="film-anti-graffiti-vitrage.html">Protéger la surface ↗<span>Prévoir l’entretien ou le remplacement du film.</span></a></div><a class="button button-dark" href="commerces.html">Les solutions pour ma boutique <span aria-hidden="true">↗</span></a></div></div></section>
+  <section class="explorer-section" id="explorateur" aria-labelledby="explorer-title">
+    <div class="wrap">
+      <div class="section-top reveal"><div><p class="eyebrow">Projetez-vous, nous nous chargeons de la technique</p><h2 class="section-heading" id="explorer-title">Quelle lumière<br><em>vous ressemble ?</em></h2></div><p>Clair, neutre ou miroir : explorez les ambiances. Le rendu vous plaît ? Nous vérifions ensuite le film adapté à votre vitrage et à votre exposition.</p></div>
+      <div class="explorer-shell reveal">
+        <div class="tint-preview" data-comparison>
+          <img src="assets/vue-interieure-lumineuse-film-anti-chaleur.webp" loading="lazy" alt="Vue intérieure lumineuse pour illustrer la différence d’ambiance entre les teintes de films" decoding="async" width="1024" height="1024">
+          <div class="tint-layer" aria-hidden="true"></div><span class="preview-tag preview-tag-before">Sans film</span><span class="preview-tag preview-tag-after" id="preview-film-name">Avec film · Clair</span><div class="comparison-line" aria-hidden="true"></div>
+          <label class="sr-only" for="tint-comparison">Déplacer la séparation entre le vitrage sans film et l’aperçu avec film</label><input class="comparison-range" id="tint-comparison" type="range" min="0" max="100" value="50" aria-valuetext="50 % de l’image sans film">
+          <span class="preview-instruction">Glissez pour comparer · Aperçu de teinte indicatif</span>
+        </div>
+        <div class="explorer-controls">
+          <p class="eyebrow">Sélectionnez votre ambiance</p>
+          <div class="film-choices" role="group" aria-label="Choisir un film solaire"><button type="button" class="film-choice" data-film="clarity" aria-pressed="true"><span class="swatch" aria-hidden="true"></span>Presque invisible</button><button type="button" class="film-choice" data-film="titane" aria-pressed="false"><span class="swatch" aria-hidden="true"></span>Neutre léger</button><button type="button" class="film-choice" data-film="natural" aria-pressed="false"><span class="swatch" aria-hidden="true"></span>Neutre teinté</button><button type="button" class="film-choice" data-film="silver" aria-pressed="false"><span class="swatch" aria-hidden="true"></span>Miroir argent</button></div>
+          <div id="film-details" aria-live="polite" aria-atomic="true"><h3 class="film-title" id="film-title">La discrétion, en grand.</h3><p class="film-reference" id="film-reference">Un exemple d’ambiance presque invisible</p><p class="film-description" id="film-description">Vous voulez garder une pièce lumineuse et l’aspect de vos vitres ? Des films solaires très clairs permettent de travailler le confort sans choisir un effet miroir marqué.</p></div>
+          <a class="film-cta" href="#contact" data-need="solaire">Étudier ce rendu pour mon projet <span aria-hidden="true">↗</span></a>
+          <details class="film-data-toggle"><summary>Un exemple de performances, pour comprendre</summary><div class="film-stats"><div class="film-stat"><strong id="film-light">71 %</strong><span>de lumière visible<br>transmise</span></div><div class="film-stat"><strong id="film-solar">50 %</strong><span>d’énergie solaire<br>totale rejetée</span></div><div class="film-stat"><strong id="film-uv">99 %</strong><span>des rayons UV<br>rejetés</span></div></div><p class="film-baseline">Exemple : <span id="film-tech-reference">CLARITY 333 XC</span>, pose extérieure. Sur le même simple vitrage clair 3 mm sans film : 91 % de lumière transmise, 12 % d’énergie solaire rejetée, 25 % d’UV rejetés.</p><a class="film-source" id="film-source" href="https://solarscreen.eu/fr/products/clarity-333-xc/" target="_blank" rel="noopener noreferrer">Source de ces valeurs : Solar Screen <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet)</span></a></details>
+        </div>
+      </div>
+      <div class="explorer-footnote"><p>Données Solar Screen sur simple vitrage clair de 3 mm. Le rendu à l’écran est illustratif. Les performances et la compatibilité dépendent du vitrage et de la configuration ; ces pourcentages ne sont pas une baisse de température intérieure.</p><a href="#contact" data-need="solaire">Et pour mon vitrage ? ↗</a></div>
+      <noscript><p class="explorer-footnote">Le comparateur interactif nécessite JavaScript. Retrouvez les quatre références et leurs fiches sur <a href="https://solarscreen.eu/fr/range/solar-control/">le catalogue Solar Screen</a>.</p></noscript>
+    </div>
+  </section>
+  <section class="section audience-section" id="particuliers" aria-labelledby="audience-title">
+    <div class="wrap">
+      <div class="audience-header reveal"><div><p class="eyebrow">À la maison, en boutique ou dans vos locaux</p><h2 class="section-heading" id="audience-title">Chaque lieu a<br><em>ses exigences.</em></h2></div><div class="segmented-control" role="tablist" aria-label="Votre type d’espace"><button type="button" id="tab-home" role="tab" aria-selected="true" aria-controls="audience-home" tabindex="0">À la maison</button><button type="button" id="tab-work" role="tab" aria-selected="false" aria-controls="audience-work" tabindex="-1">Au travail</button></div></div>
+      <div class="audience-panel" id="audience-home" role="tabpanel" aria-labelledby="tab-home"><div class="audience-image"><img src="assets/hero-architecture.webp" loading="lazy" alt="Salon vitré ensoleillé, Intérieur résidentiel" decoding="async" width="1536" height="1024"><span class="audience-image-caption">Votre intérieur, votre façon de vivre.</span><span class="ambient-label"></span></div><div class="audience-copy"><p class="eyebrow">Maisons · Appartements · Vérandas</p><h3>Profiter de chaque pièce.<br><em>Même quand le soleil insiste.</em></h3><p>Une véranda trop chaude, un salon ébloui, un vis-à-vis gênant ? Nous partons de votre quotidien pour trouver le bon équilibre entre confort, lumière et intimité.</p><div class="audience-needs"><a href="film-anti-chaleur-velux-veranda.html">Vérandas & fenêtres de toit ↗</a><a href="#contact" data-profile="particulier" data-need="solaire">Baies vitrées ↗</a><a href="film-solaire-miroir-sans-tain-bureau.html">Intimité ↗</a></div><a class="button button-dark" href="particuliers.html">Mon accompagnement pour la maison <span aria-hidden="true">↗</span></a></div></div>
+      <div class="audience-panel" id="audience-work" role="tabpanel" aria-labelledby="tab-work" hidden><div class="audience-image"><img src="assets/professionnels-architecture.webp" loading="lazy" alt="Façade vitrée d’un bâtiment tertiaire" decoding="async" width="1536" height="1024"><span class="audience-image-caption">Des solutions à l’échelle de vos activités.</span><span class="ambient-label"></span></div><div class="audience-copy"><p class="eyebrow">Bureaux · Commerces · Établissements</p><h3>Le confort des équipes.<br><em>La protection des espaces.</em></h3><p>Façades exposées, vitrines, cloisons ou surfaces sollicitées : solaire, sécurité, anti-graffiti et films spécifiques se choisissent en fonction de vos usages et de vos contraintes.</p><div class="audience-needs"><a href="professionnels.html?categorie=solaire#gammes-pro">Confort solaire ↗</a><a href="film-securite-vitrage.html">Sécurité du vitrage ↗</a><a href="professionnels.html?categorie=antigraffiti#gammes-pro">Anti-graffiti ↗</a></div><a class="button button-dark" href="professionnels.html">Découvrir les solutions pro <span aria-hidden="true">↗</span></a></div></div>
+    </div>
+  </section>
+  <section class="section security-highlight" aria-labelledby="security-title">
+    <div class="wrap split-grid">
+      <div class="security-copy reveal"><p class="eyebrow">05 / Voir plus loin que le solaire</p><h2 class="section-heading" id="security-title">La transparence.<br><em>La protection en plus.</em></h2><p>Un film de sécurité aide à retenir les fragments de verre en cas de bris. De la prévention des accidents aux besoins de protection renforcée, nous étudions l’ensemble vitrage, film et fixation.</p><div class="security-points"><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="m10 2 7 3v6c0 4-7 7-7 7s-7-3-7-7V5Z"/><path d="m6 10 3 3 5-6"/></svg>Des films transparents, discrets au quotidien</span><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="m10 2 7 3v6c0 4-7 7-7 7s-7-3-7-7V5Z"/><path d="m6 10 3 3 5-6"/></svg>De l’anti-éclats à la protection renforcée</span><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="m10 2 7 3v6c0 4-7 7-7 7s-7-3-7-7V5Z"/><path d="m6 10 3 3 5-6"/></svg>Un diagnostic de votre vitrage et de son cadre</span></div><a class="text-link" href="film-securite-vitrage.html">Trouver la protection adaptée à mon vitrage <span aria-hidden="true">↗</span></a><div class="home-security-links"><a href="film-securite-vitrage-maison.html">Sécuriser les fenêtres de ma maison ↗</a><a href="film-anti-effraction-vitrine-commerce.html">Protéger une vitrine de commerce ↗</a><a href="mise-en-securite-vitrage-casse.html">Mettre en sécurité un vitrage cassé ↗</a></div><p class="security-note">Un film ne rend pas le verre incassable. La norme EN 12600 porte sur l’impact de type corps humain ; la résistance à l’attaque relève notamment de l’EN 356, selon le système testé.</p></div>
+      <div class="security-diagram reveal" id="security-diagram"><span class="impact-status" id="impact-status">Le film accompagne votre vitrage.</span><svg viewBox="0 0 430 310" fill="none" role="img" aria-label="Schéma de principe : vitrage et film de sécurité qui aide à maintenir les fragments après bris"><defs><linearGradient id="glass-fill" x1="130" y1="45" x2="290" y2="260" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" stop-opacity=".85"/><stop offset=".5" stop-color="#aac0b0" stop-opacity=".35"/><stop offset="1" stop-color="#f8fff8" stop-opacity=".7"/></linearGradient></defs><path d="m106 66 154-33 48 207-154 33Z" fill="url(#glass-fill)" stroke="#93aa99"/><path d="m124 56 154-33 48 207-154 33Z" fill="url(#glass-fill)" stroke="#fff"/><path d="m139 47 154-33 48 207-154 33Z" fill="#b9cdb2" fill-opacity=".28" stroke="#8d9e80"/><path d="m114 110-47-1M316 144h53M188 266l10 24" stroke="#82917b" stroke-width=".7"/><circle cx="114" cy="110" r="2" fill="#82917b"/><circle cx="316" cy="144" r="2" fill="#82917b"/><text x="18" y="101" fill="#53634d" font-family="DM Sans,sans-serif" font-size="8">Vitrage</text><text x="334" y="135" fill="#53634d" font-family="DM Sans,sans-serif" font-size="8">Film</text><text x="204" y="293" fill="#53634d" font-family="DM Sans,sans-serif" font-size="8">Adhésif</text><g class="impact-cracks" stroke="#6e8774" stroke-width=".9"><path d="m215 142-56-31m56 31 34-72m-34 72 69 31m-69-31 12 82m-12-82-47 65m47-65-31-63m31 63 63-29m-63 29-62 12m62-12 57 67m-57-67 5-54m-5 54-15 43"/><path d="m184 79 9-11m56 2-4-15m-18 169 15 17m-74-34 9 9m101-103 12 3"/></g></svg><p class="diagram-caption">Schéma de principe · ne représente pas un essai</p><button class="impact-button" type="button" id="impact-button" aria-pressed="false">Visualiser le maintien des fragments <span aria-hidden="true">↗</span></button></div>
+    </div>
+  </section>
+  <section class="section method-section" id="methode" aria-labelledby="method-title">
+    <div class="wrap split-grid"><figure class="method-image reveal"><img src="assets/pose-film-sur-vitrage.webp" loading="lazy" alt="Installateur appliquant un film sur un vitrage" decoding="async" width="1500" height="1000"><div class="method-sticker"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 5h20v20H5ZM5 10h5m-5 5h3m-3 5h5M10 5v5m5-5v3m5-3v5"/></svg><p>Le sur-mesure commence sur le terrain.<small>Vitrage · Exposition · Climat · Usages</small></p></div></figure><div class="method-copy reveal"><p class="eyebrow">Notre métier : adapter la solution, puis la poser</p><h2 class="section-heading" id="method-title">Le bon film commence<br>par <em>les bonnes questions.</em></h2><p>Nous utilisons des outils professionnels pour étudier vos conditions réelles. Votre besoin de lumière, l’exposition, le climat et la composition du vitrage orientent notre recommandation.</p><div class="method-steps"><details open><summary><span>01</span> Comprendre votre espace</summary><p>Chaleur, éblouissement, intimité ou sécurité : nous identifions vos priorités, vos usages et les contraintes du lieu.</p></details><details><summary><span>02</span> Analyser votre vitrage</summary><p>Composition, orientation, ombrages, état du support et pose intérieure ou extérieure : nous vérifions la compatibilité et les risques thermiques avant de sélectionner le film.</p></details><details><summary><span>03</span> Choisir, comparer, valider</summary><p>Nous vous expliquons le compromis entre rendu, transmission lumineuse et protection, avec les données du fabricant pour la référence retenue. Une estimation énergétique dépend des hypothèses propres au bâtiment.</p></details><details><summary><span>04</span> Poser avec précision</summary><p>Préparation du support, découpe, application et finitions : une pose soignée selon les préconisations du fabricant, puis des conseils d’entretien adaptés.</p></details></div></div></div>
+  </section>
+  <section class="section" id="realisations" aria-labelledby="projects-title">
+    <div class="wrap"><div class="section-top reveal"><div><p class="eyebrow">Le résultat, en vrai</p><h2 class="section-heading" id="projects-title">Vos vitrages.<br><em>De nouvelles perspectives.</em></h2></div><a class="text-link" href="realisations.html">Toutes nos réalisations <span aria-hidden="true">↗</span></a></div><div class="projects-grid">
+      <article class="reveal"><div class="project-compare" data-comparison><img src="assets/hall-entreprise-apres.webp" loading="lazy" alt="Hall d’entreprise après la pose de film miroir" decoding="async" width="1024" height="571"><img class="project-before" src="assets/hall-entreprise-avant.webp" loading="lazy" alt="Même hall d’entreprise avant intervention" decoding="async" width="1024" height="571"><span class="preview-tag preview-tag-before">Avant</span><span class="preview-tag preview-tag-after">Après</span><div class="comparison-line" aria-hidden="true"></div><label class="sr-only" for="project-hall">Comparer le hall avant et après la pose du film</label><input class="comparison-range" id="project-hall" type="range" min="0" max="100" value="50" aria-valuetext="50 % de la photo avant"></div><div class="project-caption"><div><h3>Le hall, en toute discrétion.</h3><p>Bureaux · Film miroir</p></div><a href="projet-open-space-lyon.html" aria-label="Découvrir le chantier du hall d’entreprise">↗</a></div></article>
+      <article class="reveal"><div class="project-compare" data-comparison><img src="assets/baie-vitree-apres.webp" loading="lazy" alt="Baie vitrée de salon après la pose du film solaire" decoding="async" width="1024" height="1024"><img class="project-before" src="assets/baie-vitree-avant.webp" loading="lazy" alt="Même baie vitrée avant intervention" decoding="async" width="1024" height="1024"><span class="preview-tag preview-tag-before">Avant</span><span class="preview-tag preview-tag-after">Après</span><div class="comparison-line" aria-hidden="true"></div><label class="sr-only" for="project-salon">Comparer la baie vitrée avant et après la pose du film</label><input class="comparison-range" id="project-salon" type="range" min="0" max="100" value="50" aria-valuetext="50 % de la photo avant"></div><div class="project-caption"><div><h3>Un salon qui respire.</h3><p>Particulier · Baie vitrée</p></div><a href="projet-baie-vitree-salon.html" aria-label="Découvrir le chantier de la baie vitrée du salon">↗</a></div></article>
+      <article class="reveal"><div class="project-compare" data-comparison><img src="assets/batiment-tertiaire-apres.webp" loading="lazy" alt="Façade de bâtiment tertiaire après la pose des films solaires" decoding="async" width="1024" height="571"><img class="project-before" src="assets/batiment-tertiaire-avant.webp" loading="lazy" alt="Même bâtiment tertiaire avant intervention" decoding="async" width="1024" height="571"><span class="preview-tag preview-tag-before">Avant</span><span class="preview-tag preview-tag-after">Après</span><div class="comparison-line" aria-hidden="true"></div><label class="sr-only" for="project-facade">Comparer le bâtiment tertiaire avant et après la pose des films</label><input class="comparison-range" id="project-facade" type="range" min="0" max="100" value="50" aria-valuetext="50 % de la photo avant"></div><div class="project-caption"><div><h3>La façade prend soin de vous.</h3><p>Professionnel · Contrôle solaire</p></div><a href="projet-batiment-tertiaire.html" aria-label="Découvrir le chantier du bâtiment tertiaire">↗</a></div></article>
+    </div><p class="projects-note">Nos photos de chantier. Déplacez les curseurs pour explorer l’avant et l’après.</p></div>
+  </section>
+  <div class="supplier-strip" aria-label="Notre fournisseur de films : Solar Screen">
+    <div class="wrap supplier-inner"><p class="supplier-caption"><strong>Exigeants sur la pose.</strong>Aussi sur la qualité de nos films.</p><div class="marquee-window"><div class="marquee-track"><div class="marquee-group"><span class="supplier-name">SOLAR SCREEN®</span><i aria-hidden="true">✳</i><span>CONTRÔLE SOLAIRE</span><i aria-hidden="true">✳</i><span>SÉCURITÉ</span><i aria-hidden="true">✳</i><span>INTIMITÉ & DESIGN</span><i aria-hidden="true">✳</i><span>PROTECTION</span><i aria-hidden="true">✳</i></div><div class="marquee-group" aria-hidden="true"><span class="supplier-name">SOLAR SCREEN®</span><i>✳</i><span>CONTRÔLE SOLAIRE</span><i>✳</i><span>SÉCURITÉ</span><i>✳</i><span>INTIMITÉ & DESIGN</span><i>✳</i><span>PROTECTION</span><i>✳</i></div></div></div></div>
   </div>
-</section>
-
-<style>
-  #hero {
-    position: relative;
-    padding: 8rem 1.25rem 6rem;
-    overflow: hidden;
-    background: #000;
-  }
-  .hero-bg-img {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
-    z-index: 1;
-  }
-  .hero-bg-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.52), rgba(0,0,0,0.80));
-    z-index: 1;
-  }
-</style>
-
-<!-- SPECIALTY SECTION -->
-<section id="specialty">
-  <div class="specialty-inner">
-    <div class="specialty-top">
-      <div class="specialty-headline">
-        <div class="specialty-tag">Notre métier</div>
-        <h2>Pose de film solaire <br/><span>anti-chaleur sur vitrages</span></h2>
-        <p>Nous intervenons directement sur vos vitrages existants pour les transformer en boucliers thermiques. Pas de travaux, pas de remplacement. Le résultat est immédiat.</p>
-      </div>
-      <div class="specialty-stats">
-        <div class="spec-stat">
-          <span class="spec-num">+80</span>
-          <span class="spec-label">chantiers réalisés</span>
-        </div>
-        <div class="spec-stat">
-          <span class="spec-num">99%</span>
-          <span class="spec-label">des UV bloqués</span>
-        </div>
-        <div class="spec-stat">
-          <span class="spec-num">1 jour</span>
-          <span class="spec-label">pour installer, zéro chantier</span>
-        </div>
-        <div class="spec-stat">
-          <span class="spec-num">10 ans</span>
-          <span class="spec-label">de garantie fabricant</span>
-        </div>
-      </div>
-    </div>
-    <div class="specialty-brands" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 2rem 1.5rem; border-radius: 12px; margin-top: 3.5rem;">
-      <span class="sb-label">Films certifiés des grandes marques</span>
-      <div class="brands-track-wrap">
-        <div class="brands-track">
-          <span>HEXIS</span>
-          <span>3M</span>
-          <span>Solar-Film</span>
-          <span>LLUMAR</span>
-          <span>SOLARTECH</span>
-          <span>AVERY DENNISON</span>
-          <span>HEXIS</span>
-          <span>3M</span>
-          <span>Solar-Film</span>
-          <span>LLUMAR</span>
-          <span>SOLARTECH</span>
-          <span>AVERY DENNISON</span>
-        </div>
-      </div>
-    </div>
+  <section class="evidence-section" id="documentation" aria-labelledby="evidence-title"><div class="wrap evidence-layout"><div class="evidence-intro reveal"><p class="eyebrow">Le choix des films, derrière notre accompagnement</p><h2 class="section-heading" id="evidence-title">La confiance aime<br><em>les faits.</em></h2><p>Nous fournissons et posons des films Solar Screen. La gamme nous permet d’adapter votre solution ; notre rôle est de traduire vos besoins en une préconisation claire et de la mettre en œuvre.</p><a class="supplier-lockup" href="https://solarscreen.eu/fr/" target="_blank" rel="noopener noreferrer" aria-label="Solar Screen, site du fournisseur, nouvel onglet">SOLAR SCREEN®<span>Notre fournisseur<br>de films techniques ↗</span></a></div><div class="resource-list reveal"><a class="resource-row" href="savoir-faire.html#demarche"><div><small>Votre installateur vous accompagne</small><h3>Comprendre ce qui est proposé.</h3><p>Nous vous expliquons les bénéfices, le rendu, les limites et les conditions de pose de la solution retenue.</p></div><span aria-hidden="true">↗</span></a><a class="resource-row" href="https://solarscreen.eu/fr/downloads/videos/" target="_blank" rel="noopener noreferrer"><div><small>Démonstrations fabricant</small><h3>Voir les films en action.</h3><p>Des vidéos pour comprendre les usages du solaire, de la sécurité et des films spécifiques.</p></div><span aria-hidden="true">↗</span><span class="sr-only">Nouvel onglet</span></a><a class="resource-row" href="efficacite-film-solaire.html"><div><small>Chaleur, lumière & données documentées</small><h3>Comprendre l’efficacité réelle.</h3><p>Des repères pour distinguer les performances du film et le résultat dans votre bâtiment. Avec un exemple de recherche publié.</p></div><span aria-hidden="true">↗</span></a></div></div></section>
+  <section class="local-section" aria-labelledby="local-title"><div class="wrap split-grid"><div class="reveal"><p class="eyebrow">Votre installateur en Auvergne-Rhône-Alpes</p><h2 class="section-heading" id="local-title">Des films pour vos vitrages.<br><em>Un professionnel à vos côtés.</em></h2></div><div class="reveal"><p>Opalis Solaire accompagne les particuliers, commerçants et professionnels pour la pose de films solaires, anti-UV, anti-éclats, de sécurité et d’intimité. Nous intervenons notamment à <strong>Valence, Lyon, Grenoble et Saint-Étienne</strong>, ainsi que dans les secteurs voisins, selon votre projet.</p><p style="margin-top:15px">Une baie vitrée, une vitrine en rez-de-chaussée ou une façade de bureaux : l’exposition, le vitrage et le résultat recherché guident notre étude. Contactez-nous pour vérifier les possibilités et organiser une intervention adaptée à votre lieu.</p><div class="local-cities" aria-label="Principaux secteurs d’intervention"><span>Valence & Drôme</span><span>Lyon & Rhône</span><span>Grenoble & Isère</span><span>Saint-Étienne & Loire</span></div></div></div></section>
+  <section class="section" aria-labelledby="faq-title"><div class="wrap faq-layout"><div class="faq-intro reveal"><p class="eyebrow">Les questions que vous nous posez</p><h2 class="section-heading" id="faq-title">Les bonnes questions.<br><em>Des réponses claires.</em></h2><p>Chaque vitrage mérite une réponse précise. Nous sommes là pour vous guider.</p><a class="text-link" href="tel:+33782852008">Poser ma question <span aria-hidden="true">↗</span></a></div><div class="faq-list reveal">
+    <details><summary>Un film solaire va-t-il assombrir ma pièce ?</summary><p>Il existe des films presque invisibles, des neutres et des miroirs plus teintés. Tous modifient la transmission lumineuse à un degré différent. Nous choisissons avec vous l’équilibre adapté entre lumière, éblouissement et protection solaire. Le comparateur présente quatre références et leurs valeurs fabricant.</p></details>
+    <details><summary>Peut-on poser un film sur n’importe quel vitrage ?</summary><p>La compatibilité se vérifie avant la pose : simple ou double vitrage, traitement existant, verre feuilleté, orientation et ombrages influencent le choix. Selon la référence et le support, la pose est intérieure ou extérieure. Il n’existe pas de film universel adapté à tous les cas.</p></details>
+    <details><summary>Quelle différence entre film solaire et film de sécurité ?</summary><p>Le film solaire agit sur les apports solaires, les UV et l’éblouissement. Le film de sécurité vise notamment à maintenir les fragments de verre en cas de bris. Certaines références combinent plusieurs fonctions. Les classements dépendent du système testé. <a href="film-securite-vitrage.html">Trouver la protection adaptée à mon vitrage</a>.</p></details>
+    <details><summary>Le film miroir protège-t-il des regards la nuit ?</summary><p>L’effet miroir dépend de la différence de lumière entre les deux côtés du vitrage. Si l’intérieur est éclairé et l’extérieur sombre, l’intimité peut s’inverser. Pour une confidentialité permanente, nous étudions notamment un film dépoli ou une solution adaptée à l’usage.</p></details>
+    <details><summary>Combien vais-je gagner en température ou en énergie ?</summary><p>Le résultat dépend du climat, de l’exposition, des surfaces vitrées, du vitrage, des ombrages et des équipements. Nous ne promettons pas un nombre de degrés ou une économie universelle. Une étude avec des hypothèses explicites permet d’évaluer l’intérêt de la solution pour votre bâtiment.</p></details>
+    <details><summary>Où intervenez-vous et comment obtenir un devis ?</summary><p>Nous intervenons pour les particuliers et les professionnels en Auvergne-Rhône-Alpes, notamment à Valence, Lyon, Grenoble et Saint-Étienne. Appelez le <a href="tel:+33782852008">07 82 85 20 08</a> ou décrivez votre projet dans le formulaire. Le devis est gratuit et sans engagement.</p></details>
+  </div></div></section>
+  <section class="section contact-section" id="contact" aria-labelledby="contact-title"><div class="wrap contact-layout"><div class="contact-intro reveal"><p class="eyebrow">Tout commence par un échange</p><h2 class="section-heading" id="contact-title">Un autre confort.<br>Le même vitrage.<br><em>On en parle ?</em></h2><p>Quelques informations sur votre projet, et nous revenons vers vous pour étudier la solution qui vous correspond. Devis gratuit, sans engagement.</p><a class="contact-phone" href="tel:+33782852008">07 82 85 20 08 <span aria-hidden="true">↗</span></a><div class="contact-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Valence · Lyon · Grenoble · Saint-Étienne<br>Et toute la région Auvergne-Rhône-Alpes</span></div></div><div>
+    <div id="success-msg" class="form-feedback" role="status" tabindex="-1" hidden>Merci, votre demande a été envoyée. Nous vous recontactons pour parler de votre projet.</div>
+    <form class="contact-form" id="contact-form">
+      <fieldset class="profile-choice"><legend>Votre projet concerne…</legend><label><input type="radio" name="profil" value="particulier" checked><span>Mon logement</span></label><label><input type="radio" name="profil" value="professionnel"><span>Mes locaux professionnels</span></label></fieldset>
+      <div class="form-row-new"><div><label for="nom">Votre nom *</label><input id="nom" name="nom" autocomplete="name" placeholder="Prénom et nom" required maxlength="120"></div><div><label for="telephone">Votre téléphone *</label><input id="telephone" name="telephone" type="tel" autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78" pattern="[+0-9\s.\(\)\-]{8,25}" title="Un numéro de téléphone de 8 à 25 caractères" required maxlength="25"></div></div>
+      <div class="form-row-new"><div><label for="email">Votre email <small>(facultatif)</small></label><input id="email" name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr" maxlength="180"></div><div><label for="besoin">Votre priorité</label><select id="besoin" name="besoin"><option value="">À définir ensemble</option><option value="solaire">Chaleur & éblouissement</option><option value="uv">Protection UV</option><option value="securite">Sécurité du vitrage</option><option value="antigraffiti">Protection anti-graffiti</option><option value="intimite">Intimité & décoration</option><option value="specialites">Une application spécifique</option></select></div></div>
+      <div class="form-row-new"><div><label for="type">Type de lieu</label><select id="type" name="type"><option value="particulier">Logement particulier</option><option value="bureau">Bureaux / open-space</option><option value="commerce">Commerce / vitrine</option><option value="etablissement">Établissement / collectivité</option><option value="autre">Autre</option></select></div><div><label for="surface">Surface vitrée <small>(m², facultatif)</small></label><input id="surface" name="surface" type="number" min="0.01" max="100000" step="0.01" placeholder="Ex. 12"><button class="calc-toggle" type="button" id="toggle-calc" aria-controls="calculator-box" aria-expanded="false">M’aider à calculer la surface</button></div></div>
+      <div class="surface-calc" id="calculator-box" hidden><div class="calc-fields"><div><label for="calc-nb">Nombre de vitres</label><input id="calc-nb" type="number" min="1" max="10000" step="1" value="1"></div><div><label for="calc-w">Largeur (m)</label><input id="calc-w" type="number" min="0.01" max="100" step="0.01" placeholder="1,20"></div><div><label for="calc-h">Hauteur (m)</label><input id="calc-h" type="number" min="0.01" max="100" step="0.01" placeholder="1,50"></div></div><button type="button" id="apply-calc">Calculer et appliquer</button><p id="calc-feedback" class="form-note-new" role="status"></p></div>
+      <div id="particulier-options"><label for="particulier-sub">Quel vitrage ? <small>(facultatif)</small></label><select id="particulier-sub" name="particulier_sub"><option value="">À préciser ensemble</option><option value="fenetre">Fenêtres</option><option value="baie">Baie vitrée</option><option value="veranda">Véranda</option><option value="velux">Fenêtre de toit</option><option value="autre">Autre</option></select></div>
+      <div><label for="message">Votre projet, en quelques mots <small>(facultatif)</small></label><textarea id="message" name="message" placeholder="Votre ville, les pièces concernées, ce qui vous gêne au quotidien…" rows="3" maxlength="5000"></textarea></div>
+      <div class="honeypot" aria-hidden="true"><label for="website">Ne pas remplir ce champ</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+      <div id="form-error" class="form-feedback form-error" role="alert" hidden></div>
+      <button class="button" type="submit" id="submit-btn">Être recontacté pour mon projet <span aria-hidden="true">↗</span></button><p class="form-note-new">* Champs nécessaires pour vous rappeler. Vos informations servent à traiter votre demande. <a href="legal.html">Confidentialité et mentions légales</a>.</p>
+    </form><noscript><p class="form-feedback">Pour nous contacter sans JavaScript, appelez le <a href="tel:+33782852008">07 82 85 20 08</a> ou écrivez à <a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a>.</p></noscript>
+  </div></div></section>
+</main>
+<!-- OPALIS_FOOTER_START -->
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-intro"><a class="brand" href="index.html"><svg class="brand-symbol" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M22 1v7m0 28v7M1 22h7m28 0h7M7.15 7.15l4.95 4.95m19.8 19.8 4.95 4.95M7.15 36.85l4.95-4.95m19.8-19.8 4.95-4.95" stroke="currentColor" stroke-width="1.6"/></svg><span class="brand-name">opalis<span>solaire</span></span></a><p>Votre installateur de films pour vitrages.<br>Conseil, fourniture et pose sur mesure.<br>Auvergne-Rhône-Alpes.</p></div>
+    <div><h2>Vos espaces</h2><a href="particuliers.html">Maisons & appartements</a><a href="commerces.html">Boutiques & vitrines</a><a href="professionnels.html">Bureaux & bâtiments</a><a href="realisations.html">Nos réalisations</a><a href="savoir-faire.html">Notre savoir-faire</a></div>
+    <div><h2>Nos solutions</h2><a href="pose-film-anti-chaleur.html">Chaleur & éblouissement</a><a href="film-securite-vitrage.html#anti-eclats">Films de sécurité</a><a href="film-securite-vitrage-maison.html">Sécurité à la maison</a><a href="film-anti-effraction-vitrine-commerce.html">Sécurité des vitrines</a><a href="mise-en-securite-vitrage-casse.html">Vitrage cassé : mise en sécurité</a><a href="film-anti-graffiti-vitrage.html">Protection anti-graffiti</a><a href="simulateur.html">Estimer mon budget</a></div>
+    <div><h2>Parlons de votre projet</h2><a class="footer-phone" href="tel:+33782852008">07 82 85 20 08 <span aria-hidden="true">↗</span></a><a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a><p>Valence · Lyon · Grenoble<br>Saint-Étienne et alentours</p></div>
   </div>
-</section>
-<style>
-#specialty {
-  background: #0c1120;
-  color: #fff;
-  padding: 4.5rem 1.25rem 3rem; margin-top: -1px; position: relative; z-index: 5;
-  overflow: hidden;
-}
-.specialty-inner { max-width: 1100px; margin: 0 auto; }
-.specialty-top {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  margin-bottom: 3.5rem;
-}
-@media (max-width: 800px) { .specialty-top { grid-template-columns: 1fr; gap: 2.5rem; } }
-
-.specialty-tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #60a5fa;
-  background: rgba(96, 165, 250, 0.12);
-  border: 1px solid rgba(96, 165, 250, 0.3);
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  margin-bottom: 1.25rem;
-}
-.specialty-headline h2 {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 800;
-  line-height: 1.15;
-  color: #fff;
-  margin-bottom: 1.1rem;
-  letter-spacing: -0.02em;
-}
-.specialty-headline h2 span {
-  background: linear-gradient(90deg, #60a5fa, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.specialty-headline p {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: rgba(255,255,255,0.65);
-  max-width: 440px;
-}
-.specialty-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-.spec-stat {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 14px;
-  padding: 1.5rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  transition: 0.2s;
-}
-.spec-stat:hover {
-  background: rgba(96,165,250,0.1);
-  border-color: rgba(96,165,250,0.3);
-}
-.spec-num {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #60a5fa;
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-.spec-label {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.55);
-  font-weight: 500;
-  line-height: 1.3;
-}
-/* BRAND STRIP */
-.specialty-brands {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-.sb-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.35);
-  text-align: center;
-}
-.brands-track-wrap {
-  overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-}
-.brands-track {
-  display: flex;
-  gap: 3rem;
-  width: max-content;
-  animation: brandScroll 18s linear infinite;
-}
-.brands-track span {
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.22);
-  white-space: nowrap;
-  text-transform: uppercase;
-  transition: 0.2s;
-}
-.brands-track:hover span { animation-play-state: paused; }
-.brands-track span:hover { color: rgba(255,255,255,0.7); }
-@keyframes brandScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-</style>
-
-<!-- PROBLEM -->
-
-<section id="problem">
-  <div class="container">
-    <p class="section-label">Le problème</p>
-    <h2>L'été, vos vitrages vous coûtent cher.<br/>En confort et en énergie.</h2>
-    <p>Les grandes baies vitrées et les façades exposées transforment vos locaux en étuve dès les premières chaleurs. La clim tourne non-stop, vos équipes souffrent, et la facture s'alourdit. Ce n'est pas une fatalité.</p>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thermometer"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 1 1 4 0Z"/></svg>
-        </div>
-        <h3>Chaleur insupportable</h3>
-        <p>La clim tourne à fond mais la température reste élevée. Normal : le problème vient du vitrage, pas de l'installation.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14.5 14 3l-2.5 7h8.5L10 21l2.5-7H4z"/></svg>
-        </div>
-        <h3>Facture énergie en hausse</h3>
-        <p>La climatisation peut représenter jusqu'à 30 % de votre consommation électrique estivale. Un poste qui se réduit facilement.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-frown"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
-        </div>
-        <h3>Marchandises et mobilier abîmés</h3>
-        <p>Les rayons UV décolorent vos produits en vitrine, vos meubles et vos équipements. Une protection anti-UV règle le problème durablement.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SOLUTION -->
-<section id="solution">
-  <div class="container">
-    <div class="solution-inner">
-      <div class="solution-visual" style="padding:0; overflow:hidden; border:none; background:none;">
-        <img src="veranda-lumineuse-film-anti-chaleur-confort.png" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" alt="Intérieur de véranda lumineuse et fraîche grâce au film solaire thermique" title="Confort thermique en véranda après la pose d'un film anti-chaleur">
-      </div>
-      <div>
-        <p class="section-label">La solution</p>
-        <h2>L'installation de film solaire :<br/>simple, rapide, durable</h2>
-        <p>Un <a href="/pose-film-anti-chaleur" style="color:var(--blue); text-decoration:underline; font-weight: 500;">film anti-chaleur</a> posé directement sur vos vitrages existants réduit la baisse de température ressentie jusqu'à 10°C, sans aucun travaux de maçonnerie ni démolition. Nous intervenons à Valence, Lyon et dans toute la région.</p>
-        <ul class="solution-list">
-          <li>Pose en quelques heures, sans fermer votre établissement</li>
-          <li>Compatible avec tous types de vitrages existants</li>
-          <li>Baisse de température ressentie dès le premier jour</li>
-          <li>Durée de vie de 10 à 15 ans, garantie fabricant incluse</li>
-          <li>Discret à l'intérieur, design à l'extérieur</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- INTERMEDIATE CTA -->
-<section style="background: var(--blue-light); padding: 4rem 1.25rem; text-align: center; margin: 2rem 0;">
-  <div class="container" style="max-width: 800px;">
-    <h2 style="font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 1rem; color: var(--blue-dark);">Besoin d'un devis pour vos vitrages ?</h2>
-    <p style="font-size: 1.1rem; color: var(--text); margin-bottom: 2rem;">Notre équipe se déplace sur site pour auditer vos vitrages et vous proposer la solution optimale.</p>
-    <a href="#contact" class="btn-primary" style="display: inline-block; padding: 1rem 2.5rem; font-size: 1.1rem;">Contacter notre équipe</a>
-  </div>
-</section>
-
-<!-- ROI -->
-<section id="roi">
-  <div class="container">
-    <p class="section-label">Impact mesurable</p>
-    <h2>Des résultats concrets,<br/>dès le premier jour</h2>
-    <p>Voici ce qui change vraiment dans vos locaux après notre intervention. Des chiffres mesurés, pas des estimations.</p>
-    <div class="roi-grid">
-      <div class="roi-card">
-        <div class="roi-num">-8°C</div>
-        <div class="roi-label">de température ressentie en moyenne l'été.</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-num">-30%</div>
-        <div class="roi-label">d'économie sur votre facture de climatisation.</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-num">83%</div>
-        <div class="roi-label">moins cher qu'un remplacement complet de vos vitrages.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONFORT VISUEL -->
-<section id="confort-visuel">
-  <div class="container">
-    <p class="section-label">Confort visuel</p>
-    <h2>Protégé à l'extérieur,<br/>lumineux à l'intérieur</h2>
-    <p>Un film solaire bien choisi ne réduit pas la luminosité de vos espaces. Il arrête la chaleur, pas la lumière.</p>
-    <div class="split-visual">
-      <div class="split-side">
-        <img src="film-miroir-exterieur-protection-solaire.png" alt="Film miroir sans tain extérieur sur façade vitrée protégeant du vis-à-vis" title="Effet miroir extérieur pour une intimité totale en journée">
-        <div class="split-caption">
-          <strong>Côté extérieur</strong>
-          <span>Effet miroir ou teinté – discrétion et design</span>
-        </div>
-      </div>
-      <div class="split-side">
-        <img src="vue-interieure-lumineuse-film-anti-chaleur.png" alt="Vue claire depuis l'intérieur d'un bureau avec film anti-chaleur et anti-éblouissement" title="Transparence et vue dégagée depuis l'intérieur avec notre film solaire">
-        <div class="split-caption">
-          <strong>Côté intérieur</strong>
-          <span>Vue dégagée, lumière naturelle préservée</span>
-        </div>
-      </div>
-    </div>
-    <div class="confort-text">
-      Nous proposons des <strong>films miroir sans tain</strong> pour préserver l'intimité de vos bureaux et salles de réunion, ainsi que des <strong>films haute clarté</strong> qui filtrent la chaleur tout en préservant la luminosité naturelle de vos locaux, même en hiver.
-    </div>
-  </div>
-</section>
-
-<!-- BENEFITS -->
-<section id="benefits">
-  <div class="container">
-    <p class="section-label">Les bénéfices</p>
-    <h2>Une solution, plusieurs avantages</h2>
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="benefit-icon" style="color: var(--blue);">
-          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 1 1 4 0Z"/></svg>
-        </div>
-        <h3>Jusqu'à -10°C ressentis</h3>
-        <p>Réduction significative de la chaleur intérieure, même par forte canicule.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon" style="color: var(--blue);">
-          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-        </div>
-        <h3>Économies d'énergie</h3>
-        <p>Moins de climatisation = moins de consommation et une facture allégée.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon" style="color: var(--blue);">
-          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-        </div>
-        <h3>Confort retrouvé</h3>
-        <p>Vos espaces redeviennent agréables à vivre et à travailler toute l'année.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon" style="color: var(--blue);">
-          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
-        </div>
-        <h3>Protection UV 99%</h3>
-        <p>Protégez vos meubles, vos stocks et vos équipements du vieillissement prématuré.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- POUR QUI -->
-<section id="pourqui">
-  <div class="container">
-    <p class="section-label">Pour qui ?</p>
-    <h2>Nous intervenons à Valence, Lyon<br/>et dans toute la région</h2>
-    <div class="pourqui-grid">
-      <div class="pourqui-card">
-        <h3>🏢 Bureaux &amp; open-spaces</h3>
-        <p class="pourqui-desc">Vos équipes méritent de travailler dans de bonnes conditions. Nous posons des films solaires sur vos façades vitrées pour réduire la chaleur et baisser votre consommation de climatisation. Résultat immédiat : moins de chaleur, et <strong>-91% d'éblouissement sur les écrans</strong> de vos salariés. Aucune interruption d'activité.</p>
-        <a href="#contact" class="pourqui-cta">Demander un devis bureaux</a>
-      </div>
-      <div class="pourqui-card">
-        <h3>🏪 Commerces &amp; vitrines</h3>
-        <p class="pourqui-desc">Vos produits en vitrine souffrent du soleil et vos clients ne s'attardent pas dans un espace surchauffé. Notre film anti-UV bloque <strong>99% des rayons UV</strong> pour stopper la décoloration de vos marchandises, tout en maintenant une température agréable sans masquer votre vitrine.</p>
-        <a href="#contact" class="pourqui-cta">Demander un devis commerce</a>
-      </div>
-      <div class="pourqui-card">
-        <h3>🏠 Particuliers</h3>
-        <p class="pourqui-desc">Véranda inutilisable en été, velux qui chauffe la chambre, baie vitrée plein sud... Nous intervenons sur tous les types de vitrages résidentiels et vous rendons vos espaces à vivre, sans travaux lourds.</p>
-        <a href="#contact" class="pourqui-cta">Demander un devis particulier</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="container">
-    <p class="section-label">Comment ça se passe ?</p>
-    <h2>Trois étapes, c'est tout</h2>
-    <div class="process-steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Vous nous contactez</h3>
-        <p>Par téléphone ou via le formulaire. Nous vous répondons sous 12h pour cerner votre besoin.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Diagnostic gratuit sur place</h3>
-        <p>Nous nous déplaçons, évaluons vos vitrages et vous remettons un devis clair, sans surprise.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Installation en quelques heures</h3>
-        <p>Pose soignée de votre film anti-chaleur ou film solaire. Résultat visible le jour même, espace laissé propre.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REASSURANCE -->
-<section id="reassurance">
-  <div class="container">
-    <p class="section-label">Pourquoi nous choisir ?</p>
-    <h2>Un artisan local, pas une franchise</h2>
-    <div class="reassurance-grid">
-      <div class="reassurance-card">
-        <div class="reassurance-icon" style="color: var(--blue);">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <h3>Valence, Lyon et alentours</h3>
-          <p>Nous connaissons la région et ses contraintes climatiques. Pas de sous-traitant, pas de frais de déplacement cachés. Vous savez à qui vous avez affaire.</p>
-        </div>
-      </div>
-      <div class="reassurance-card">
-        <div class="reassurance-icon" style="color: var(--blue);">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div>
-          <h3>Réactivité et intervention rapide</h3>
-          <p>Devis sous 12h, <strong>intervention rapide</strong>. En moyenne, comptez seulement 1 semaine entre votre premier contact et la pose finale du film.</p>
-        </div>
-      </div>
-      <div class="reassurance-card">
-        <div class="reassurance-icon" style="color: var(--blue);">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.272 1.272L3 12l5.813 1.912a2 2 0 0 1 1.272 1.272L12 21l1.912-5.813a2 2 0 0 1 1.272-1.272L21 12l-5.813-1.912a2 2 0 0 1-1.272-1.272L12 3Z"/></svg>
-        </div>
-        <div>
-          <h3>Finitions soignées, garanties</h3>
-          <p>Pose sans bulles ni traces. On ne part pas avant que le résultat soit parfait. Film garanti 10 à 15 ans selon le produit choisi.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT / CTA -->
-<section id="contact">
-  <div class="container">
-    <div class="form-wrapper">
-      <p class="section-label">Contact</p>
-      <h2>On vous rappelle, c'est gratuit</h2>
-        <div style="background: #eff6ff; border-left: 4px solid var(--blue); padding: 1rem; border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;">
-          <strong style="color: var(--blue-dark); font-size: 0.95rem; display:block; margin-bottom: 0.3rem;">📞 Appelez-nous au 07 82 85 20 08</strong>
-          <span style="font-size: 0.9rem; color: var(--text); line-height: 1.5; display:block;">Si nous ne sommes pas joignables, remplissez le formulaire ci-dessous : nous vous rappelons généralement en quelques minutes.</span>
-        </div>
-
-      <div id="success-msg">
-        ✅ Merci ! Votre demande a bien été envoyée. Nous vous recontactons très rapidement.
-      </div>
-
-      <form id="contact-form" novalidate>
-        <div class="form-row">
-          <div>
-            <label for="nom">Nom *</label>
-            <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
-          </div>
-          <div>
-            <label for="telephone">Téléphone *</label>
-            <input type="tel" id="telephone" name="telephone" placeholder="06 xx xx xx xx" required />
-          </div>
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="votre@email.fr" />
-        </div>
-        <div>
-          <label for="type">Type de local</label>
-          <select id="type" name="type">
-            <option value="">— Sélectionnez —</option>
-            <option value="bureau">Bureaux / Open-space</option>
-            <option value="commerce">Commerce / Vitrine</option>
-            <option value="particulier">Particulier (maison, véranda…)</option>
-            <option value="autre">Autre</option>
-          </select>
-        </div>
-
-        <!-- Sous-catégories pour Particuliers -->
-        <div id="particulier-options" class="hidden-field">
-          <label>Précisez le type de projet</label>
-          <div class="radio-group">
-            <label class="radio-item"><input type="radio" name="particulier_sub" value="fenetre"> Fenêtre classique</label>
-            <label class="radio-item"><input type="radio" name="particulier_sub" value="baie"> Baie vitrée</label>
-            <label class="radio-item"><input type="radio" name="particulier_sub" value="veranda"> Véranda</label>
-            <label class="radio-item"><input type="radio" name="particulier_sub" value="velux"> Velux</label>
-            <label class="radio-item"><input type="radio" name="particulier_sub" value="autre"> Autre</label>
-          </div>
-        </div>
-
-        <!-- Estimation Surface -->
-        <div style="margin-top: 0.5rem;">
-          <label for="surface">Surface vitrée totale (m²) - <span style="font-weight:400; font-size:0.8rem; color:var(--muted);">Optionnel</span></label>
-          <div style="display:flex; gap:0.5rem; align-items:center;">
-            <input type="number" id="surface" name="surface" placeholder="ex: 12" step="0.1">
-            <button type="button" id="toggle-calc" class="btn-small">Aider au calcul</button>
-          </div>
-          <p style="font-size:0.75rem; color:var(--muted); margin-top:0.3rem;">Cela nous permet de vous donner une <strong>estimation de prix rapide par téléphone</strong>.</p>
-        </div>
-
-        <!-- Mini Calculateur -->
-        <div id="calculator-box" class="hidden-field calc-container">
-          <div class="calc-row">
-            <div>
-              <label>Nb de vitres</label>
-              <input type="number" id="calc-nb" value="1" min="1">
-            </div>
-            <div>
-              <label>Largeur moy. (m)</label>
-              <input type="number" id="calc-w" placeholder="1.20" step="0.01">
-            </div>
-            <div>
-              <label>Hauteur moy. (m)</label>
-              <input type="number" id="calc-h" placeholder="1.50" step="0.01">
-            </div>
-          </div>
-          <button type="button" id="apply-calc" class="btn-secondary" style="width:100%; padding:0.5rem; margin-top:0.75rem; font-size:0.85rem;">Calculer et appliquer</button>
-        </div>
-        <div>
-          <label for="message">Message (optionnel)</label>
-          <textarea id="message" name="message" placeholder="Décrivez brièvement votre projet (surface estimée, type de vitrage…)"></textarea>
-        </div>
-        <button type="submit" class="btn-submit" id="submit-btn">📩 Être rappelé rapidement</button>
-        <p class="form-note">Devis gratuit · Sans engagement · Réponse sous 12h</p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer-main">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col footer-about">
-        <a href="/" class="nav-logo" style="color:#fff; margin-bottom:1rem; display:block;">Opalis <b style="background:var(--blue); padding:0.1rem 0.35rem; border-radius:5px;">Solaire</b></a>
-        <p>Expert en protection thermique des vitrages. Nous installons des films solaires haute performance pour les professionnels et particuliers en Auvergne-Rhône-Alpes.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/realisations">Nos Réalisations</a></li>
-          <li><a href="/savoir-faire">Notre Savoir-Faire</a></li>
-          <li><a href="/#contact">Demander un devis</a></li>
-          <li><a href="/pose-film-anti-chaleur">Pose Film Anti-Chaleur</a></li>
-          <li><a href="/film-anti-uv-vitrine-transparent">Film Anti-UV Vitrine</a></li>
-          <li><a href="/film-solaire-miroir-sans-tain-bureau">Film Miroir / Dépoli</a></li>
-          <li><a href="/film-anti-chaleur-velux-veranda">Film Velux & Véranda</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Nos Solutions</h4>
-        <ul>
-          <li><a href="/pose-film-anti-chaleur">Pose Film Anti-Chaleur</a></li>
-          <li><a href="/savoir-faire">Notre Savoir-Faire</a></li>
-          <li><a href="/simulateur">Simulateur de Prix</a></li>
-          <li><a href="/realisations">Nos Réalisations</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <div class="footer-contact-info">
-          <div class="footer-contact-item">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-            <a href="tel:+33782852008">07 82 85 20 08</a>
-          </div>
-          <div class="footer-contact-item">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            <a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a>
-          </div>
-          <p style="font-size:0.85rem; margin-top:0.5rem; line-height:1.4;">Intervention : Lyon, Valence, Grenoble, Saint-Étienne.</p>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Opalis Solaire. Tous droits réservés.</p>
-      <div class="footer-legal">
-        <a href="/legal">Mentions Légales</a>
-        <a href="/legal">CGV</a>
-      </div>
-    </div>
-  </div>
+  <div class="wrap footer-bottom-new"><span>© 2026 Opalis Solaire</span><span>La technique au service du confort.</span><a href="legal.html">Mentions légales & confidentialité</a><button class="cookie-settings" type="button" data-cookie-settings>Préférences de cookies</button></div>
 </footer>
-
-<script>
-  // Gestion de l'affichage des options Particuliers
-  document.getElementById('type').addEventListener('change', function() {
-    const particulierOptions = document.getElementById('particulier-options');
-    if (this.value === 'particulier') {
-      particulierOptions.style.display = 'block';
-    } else {
-      particulierOptions.style.display = 'none';
-    }
-  });
-
-  // Toggle du mini-calculateur
-  document.getElementById('toggle-calc').addEventListener('click', function() {
-    const calcBox = document.getElementById('calculator-box');
-    calcBox.style.display = (calcBox.style.display === 'block') ? 'none' : 'block';
-    if (calcBox.style.display === 'block') {
-      this.textContent = 'Fermer le calcul';
-    } else {
-      this.textContent = 'Aider au calcul';
-    }
-  });
-
-  // Calcul de la surface
-  document.getElementById('apply-calc').addEventListener('click', function() {
-    const nb = parseFloat(document.getElementById('calc-nb').value) || 0;
-    const w = parseFloat(document.getElementById('calc-w').value) || 0;
-    const h = parseFloat(document.getElementById('calc-h').value) || 0;
-    
-    if (nb > 0 && w > 0 && h > 0) {
-      const total = (nb * w * h).toFixed(2);
-      document.getElementById('surface').value = total;
-      document.getElementById('calculator-box').style.display = 'none';
-      document.getElementById('toggle-calc').textContent = 'Aider au calcul';
-    } else {
-      alert('Veuillez remplir toutes les valeurs (Nombre, Largeur, Hauteur).');
-    }
-  });
-
-  // Soumission du formulaire
-  document.getElementById('contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const btn = document.getElementById('submit-btn');
-    const nom = document.getElementById('nom').value.trim();
-    const tel = document.getElementById('telephone').value.trim();
-    
-    if (!nom || !tel) {
-      alert('Merci de renseigner votre nom et votre téléphone.');
-      return;
-    }
-
-    const email = document.getElementById('email').value.trim();
-    const type = document.getElementById('type').value;
-    const surface = document.getElementById('surface').value;
-    const message = document.getElementById('message').value.trim();
-    
-    let particulier_sub = '';
-    if (type === 'particulier') {
-      const radio = document.querySelector('input[name="particulier_sub"]:checked');
-      if (radio) particulier_sub = radio.value;
-    }
-
-    const payload = { nom, telephone: tel, email, type, particulier_sub, surface, message, source: 'Site Web Opalis Solaire' };
-
-    // Mode chargement
-    const originalText = btn.innerHTML;
-    btn.innerHTML = 'Envoi en cours...';
-    btn.disabled = true;
-
-    try {
-      await fetch('https://n8n.srv903375.hstgr.cloud/webhook/neuraflow-opalis-solaire-new-form', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      // Succès
-
-      if(typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-            'send_to': 'AW-17195022553/FGiuCKKh6tsaENnxnIdA',
-            'value': 1.0,
-            'currency': 'EUR'
-        });
-      }
-
-      this.style.display = 'none';
-      document.getElementById('success-msg').style.display = 'block';
-    } catch (err) {
-      alert('Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous appeler directement.');
-      console.error('Erreur Webhook n8n:', err);
-    } finally {
-      btn.innerHTML = originalText;
-      btn.disabled = false;
-    }
-  });
-
-  
-</script>
-
-
-<script src="main.js"></script>
-<a href="/#contact" class="sticky-call-btn desktop-only">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-  Appeler maintenant
-</a>
+<!-- OPALIS_FOOTER_END -->
 </body>
 </html>

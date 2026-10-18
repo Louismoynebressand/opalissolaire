@@ -1,206 +1,63 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Simulateur de Prix Film Solaire Anti-Chaleur | Opalis Solaire</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="description" content="Estimez le prix de pose de votre film solaire anti-chaleur en 30 secondes. Tarifs par m², économies climatisation, devis gratuit sous 24h."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="global.css"/>
-<style>
-body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);}
-.sim-hero{background:#f8faff;padding:4rem 1.25rem 3rem;text-align:center;border-bottom:1px solid var(--border);}
-.sim-hero h1{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;margin-bottom:.75rem;color:var(--text);}
-.sim-hero h2{font-size:1.05rem;font-weight:400;color:var(--muted);max-width:560px;margin:0 auto;}
-.sim-wrap{max-width:720px;margin:-2rem auto 3rem;padding:0 1.25rem 5rem; position: relative; z-index: 10;}
-.progress{display:flex;gap:0;margin-bottom:2rem;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.05); border: 1px solid var(--border);}
-.prog-step{flex:1;padding:.8rem;text-align:center;font-size:.8rem;font-weight:700;color:var(--muted);transition:.3s;border-right:1px solid var(--border);}
-.prog-step:last-child{border-right:none;}
-.prog-step.active{background:var(--blue);color:#fff;border-color:var(--blue);}
-.prog-step.done{background:var(--blue-light);color:var(--blue);}
-.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2.5rem;box-shadow:0 10px 40px rgba(0,0,0,.08); transition: all 0.3s ease;}
-.card h3{font-size:1.25rem;font-weight:800;margin-bottom:.5rem; color: var(--text);}
-.card .sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem;}
-.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem;}
-@media (max-width: 500px) { .choice-grid{grid-template-columns:1fr;} }
-.choice{border:2px solid var(--border);border-radius:12px;padding:1.5rem 1rem;text-align:center;cursor:pointer;transition:.2s; background: #fff;}
-.choice:hover{border-color: #93c5fd; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(26,86,219,0.08);}
-.choice.selected{border-color:var(--blue);background:var(--blue-light); box-shadow: 0 0 0 4px rgba(26,86,219,0.1);}
-.choice .ico{font-size:2.5rem;margin-bottom:.75rem;}
-.choice strong{display:block;font-size:1rem;font-weight:700; color: var(--text);}
-.form-field{margin-bottom:1.5rem;}
-.form-field label{display:block;font-size:.9rem;font-weight:700;margin-bottom:.5rem; color: var(--text);}
-.form-field input,.form-field select{width:100%;padding:1rem 1.25rem;border:1.5px solid var(--border);border-radius:10px;font-size:1rem;font-family:inherit;outline:none;transition:.2s; background: var(--bg-alt);}
-.form-field input:focus,.form-field select:focus{border-color:var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(26,86,219,0.1);}
-.opt-label{font-size:.75rem;color:var(--muted);font-weight:500; margin-left:.35rem;}
-.btn-next{width:100%;background:var(--blue);color:#fff;border:none;border-radius:12px;padding:1.25rem;font-size:1.1rem;font-weight:800;cursor:pointer;transition:.2s;margin-top:1rem; display: flex; justify-content: center; align-items: center; gap: 0.5rem;}
-.btn-next:hover{background:var(--blue-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,86,219,0.2);}
-.btn-back{background:none;border:none;color:var(--muted);font-size:.9rem;font-weight:600;cursor:pointer;margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:.35rem; transition: 0.2s;}
-.btn-back:hover{color:var(--blue); transform: translateX(-4px);}
-.step{display:none;}
-.step.active{display:block;animation:slideUpFade 0.4s ease forwards;}
-@keyframes slideUpFade{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
-
-/* Live Calculator UI */
-.live-calc-container {
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-}
-.calc-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-.calc-header h4 { font-size: 1rem; font-weight: 700; color: var(--text); }
-.calc-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr auto;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-  align-items: center;
-}
-@media (max-width: 500px) {
-  .calc-row { grid-template-columns: 1fr 1fr; }
-  .calc-row .del-btn { grid-column: span 2; }
-}
-.calc-row input {
-  padding: 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.95rem;
-  width: 100%;
-}
-.calc-row input:focus { border-color: var(--blue); outline: none; }
-.del-btn {
-  background: #fee2e2;
-  color: #dc2626;
-  border: none;
-  border-radius: 8px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.2s;
-}
-.del-btn:hover { background: #fecaca; }
-.add-row-btn {
-  background: none;
-  border: 2px dashed var(--border);
-  color: var(--blue);
-  font-weight: 700;
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s;
-  margin-bottom: 1.5rem;
-}
-.add-row-btn:hover { border-color: var(--blue); background: var(--blue-light); }
-.live-total-box {
-  background: #fff;
-  border: 2px solid var(--blue);
-  border-radius: 10px;
-  padding: 1.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(26,86,219,0.1);
-}
-.live-total-box .total-label { font-size: 0.95rem; font-weight: 700; color: var(--blue-dark); }
-.live-total-box .total-value { font-size: 1.5rem; font-weight: 800; color: var(--blue); }
-
-/* Results */
-.result-price{background:linear-gradient(135deg,#1a56db,#1240b0);color:#fff;border-radius:16px;padding:2.5rem;text-align:center;margin-bottom:1.5rem; box-shadow: 0 10px 30px rgba(26,86,219,0.2);}
-.result-price .label{font-size:.9rem;font-weight:700;opacity:.9;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem;}
-.result-price .range{font-size:clamp(2.2rem,8vw,3.5rem);font-weight:800;letter-spacing:-.02em; line-height: 1;}
-.result-price .note{font-size:.85rem;opacity:.8;margin-top:1rem;}
-.result-block{background:var(--bg-alt);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1rem;font-size:1rem;line-height:1.6;}
-.result-block strong{display:flex; align-items: center; gap: 0.5rem; font-size:1.1rem;margin-bottom:.5rem; color: var(--text);}
-.result-cta{display:block;width:100%;text-align:center;background:var(--blue);color:#fff;border-radius:12px;padding:1.25rem;font-size:1.1rem;font-weight:800;margin-top:1.5rem;text-decoration:none; transition: 0.2s;}
-.result-cta:hover{background:var(--blue-dark); transform: translateY(-2px);}
-.error-msg{color:#dc2626;font-size:.85rem;margin-top:.5rem;font-weight:600;display:none;}
-.loader{text-align:center;padding:3rem;display:none;}
-.loader svg{animation:spin 1s linear infinite; stroke: var(--blue);}
-@keyframes spin{to{transform:rotate(360deg)}}
-/* SEO block */
-.seo-block{background:#fff;border-top:1px solid var(--border);padding:5rem 1.25rem;}
-.seo-block .container{max-width:800px;margin:0 auto;}
-.seo-block h3{font-size:1.2rem;font-weight:800;margin:2rem 0 .75rem;}
-.seo-block p{color:var(--muted);font-size:1rem;line-height:1.8;}
-.vbtn{padding:.65rem 1.25rem;border:2px solid var(--border);background:#fff;color:var(--muted);border-radius:8px;font-weight:700;font-size:.9rem;cursor:pointer;transition:.2s;}
-.vbtn:hover,.vbtn.active{border-color:var(--blue);background:var(--blue-light);color:var(--blue);}  
-</style>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17195022553"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17195022553');
-</script>
-</head>
-<body>
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo-wrap">
-      <span class="nav-logo">Opalis <b>Solaire</b></span>
-      <span class="nav-slogan">Expert en protection thermique des vitrages.</span>
-    </a>
-    <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="/">Accueil</a></li>
-      <li><a href="/realisations">Nos Réalisations</a></li>
-      <li><a href="/savoir-faire">Notre Savoir-Faire</a></li>
-      <li><a href="/simulateur" class="nav-cta-alt">Simulateur</a></li>
-      <li class="mobile-only"><a href="/#contact" class="nav-cta">Demander un devis</a></li>
-    </ul>
-    <a href="/#contact" class="nav-cta desktop-only">Demander un devis</a>
+<html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f6f2">
+<title>Budget de pose de film solaire : estimation | Opalis Solaire</title><meta name="description" content="Estimez le budget de fourniture et pose d’un film solaire selon vos surfaces. Une fourchette indicative avant diagnostic de vos vitrages par Opalis Solaire."><link rel="canonical" href="https://opalissolaire.fr/simulateur">
+<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="opalis.css"><link rel="stylesheet" href="pro.css"><link rel="stylesheet" href="editorial.css">
+<script src="opalis.js" defer></script><script src="editorial.js" defer></script><link rel="stylesheet" href="simulateur.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "Budget de pose de film solaire : estimation", "url": "https://opalissolaire.fr/simulateur", "image": "https://opalissolaire.fr/assets/hero-architecture.webp", "author": {"@type": "Organization", "name": "Opalis Solaire"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://opalissolaire.fr/"}, {"@type": "ListItem", "position": 2, "name": "Estimer mon budget", "item": "https://opalissolaire.fr/simulateur"}]}]}</script>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Opalis Solaire">
+<meta property="og:title" content="Budget de pose de film solaire : estimation | Opalis Solaire">
+<meta property="og:description" content="Estimez le budget de fourniture et pose d’un film solaire selon vos surfaces. Une fourchette indicative avant diagnostic de vos vitrages par Opalis Solaire.">
+<meta property="og:url" content="https://opalissolaire.fr/simulateur">
+<meta property="og:image" content="https://opalissolaire.fr/assets/hero-architecture.webp">
+<meta name="twitter:card" content="summary_large_image">
+</head><body class="opalis-site"><div class="page-progress" aria-hidden="true"></div><!-- OPALIS_HEADER_START -->
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Opalis Solaire, accueil"><svg class="brand-symbol" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M22 1v7m0 28v7M1 22h7m28 0h7M7.15 7.15l4.95 4.95m19.8 19.8 4.95 4.95M7.15 36.85l4.95-4.95m19.8-19.8 4.95-4.95" stroke="currentColor" stroke-width="1.6"/></svg><span class="brand-name">opalis<span>solaire</span></span></a>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="site-menu" aria-expanded="false"><span></span><span></span></button>
+    <div class="site-menu" id="site-menu" role="navigation" aria-label="Navigation principale">
+      <details class="nav-dropdown"><summary>Vos besoins <span aria-hidden="true">⌄</span></summary><div class="mega-menu"><div class="mega-intro"><p class="mega-eyebrow">Une solution posée pour vous</p><p>Qu’est-ce qui vous<br><em>changerait la vie ?</em></p><span>Nous étudions vos vitrages, fournissons le film adapté et réalisons la pose.</span><a href="savoir-faire.html#diagnostic">M’aider à choisir ↗</a></div><div class="mega-links"><a href="pose-film-anti-chaleur.html"><strong>Réduire la chaleur & l’éblouissement</strong><span>Films solaires pour maisons et locaux</span></a><a href="film-securite-vitrage-maison.html"><strong>Sécuriser les vitrages de ma maison</strong><span>Renforcer une fenêtre sans remplacer tout le vitrage</span></a><a href="film-anti-effraction-vitrine-commerce.html"><strong>Protéger une vitrine de commerce</strong><span>Films de sécurité selon le risque visé</span></a></div><div class="mega-links"><a href="mise-en-securite-vitrage-casse.html"><strong>Mettre en sécurité un vitrage cassé</strong><span>Une solution provisoire à étudier après un bris</span></a><a href="film-anti-uv-vitrine-transparent.html"><strong>Limiter l’exposition aux UV</strong><span>Mobilier, marchandises et vitrines</span></a><a href="film-anti-graffiti-vitrage.html"><strong>Protéger des tags & des rayures</strong><span>Une protection de surface remplaçable</span></a></div></div></details>
+      <details class="nav-dropdown"><summary>Votre espace <span aria-hidden="true">⌄</span></summary><div class="mega-menu"><div class="mega-intro"><p class="mega-eyebrow">Du lieu à la solution</p><p>Votre espace.<br><em>Nos réponses.</em></p><span>Une maison, une boutique et un bâtiment de bureaux ne demandent pas la même approche.</span><a href="index.html#contact">Décrire mon projet ↗</a></div><div class="mega-links"><a href="particuliers.html"><strong>Ma maison ou mon appartement</strong><span>Pièces de vie, baies vitrées et intimité</span></a><a href="film-anti-chaleur-velux-veranda.html"><strong>Ma véranda ou ma fenêtre de toit</strong><span>Retrouver le confort sous le soleil</span></a><a href="commerces.html"><strong>Ma boutique & ma vitrine</strong><span>Anti-éclats, protection renforcée, solaire et UV</span></a></div><div class="mega-links"><a href="professionnels.html"><strong>Mes bureaux ou mon bâtiment</strong><span>Un accompagnement pour les professionnels</span></a><a href="professionnels.html?categorie=intimite#gammes-pro"><strong>Mes cloisons & espaces confidentiels</strong><span>Réunions, accueil et confidentialité</span></a><a href="professionnels.html?categorie=specialites#gammes-pro"><strong>Un besoin technique particulier</strong><span>Anti-buée, surfaces et applications spécifiques</span></a></div></div></details>
+      <details class="nav-dropdown"><summary>Nos réalisations <span aria-hidden="true">⌄</span></summary><div class="mega-menu"><div class="mega-intro"><p class="mega-eyebrow">Des chantiers à découvrir</p><p>Avant. Après.<br><em>Concrètement.</em></p><span>Explorez les photos et les détails de nos interventions.</span><a href="realisations.html">Tous les avant / après ↗</a></div><div class="mega-links"><a href="projet-baie-vitree-salon.html"><strong>Baie vitrée de salon</strong><span>Maison · Confort et intimité</span></a><a href="projet-velux.html"><strong>Fenêtre de toit</strong><span>Maison · Protection solaire</span></a><a href="projet-verriere-toit.html"><strong>Verrière de toiture</strong><span>Confort sous les vitrages</span></a></div><div class="mega-links"><a href="projet-open-space-lyon.html"><strong>Hall d’entreprise</strong><span>Professionnels · Film miroir</span></a><a href="projet-batiment-tertiaire.html"><strong>Façade de bâtiment tertiaire</strong><span>Professionnels · Contrôle solaire</span></a><a href="projet-sas-entree-vitre.html"><strong>Sas d’entrée vitré</strong><span>Professionnels · Discrétion et lumière</span></a></div></div></details>
+      <details class="nav-dropdown"><summary>Notre accompagnement <span aria-hidden="true">⌄</span></summary><div class="mega-menu mega-menu-compact"><div class="mega-intro"><p class="mega-eyebrow">Votre installateur</p><p>Conseiller.<br>Fournir. <em>Poser.</em></p><span>Un interlocuteur pour faire les bons choix et soigner leur mise en œuvre.</span><a href="tel:+33782852008">07 82 85 20 08 ↗</a></div><div class="mega-links"><a href="savoir-faire.html#demarche"><strong>Notre démarche sur mesure</strong><span>Du diagnostic à la pose</span></a><a href="savoir-faire.html#mise-en-oeuvre"><strong>Notre savoir-faire de pose</strong><span>Préparation, application et finitions</span></a><a href="index.html#explorateur"><strong>Explorer les rendus</strong><span>Teintes et lumière, en images</span></a></div><div class="mega-links"><a href="simulateur.html"><strong>Estimer mon budget</strong><span>Une première indication, avant l’étude</span></a><a href="efficacite-film-solaire.html"><strong>L’efficacité réelle des films</strong><span>Mesures, études et conditions du résultat</span></a><a href="index.html#contact"><strong>Demander un devis gratuit</strong><span>Parlons de votre besoin</span></a></div></div></details>
+      <a class="mobile-contact" href="tel:+33782852008">07 82 85 20 08</a>
+    </div>
+    <div class="header-actions"><a class="header-phone" href="tel:+33782852008" aria-label="Appeler le 07 82 85 20 08"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.6 1.7L8.7 10.5a16 16 0 0 0 4.8 4.8l1.3-1.3a2 2 0 0 1 1.7-.6l2.8.5a2 2 0 0 1 1.7 2Z"/></svg><span>07 82 85 20 08</span></a><a class="header-cta" href="index.html#contact">Devis & conseil <span aria-hidden="true">↗</span></a></div>
   </div>
-</nav>
-
-<div class="sim-hero">
-  <div class="container">
-    <span class="section-label">Outil gratuit & sans engagement</span>
-    <h1>Simulateur de Prix — Film Solaire</h1>
-    <h2>Obtenez une fourchette de budget en quelques secondes. Un expert vous recontacte sous 24h pour affiner.</h2>
-  </div>
-</div>
-
-<div class="sim-wrap">
+<noscript><style>.menu-toggle{display:none!important}.site-header .header-inner{height:auto;min-height:74px;flex-wrap:wrap;padding-block:16px}.site-menu{display:block!important;position:static!important;width:100%;max-height:none;order:3;padding:0}.nav-dropdown>summary{padding:15px 0}.site-menu .mega-menu{position:static;box-shadow:none}.contact-form{display:none}.audience-panel[hidden]{display:grid!important}</style></noscript>
+</header>
+<!-- OPALIS_HEADER_END -->
+<main id="main"><div class="wrap ed-breadcrumb" aria-label="Fil d’Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span>Estimer mon budget</span></div>
+<section class="sim-intro"><div class="wrap"><p class="eyebrow">Première étape · Un budget indicatif</p><h1 class="section-heading">Votre vitrage.<br><em>Une première idée du budget.</em></h1><p class="ed-lead">Renseignez votre projet et vos mesures pour obtenir une fourchette de fourniture et pose. La proposition définitive dépend du film, de la compatibilité et des accès.</p></div></section><div class="sim-wrap">
   <!-- PROGRESS -->
   <div class="progress">
     <div class="prog-step active" id="prog-1">1. Profil</div>
     <div class="prog-step" id="prog-2">2. Mesures</div>
-    <div class="prog-step" id="prog-3">3. Résultats</div>
+    <div class="prog-step" id="prog-3">3. Coordonnées</div>
   </div>
 
   <!-- STEP 1 -->
   <div class="step active" id="step-1">
     <div class="card">
-      <h3>Quel est votre projet ?</h3>
+      <h2>Quel est votre projet ?</h2>
       <p class="sub">Sélectionnez votre profil pour adapter nos calculs.</p>
       <div class="choice-grid">
-        <div class="choice" id="choice-pro" onclick="selectProfile('pro')">
-          <div class="ico">🏢</div>
+        <button type="button" class="choice" id="choice-pro" aria-pressed="false" onclick="selectProfile('pro')">
+          <div class="ico" aria-hidden="true">01</div>
           <strong>Professionnel</strong>
           <span style="font-size:.85rem;color:var(--muted)">Bureaux, commerces, tertiaire</span>
-        </div>
-        <div class="choice" id="choice-part" onclick="selectProfile('part')">
-          <div class="ico">🏠</div>
+        </button>
+        <button type="button" class="choice" id="choice-part" aria-pressed="false" onclick="selectProfile('part')">
+          <div class="ico" aria-hidden="true">02</div>
           <strong>Particulier</strong>
           <span style="font-size:.85rem;color:var(--muted)">Maisons, appartements, vérandas</span>
-        </div>
+        </button>
       </div>
       <p id="err-profile" class="error-msg">Veuillez sélectionner votre profil.</p>
     </div>
@@ -210,7 +67,7 @@ body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);
   <div class="step" id="step-2">
     <button class="btn-back" onclick="goBack(1)">← Retour</button>
     <div class="card">
-      <h3>Renseignez votre projet</h3>
+      <h2>Renseignez votre projet</h2>
       <p class="sub">Le calcul de surface se met à jour en temps réel.</p>
 
       <!-- TYPE DE BESOIN (Commun) -->
@@ -226,7 +83,7 @@ body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);
 
       <!-- PARTICULIER: type selector -->
       <div class="form-field" id="part-type-container" style="display:none;">
-        <label>Type de vitrage *</label>
+        <label for="part-type">Type de vitrage *</label>
         <select id="part-type" onchange="onPartTypeChange()">
           <option value="classique">Fenêtres classiques ou Baies vitrées</option>
           <option value="velux">Velux &amp; Fenêtres de toit</option>
@@ -247,16 +104,16 @@ body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);
       <!-- PRO MODE 1: bâtiment m² + % -->
       <div id="pro-build-section" style="display:none;">
         <div class="form-field">
-          <label>Surface totale du bâtiment (m²) *</label>
+          <label for="pro-build-m2">Surface totale du bâtiment (m²) *</label>
           <input type="number" id="pro-build-m2" placeholder="ex: 400" min="1" oninput="calcProBuild()"/>
         </div>
         <div class="form-field">
-          <label>Part vitrée estimée <span style="color:var(--muted);font-weight:500;font-size:.85rem;">(% de la surface plancher)</span></label>
+          <label for="pro-pct">Part vitrée estimée <span style="color:var(--muted);font-weight:500;font-size:.85rem;">(% de la surface plancher)</span></label>
           <div style="display:flex;gap:.75rem;align-items:center;">
             <input type="range" id="pro-pct" min="10" max="70" value="30" oninput="calcProBuild()" style="flex:1;accent-color:var(--blue);">
             <span id="pro-pct-val" style="font-size:1.2rem;font-weight:800;color:var(--blue);min-width:3rem;text-align:center;">30%</span>
           </div>
-          <p style="font-size:.8rem;color:var(--muted);margin-top:.3rem;">30% = moyenne bureaux standard. Ajustez selon votre configuration réelle.</p>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:.3rem;">Hypothèse de départ à ajuster selon votre bâtiment. Pour plus de précision, renseignez directement les surfaces vitrées mesurées.</p>
         </div>
         <div class="live-total-box" style="margin-bottom:1rem;">
           <span class="total-label">Surface vitrée estimée :</span>
@@ -267,7 +124,7 @@ body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);
       <!-- PRO MODE 2: direct m² vitrée -->
       <div id="pro-direct-section" style="display:none;">
         <div class="form-field">
-          <label>Surface vitrée à traiter (m²) *</label>
+          <label for="pro-direct-m2">Surface vitrée à traiter (m²) *</label>
           <input type="number" id="pro-direct-m2" placeholder="ex: 120" min="1" oninput="calcProDirect()"/>
         </div>
         <div class="live-total-box" style="margin-bottom:1rem;">
@@ -279,7 +136,13 @@ body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);
       <!-- PRO MODE 3 / PARTICULIER: live calc -->
       <div id="live-calc-section">
         <div class="live-calc-container">
-          <div class="calc-header"><h4>Dimensions (largeur × hauteur en cm)</h4></div>
+          <div class="calc-header">
+            <h4>Dimensions par fenêtre</h4>
+            <select aria-label="Unité des dimensions" id="calc-unit" onchange="changeUnit()" style="padding:0.25rem 0.5rem; border:1px solid var(--border); border-radius:6px; font-size:0.9rem; outline:none; background: #fff; cursor: pointer;">
+              <option value="m" selected>en mètres (m)</option>
+              <option value="cm">en centimètres (cm)</option>
+            </select>
+          </div>
           <div id="calc-rows"></div>
           <button class="add-row-btn" onclick="addCalcRow()">+ Ajouter une fenêtre</button>
           <div class="live-total-box">
@@ -288,7 +151,7 @@ body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);
           </div>
         </div>
         <div class="form-field" id="pro-facture-container" style="display:none;">
-          <label>Facture climatisation annuelle (€) <span class="opt-label">Optionnel</span></label>
+          <label for="pro-facture">Facture climatisation annuelle (€) <span class="opt-label">Optionnel</span></label>
           <input type="number" id="pro-facture" placeholder="ex: 4500" min="0"/>
         </div>
       </div>
@@ -296,7 +159,7 @@ body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);
       <!-- VERANDA CONFIGURATOR -->
       <div id="veranda-section" style="display:none;">
         <div class="form-field">
-          <label>Surface au sol de la véranda (m²) *</label>
+          <label for="veranda-m2">Surface au sol de la véranda (m²) *</label>
           <input type="number" id="veranda-m2" placeholder="ex: 18" min="1" oninput="calcVeranda()"/>
         </div>
         <div class="form-field">
@@ -333,43 +196,43 @@ body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);
     <div class="card" id="contact-card">
       <h3>Dernière étape !</h3>
       <p class="sub">Saisissez vos coordonnées pour découvrir immédiatement votre budget estimatif et vérifier la faisabilité dans votre zone.</p>
-      
+
       <div class="form-field">
-        <label>Code postal *</label>
-        <input type="text" id="contact-cp" placeholder="ex: 26000" maxlength="5"/>
+        <label for="contact-cp">Code postal *</label>
+        <input type="text" id="contact-cp" placeholder="ex: 26000" maxlength="5" inputmode="numeric" autocomplete="postal-code"/>
         <p id="err-cp" class="error-msg">Code postal valide requis.</p>
       </div>
       <div class="form-field">
-        <label>Email *</label>
-        <input type="email" id="contact-email" placeholder="vous@exemple.fr"/>
+        <label for="contact-email">Email *</label>
+        <input type="email" id="contact-email" placeholder="vous@exemple.fr" autocomplete="email"/>
         <p id="err-email" class="error-msg">Email valide requis.</p>
       </div>
       <div class="form-field">
-        <label>Nom & Prénom <span class="opt-label">Optionnel</span></label>
-        <input type="text" id="contact-nom" placeholder="Jean Dupont"/>
+        <label for="contact-nom">Nom &amp; Prénom <span class="opt-label">Optionnel</span></label>
+        <input type="text" id="contact-nom" placeholder="Jean Dupont" autocomplete="name"/>
       </div>
       <div class="form-field">
-        <label>Téléphone *</label>
+        <label for="contact-tel">Téléphone *</label>
         <div style="display:flex; gap:0.5rem;">
           <div style="background:#f1f5f9; border:1px solid var(--border); border-radius:8px; padding:0 1rem; display:flex; align-items:center; font-weight:600; color:var(--text);">+33</div>
-          <input type="tel" id="contact-tel" placeholder="6 00 00 00 00" oninput="formatPhone(this)" maxlength="14" style="flex:1;"/>
+          <input type="tel" id="contact-tel" placeholder="6 00 00 00 00" autocomplete="tel-national" oninput="formatPhone(this)" maxlength="14" style="flex:1;"/>
         </div>
         <p id="err-tel" class="error-msg">Téléphone valide requis.</p>
       </div>
-      
+
       <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin: 1.5rem 0; font-size: 0.85rem; color: #475569; display: flex; align-items: start; gap: 0.75rem;">
         <span style="font-size: 1.25rem;">🔒</span>
         <div>Vos coordonnées seront uniquement utilisées pour vous recontacter concernant votre projet. Elles ne seront jamais revendues, ni utilisées pour l'envoi de communications commerciales. Si votre projet n'aboutit pas, ces données seront définitivement supprimées.</div>
       </div>
-      
+
       <div class="loader" id="loader">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
         <p style="color:var(--blue);font-size:.95rem;font-weight:600;margin-top:1rem">Génération de votre estimation…</p>
       </div>
-      
+
       <p style="text-align:center; font-weight:600; color:var(--text); margin-bottom: 0.75rem;">Vous obtiendrez une estimation immédiatement.</p>
-      <button class="btn-next" id="btn-submit" onclick="submitForm()">Afficher mon devis en ligne</button>
-      <p id="err-submit" class="error-msg" style="display:none;text-align:center;margin-top:.75rem"></p>
+      <button class="btn-next" id="btn-submit" onclick="submitForm()">Afficher mon estimation</button>
+      <p id="err-submit" role="alert" class="error-msg" style="display:none;text-align:center;margin-top:.75rem"></p>
     </div>
 
     <!-- RESULT VIEW -->
@@ -380,13 +243,9 @@ body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);
         <div class="note">Tarif <span id="res-tax"></span> estimatif • Dépend de l'accessibilité sur site</div>
       </div>
       <div class="result-block" id="res-argum"></div>
-      <div class="result-block" id="res-eco" style="display:none">
-        <strong>❄️ Économie estimée sur la climatisation</strong>
-        <span id="res-eco-text"></span>
-      </div>
       <div class="result-block">
         <strong>💬 À noter sur le tarif</strong>
-        Cette estimation est indicative et basée sur la surface renseignée. Le prix final varie selon le film choisi, l’exposition solaire de vos vitrages, leur type (simple / double vitrage) et leur accessibilité. Votre expert affinera ces éléments lors de l’audit gratuit.
+        Cette estimation est indicative et basée sur la surface renseignée. Le prix final varie selon le film choisi, l’exposition solaire de vos vitrages, leur type (simple / double vitrage) et leur accessibilité. Votre expert affinera ces éléments lors de l’étude du projet.
       </div>
       <div class="result-block" style="background:#f0fdf4; border-color:#bbf7d0;">
         <strong style="color:#16a34a; font-size:1.05rem;">✅ Votre demande a bien été envoyée !</strong>
@@ -397,82 +256,14 @@ body{padding-top:70px;font-family:'Inter',sans-serif; background: var(--bg-alt);
 
 </div>
 
-<!-- SEO BLOCK -->
-<section class="seo-block">
-  <div class="container">
-    <span class="section-label">Pourquoi réaliser une simulation ?</span>
-    <h2>Un chiffrage précis pour des solutions sur-mesure</h2>
-    <h3>L'importance d'une estimation personnalisée</h3>
-    <p>Chaque vitrage est différent. L'orientation de vos façades, la surface à traiter et les contraintes techniques de votre bâtiment déterminent le type de film solaire anti-chaleur à appliquer. Notre simulateur analyse ces critères pour vous fournir une première estimation la plus juste possible avant notre audit technique.</p>
-    <h3>Films solaires haute performance</h3>
-    <p>Nous installons exclusivement des films de qualité professionnelle (nano-céramique, métallisés, etc.) conçus pour bloquer jusqu'à 87% de l'énergie solaire et 99% des UV. Cette transparence sur la qualité garantit une excellente durabilité (10 à 15 ans) et une réelle efficacité thermique en été comme en hiver.</p>
-    <h3>Une pose sans interruption d'activité</h3>
-    <p>Que ce soit pour des bureaux en open-space ou une véranda résidentielle, l'installation se fait directement sur vos vitrages existants. Pas de bruit, pas de poussière, pas de gros travaux. Nos techniciens interviennent rapidement pour améliorer votre confort thermique de manière immédiate.</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer-main">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col footer-about">
-        <a href="/" class="nav-logo" style="color:#fff; margin-bottom:1rem; display:block;">Opalis <b style="background:var(--blue); padding:0.1rem 0.35rem; border-radius:5px;">Solaire</b></a>
-        <p>Expert en protection thermique des vitrages. Nous installons des films solaires haute performance pour les professionnels et particuliers en Auvergne-Rhône-Alpes.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/realisations">Nos Réalisations</a></li>
-          <li><a href="/savoir-faire">Notre Savoir-Faire</a></li>
-          <li><a href="/#contact">Demander un devis</a></li>
-          <li><a href="/pose-film-anti-chaleur">Pose Film Anti-Chaleur</a></li>
-          <li><a href="/film-anti-uv-vitrine-transparent">Film Anti-UV Vitrine</a></li>
-          <li><a href="/film-solaire-miroir-sans-tain-bureau">Film Miroir / Dépoli</a></li>
-          <li><a href="/film-anti-chaleur-velux-veranda">Film Velux & Véranda</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Nos Solutions</h4>
-        <ul>
-          <li><a href="/pose-film-anti-chaleur">Pose Film Anti-Chaleur</a></li>
-          <li><a href="/savoir-faire">Notre Savoir-Faire</a></li>
-          <li><a href="/simulateur">Simulateur de Prix</a></li>
-          <li><a href="/realisations">Nos Réalisations</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <div class="footer-contact-info">
-          <div class="footer-contact-item">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-            <a href="tel:+33782852008">07 82 85 20 08</a>
-          </div>
-          <div class="footer-contact-item">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" style="color:var(--blue);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            <a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a>
-          </div>
-          <p style="font-size:0.85rem; margin-top:0.5rem; line-height:1.4;">Intervention : Lyon, Valence, Grenoble, Saint-Étienne.</p>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Opalis Solaire. Tous droits réservés.</p>
-      <div class="footer-legal">
-        <a href="/legal">Mentions Légales</a>
-        <a href="/legal">CGV</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
+<section class="ed-section " id="comprendre"><div class="wrap"><div class="ed-intro reveal"><p class="eyebrow">Après l’estimation</p><h2 class="section-heading">Un point de départ.<br><em>Pour un projet précis.</em></h2><p>L’outil applique un barème indicatif aux informations renseignées. Il ne remplace ni une vérification du vitrage, ni une étude thermique.</p></div><div class="ed-feature-grid"><article class="ed-feature reveal"><span class="ed-feature-index">01 / LE PÉRIMÈTRE</span><h3>La surface à traiter.</h3><p>Les mesures donnent une première base. Le nombre de vitrages, leurs dimensions et l’organisation du chantier peuvent aussi influencer le devis.</p></article><article class="ed-feature reveal"><span class="ed-feature-index">02 / LA SOLUTION</span><h3>Le film adapté au support.</h3><p>Nous rapprochons chaleur, lumière et intimité des caractéristiques du verre. Les performances et conditions de pose dépendent du produit retenu.</p><a class="text-link" href="savoir-faire.html#demarche">Notre démarche ↗</a></article><article class="ed-feature reveal"><span class="ed-feature-index">03 / LE DEVIS</span><h3>Une proposition expliquée.</h3><p>Votre devis précise la solution, les accès et le périmètre de fourniture et pose. Il est gratuit et sans engagement.</p><a class="text-link" href="index.html#contact">Parler de mon projet ↗</a></article></div></div></section><script>
 // ── STATE
 let profile = null, totalSurface = 0, totalQty = 0, proMode = 'build', verandaSides = 2;
 let currentNeed = 'anti-chaleur';
+let currentUnit = 'm';
 const WEBHOOK_URL = 'https://n8n.srv903375.hstgr.cloud/webhook/neuraflow-opalis-solaire-new-form';
 
-document.getElementById('nav-burger').addEventListener('click',()=>{ document.getElementById('nav-links').classList.toggle('open'); });
+document.getElementById('nav-burger')?.addEventListener('click',()=>{ document.getElementById('nav-links').classList.toggle('open'); });
 
 function setNeed(need) {
   currentNeed = need;
@@ -504,6 +295,8 @@ function goBack(to){ setProgress(to); showStep(to); }
 
 function selectProfile(p){
   profile=p;
+  document.getElementById('choice-pro').setAttribute('aria-pressed',String(p==='pro'));
+  document.getElementById('choice-part').setAttribute('aria-pressed',String(p==='part'));
   document.getElementById('choice-pro').classList.toggle('selected',p==='pro');
   document.getElementById('choice-part').classList.toggle('selected',p==='part');
   document.getElementById('err-profile').style.display='none';
@@ -553,14 +346,21 @@ function calcProDirect(){
   document.getElementById('live-m2-direct').textContent=m2.toFixed(2);
 }
 
+function changeUnit() {
+  currentUnit = document.getElementById('calc-unit').value;
+  document.querySelectorAll('.calc-w').forEach(el => { el.placeholder = `Largeur (${currentUnit})`; el.setAttribute('aria-label',`Largeur du vitrage (${currentUnit})`); });
+  document.querySelectorAll('.calc-h').forEach(el => { el.placeholder = `Hauteur (${currentUnit})`; el.setAttribute('aria-label',`Hauteur du vitrage (${currentUnit})`); });
+  calculateLive();
+}
+
 function addCalcRow(){
   const container=document.getElementById('calc-rows');
   const id=Date.now();
   const row=document.createElement('div'); row.className='calc-row'; row.id='row-'+id;
-  row.innerHTML=`<input type="number" placeholder="Largeur (cm)" class="calc-w" oninput="calculateLive()" min="0">
-    <input type="number" placeholder="Hauteur (cm)" class="calc-h" oninput="calculateLive()" min="0">
-    <input type="number" placeholder="Qté" class="calc-q" value="1" oninput="calculateLive()" min="1">
-    <button type="button" class="del-btn" onclick="removeCalcRow('${id}')">✕</button>`;
+  row.innerHTML=`<input type="number" aria-label="Largeur du vitrage (${currentUnit})" placeholder="Largeur (${currentUnit})" class="calc-w" step="any" oninput="calculateLive()" min="0">
+    <input type="number" aria-label="Hauteur du vitrage (${currentUnit})" placeholder="Hauteur (${currentUnit})" class="calc-h" step="any" oninput="calculateLive()" min="0">
+    <input type="number" aria-label="Nombre de vitrages identiques" placeholder="Qté" class="calc-q" value="1" oninput="calculateLive()" min="1">
+    <button type="button" class="del-btn" aria-label="Retirer cette ligne de vitrage" onclick="removeCalcRow('${id}')">✕</button>`;
   container.appendChild(row); calculateLive();
 }
 function removeCalcRow(id){ const r=document.getElementById('row-'+id); if(r) r.remove(); if(!document.getElementById('calc-rows').children.length) addCalcRow(); calculateLive(); }
@@ -570,7 +370,14 @@ function calculateLive(){
     const w=parseFloat(row.querySelector('.calc-w').value)||0;
     const h=parseFloat(row.querySelector('.calc-h').value)||0;
     const qty=parseFloat(row.querySelector('.calc-q').value)||0;
-    if(w>0&&h>0&&qty>0){ m2+=(w/100)*(h/100)*qty; q+=qty; }
+    if(w>0&&h>0&&qty>0){
+      if (currentUnit === 'cm') {
+        m2+=(w/100)*(h/100)*qty;
+      } else {
+        m2+=(w)*(h)*qty;
+      }
+      q+=qty;
+    }
   });
   totalSurface=m2; totalQty=q;
   const el=document.getElementById('live-m2'); if(el){ el.style.opacity='.5'; setTimeout(()=>{ el.textContent=m2.toFixed(2); el.style.opacity='1'; },100); }
@@ -613,33 +420,35 @@ function goStep3(){
 }
 
 function calculateFinalPrice(){
-  let minP,maxP,ecoMin=null,ecoMax=null;
+  let minP,maxP;
   if(profile==='pro'){
     const vitree=totalSurface;
     minP=Math.round(vitree*120); maxP=Math.round(vitree*220); // 120€ à 220€ (parfois jusqu'à 250€)
-    const facture=+document.getElementById('pro-facture').value||0;
-    if(facture>0){ ecoMin=Math.round(facture*.20); ecoMax=Math.round(facture*.25); }
   } else {
     const type=document.getElementById('part-type').value;
     if(type==='classique'){ const s=Math.max(totalSurface,totalQty); minP=Math.round(s*110); maxP=Math.round(s*150); }
     else if(type==='velux'){ minP=totalQty*180; maxP=totalQty*250; } // 180€+ par unité
     else { minP=Math.round(totalSurface*150); maxP=Math.round(totalSurface*220); if(minP<800)minP=800; if(maxP<1500)maxP=1500; } // Véranda
   }
-  return {minP,maxP,ecoMin,ecoMax};
+  return {minP,maxP};
 }
 
 async function submitForm(){
+  const submitButton = document.getElementById('btn-submit');
+  const submitError = document.getElementById('err-submit');
+  if (submitButton.disabled) return;
+  submitError.style.display = 'none';
   const nom=document.getElementById('contact-nom')?.value.trim() || "Client Simulateur";
   const cp=document.getElementById('contact-cp').value.trim();
   const email=document.getElementById('contact-email').value.trim();
   const tel=document.getElementById('contact-tel').value.trim();
   let ok=true;
-  if(!cp||cp.length<4){ document.getElementById('err-cp').style.display='block'; ok=false; } else document.getElementById('err-cp').style.display='none';
-  if(!email||!email.includes('@')){ document.getElementById('err-email').style.display='block'; ok=false; } else document.getElementById('err-email').style.display='none';
-  if(!tel||tel.replace(/\D/g, '').length<9){ document.getElementById('err-tel').style.display='block'; ok=false; } else document.getElementById('err-tel').style.display='none';
+  if(!/^\d{5}$/.test(cp)){ document.getElementById('err-cp').style.display='block'; ok=false; } else document.getElementById('err-cp').style.display='none';
+  if(!email||!document.getElementById('contact-email').checkValidity()){ document.getElementById('err-email').style.display='block'; ok=false; } else document.getElementById('err-email').style.display='none';
+  if(!/^[1-9]\d{8}$/.test(tel.replace(/\D/g, ''))){ document.getElementById('err-tel').style.display='block'; ok=false; } else document.getElementById('err-tel').style.display='none';
   if(!ok) return;
   const result=calculateFinalPrice();
-  
+
   const payload = {
     nom: nom,
     telephone: "+33 " + tel,
@@ -655,31 +464,56 @@ async function submitForm(){
   if(profile==='pro' && document.getElementById('pro-facture')?.value){
     payload.facture_clim_estimee = document.getElementById('pro-facture').value + " €/an";
   }
-  document.getElementById('btn-submit').style.display='none';
-  document.getElementById('loader').style.display='block';
-  if(WEBHOOK_URL){ try{ await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-      if(typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-            'send_to': 'AW-17195022553/FGiuCKKh6tsaENnxnIdA',
-            'value': 1.0,
-            'currency': 'EUR'
-        });
-      }
- } catch(e){ console.warn(e); } }
-  document.getElementById('loader').style.display='none';
-  document.getElementById('contact-card').style.display='none';
-  document.getElementById('result-view').style.display='block';
+  submitButton.disabled = true;
+  submitButton.style.display = 'none';
+  document.getElementById('loader').style.display = 'block';
+  const controller = new AbortController();
+  const requestTimeout = setTimeout(() => controller.abort(), 20000);
+  try {
+    const response = await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: controller.signal
+    });
+    if (!response.ok) throw new Error('La demande n’a pas été acceptée.');
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17195022553/FGiuCKKh6tsaENnxnIdA',
+        'value': 1.0,
+        'currency': 'EUR'
+      });
+    }
+  } catch (error) {
+    submitError.textContent = error.name === 'AbortError'
+      ? 'Le serveur met trop de temps à répondre. Vous pouvez réessayer ou nous appeler au 07 82 85 20 08.'
+      : 'Votre demande n’a pas pu être envoyée. Vos informations sont conservées dans ce formulaire : réessayez ou appelez le 07 82 85 20 08.';
+    submitError.style.display = 'block';
+    return;
+  } finally {
+    clearTimeout(requestTimeout);
+    document.getElementById('loader').style.display = 'none';
+    submitButton.style.display = '';
+    submitButton.disabled = false;
+  }
+  document.getElementById('contact-card').style.display = 'none';
+  document.getElementById('result-view').style.display = 'block';
   document.getElementById('res-range').textContent=result.minP.toLocaleString('fr-FR')+' € – '+result.maxP.toLocaleString('fr-FR')+' €';
   document.getElementById('res-tax').textContent=profile==='pro'?'HT':'TTC';
   const argumEl=document.getElementById('res-argum');
-  if(profile==='pro') argumEl.innerHTML='<strong>🌍 Décret Tertiaire</strong>Nos films participent à vos obligations de réduction énergétique (-40% d\'ici 2030) pour un budget 83% inférieur au remplacement des menuiseries.';
-  else argumEl.innerHTML='<strong>🌡️ Confort immédiat</strong>Baissez la température ressentie jusqu\'à 8°C et bloquez 99% des UV dès le lendemain de la pose.';
-  if(result.ecoMin){ document.getElementById('res-eco-text').textContent='Entre '+result.ecoMin.toLocaleString('fr-FR')+' € et '+result.ecoMax.toLocaleString('fr-FR')+' € par an.'; document.getElementById('res-eco').style.display='block'; }
+  argumEl.innerHTML = '<strong>Une estimation à confirmer</strong>Cette fourchette utilise les barèmes indicatifs du simulateur. Le choix du film, la compatibilité du vitrage, les conditions d’accès et la pose seront vérifiés avant un devis précis. Aucun gain de température ou d’énergie n’est calculé ici.';
 }
 </script>
-<a href="/#contact" class="sticky-call-btn desktop-only">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-  Appeler maintenant
-</a>
-</body>
-</html>
+</main>
+<!-- OPALIS_FOOTER_START -->
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-intro"><a class="brand" href="index.html"><svg class="brand-symbol" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M22 1v7m0 28v7M1 22h7m28 0h7M7.15 7.15l4.95 4.95m19.8 19.8 4.95 4.95M7.15 36.85l4.95-4.95m19.8-19.8 4.95-4.95" stroke="currentColor" stroke-width="1.6"/></svg><span class="brand-name">opalis<span>solaire</span></span></a><p>Votre installateur de films pour vitrages.<br>Conseil, fourniture et pose sur mesure.<br>Auvergne-Rhône-Alpes.</p></div>
+    <div><h2>Vos espaces</h2><a href="particuliers.html">Maisons & appartements</a><a href="commerces.html">Boutiques & vitrines</a><a href="professionnels.html">Bureaux & bâtiments</a><a href="realisations.html">Nos réalisations</a><a href="savoir-faire.html">Notre savoir-faire</a></div>
+    <div><h2>Nos solutions</h2><a href="pose-film-anti-chaleur.html">Chaleur & éblouissement</a><a href="film-securite-vitrage.html#anti-eclats">Films de sécurité</a><a href="film-securite-vitrage-maison.html">Sécurité à la maison</a><a href="film-anti-effraction-vitrine-commerce.html">Sécurité des vitrines</a><a href="mise-en-securite-vitrage-casse.html">Vitrage cassé : mise en sécurité</a><a href="film-anti-graffiti-vitrage.html">Protection anti-graffiti</a><a href="simulateur.html">Estimer mon budget</a></div>
+    <div><h2>Parlons de votre projet</h2><a class="footer-phone" href="tel:+33782852008">07 82 85 20 08 <span aria-hidden="true">↗</span></a><a href="mailto:contact@opalissolaire.fr">contact@opalissolaire.fr</a><p>Valence · Lyon · Grenoble<br>Saint-Étienne et alentours</p></div>
+  </div>
+  <div class="wrap footer-bottom-new"><span>© 2026 Opalis Solaire</span><span>La technique au service du confort.</span><a href="legal.html">Mentions légales & confidentialité</a><button class="cookie-settings" type="button" data-cookie-settings>Préférences de cookies</button></div>
+</footer>
+<!-- OPALIS_FOOTER_END -->
+</body></html>
