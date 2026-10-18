@@ -20,8 +20,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="assets/hero-architecture.webp" fetchpriority="high">
   <link rel="stylesheet" href="opalis.css">
+  <link rel="stylesheet" href="home-motion.css">
   <link rel="stylesheet" href="security-pages.css">
   <script src="opalis.js" defer></script>
+  <script src="home-motion.js" defer></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://opalissolaire.fr/#entreprise","name":"Opalis Solaire","url":"https://opalissolaire.fr/","image":"https://opalissolaire.fr/assets/hero-architecture.webp","telephone":"+33782852008","email":"contact@opalissolaire.fr","areaServed":[{"@type":"AdministrativeArea","name":"Auvergne-Rhône-Alpes"},{"@type":"City","name":"Valence"},{"@type":"City","name":"Lyon"},{"@type":"City","name":"Grenoble"},{"@type":"City","name":"Saint-Étienne"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Films pour vitrages","itemListElement":[{"@type":"OfferCatalog","name":"Films de contrôle solaire et anti-UV"},{"@type":"OfferCatalog","name":"Films de sécurité et anti-graffiti"},{"@type":"OfferCatalog","name":"Films d’intimité et de décoration"}]}}
   </script>
@@ -61,14 +63,22 @@
           <div class="hero-buttons"><a class="button button-dark" href="#votre-projet">Trouver ma solution <span aria-hidden="true">↗</span></a><a class="text-link" href="#contact">Demander un devis <span aria-hidden="true">↗</span></a></div>
           <div class="hero-bottom"><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 10 4 4 8-8"/></svg> Étude sur mesure</span><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 10 4 4 8-8"/></svg> Pose professionnelle</span><span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="m4 10 4 4 8-8"/></svg> Devis gratuit</span></div>
         </div>
-        <figure class="hero-visual">
-          <img src="assets/hero-architecture.webp" fetchpriority="high" alt="Grande baie vitrée d’une maison contemporaine ouverte sur un paysage ensoleillé" decoding="async" width="1536" height="1024">
-          <span class="hero-image-tag">Le bon conseil. Le bon film. La bonne pose.</span><span class="hero-coordinate" aria-hidden="true"></span>
-          <div class="glass-note"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="m9 12 19-6 8 24-19 7Z"/><path d="m5 16 19-6 8 24-19 7Z"/><path d="m14 21 4 4 7-9"/></svg><div><p>Un film discret.<br>Une différence au quotidien.</p><small>Sur vos vitrages existants, sans les remplacer.</small></div><span aria-hidden="true">↗</span></div>
-
+        <figure class="hero-visual hero-slider" data-hero-slider role="region" aria-roledescription="carrousel" aria-label="Nos solutions pour vos vitrages">
+          <div class="hero-slides">
+            <div class="hero-slide is-active" data-tag="Maison · Confort solaire" data-title="Un film discret.&#10;Une différence au quotidien." data-note="Sur vos vitrages existants, sans les remplacer." aria-hidden="false"><img src="assets/hero-architecture.webp" fetchpriority="high" alt="Grande baie vitrée d’une maison contemporaine ouverte sur un paysage ensoleillé" decoding="async" width="1536" height="1024"></div>
+            <div class="hero-slide" data-tag="Boutique · Protection des vitrages" data-title="Votre vitrine reste visible.&#10;Sa protection se fait discrète." data-note="Une solution transparente, adaptée à votre commerce." aria-hidden="true"><img src="assets/chantier-vitrine-lyon-protection.jpg" loading="lazy" alt="Vitrine de commerce à Lyon équipée d’un film de protection transparent" decoding="async" width="598" height="800"></div>
+            <div class="hero-slide" data-tag="Bureaux · Intimité & lumière" data-title="La lumière circule.&#10;Les regards s’arrêtent." data-note="Des films dépolis pour vos cloisons et espaces de travail." aria-hidden="true"><img src="assets/cloison-bureau-film-depoli-confidentialite.webp" loading="lazy" alt="Cloison vitrée de bureau habillée d’un film dépoli pour préserver l’intimité" decoding="async" width="1024" height="1024"></div>
+            <div class="hero-slide" data-tag="Bâtiment · Contrôle solaire" data-title="De grandes surfaces.&#10;Un confort pensé en détail." data-note="Le bon film, fourni et posé à l’échelle de votre bâtiment." aria-hidden="true"><img src="assets/batiment-tertiaire-apres.webp" loading="lazy" alt="Façade de bâtiment tertiaire après la pose de films solaires" decoding="async" width="1024" height="571"></div>
+          </div>
+          <svg class="hero-light-frame" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><rect class="hero-frame-base" x="2" y="2" width="96" height="96" rx=".5"/><rect class="hero-frame-glint" x="2" y="2" width="96" height="96" rx=".5" pathLength="100"/></svg>
+          <span class="hero-image-tag">Maison · Confort solaire</span><span class="hero-coordinate" aria-hidden="true"></span>
+          <div class="glass-note"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="m9 12 19-6 8 24-19 7Z"/><path d="m5 16 19-6 8 24-19 7Z"/><path d="m14 21 4 4 7-9"/></svg><div><p data-slide-title>Un film discret.<br>Une différence au quotidien.</p><small data-slide-note>Sur vos vitrages existants, sans les remplacer.</small></div><span aria-hidden="true">↗</span></div>
+          <button class="hero-arrow hero-prev" type="button" aria-label="Afficher la photo précédente" hidden>←</button><button class="hero-arrow hero-next" type="button" aria-label="Afficher la photo suivante" hidden>→</button>
+          <div class="hero-navigation" hidden><span class="hero-slide-count" aria-hidden="true">01 / 04</span><div class="hero-dots" role="group" aria-label="Choisir une photo"><button type="button" aria-label="Photo 1 : maison et confort solaire" aria-current="true"></button><button type="button" aria-label="Photo 2 : protection de vitrine" aria-current="false"></button><button type="button" aria-label="Photo 3 : intimité au bureau" aria-current="false"></button><button type="button" aria-label="Photo 4 : façade et contrôle solaire" aria-current="false"></button></div><button class="hero-autoplay" type="button" aria-label="Mettre en pause le défilement automatique" aria-pressed="false">Ⅱ</button></div>
+          <span class="hero-timer" aria-hidden="true"><span></span></span><span class="sr-only hero-slide-status" aria-live="polite" aria-atomic="true"></span>
         </figure>
       </div>
-      <div class="hero-index" aria-hidden="true"><span>Installateur de solutions pour vitrages</span><span class="index-rule"></span><span>Défiler pour découvrir ↓</span></div>
+      <a class="hero-index" href="#votre-projet"><span>Installateur de solutions pour vitrages</span><span class="index-rule" aria-hidden="true"></span><span>Explorer les solutions</span></a>
     </div>
   </section>
   <div class="quick-access"><div class="wrap quick-access-inner"><span class="quick-access-label">Accès direct</span><a href="commerces.html">Boutique & vitrine <span aria-hidden="true">↗</span></a><a href="film-securite-vitrage.html#anti-eclats">Protection anti-éclats <span aria-hidden="true">↗</span></a><a href="film-securite-vitrage.html#protection-renforcee">Protection renforcée <span aria-hidden="true">↗</span></a><a href="pose-film-anti-chaleur.html">Trop chaud derrière les vitres <span aria-hidden="true">↗</span></a></div></div>
