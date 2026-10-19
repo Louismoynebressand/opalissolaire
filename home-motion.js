@@ -218,3 +218,30 @@
     arm();
   });
 })();
+
+// Une fenêtre portrait sans interface native ; la boucle s’arrête hors écran.
+(() => {
+  const video = document.querySelector('[data-home-chantier]');
+  if (!video) return;
+  const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  let visible = false;
+  video.muted = true;
+  video.defaultMuted = true;
+  video.controls = false;
+  const sync = () => {
+    video.autoplay = !preference.matches;
+    if (visible && !document.hidden && !preference.matches) {
+      const playing = video.play();
+      if (playing) playing.catch(() => {});
+    } else video.pause();
+  };
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting;
+      sync();
+    }, { threshold: 0.15 }).observe(video);
+  } else { visible = true; sync(); }
+  document.addEventListener('visibilitychange', sync);
+  preference.addEventListener('change', sync);
+  sync();
+})();
