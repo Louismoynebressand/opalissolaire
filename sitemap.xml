@@ -153,4 +153,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://opalissolaire.fr/projet-film-solaire-transparent-plein-sud</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://opalissolaire.fr/film-solaire-baie-vitree-plein-sud-ouest</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://opalissolaire.fr/nettoyer-entretenir-film-solaire-vitrage</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

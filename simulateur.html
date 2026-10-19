@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f6f2">
-<title>Budget de pose de film solaire : estimation | Opalis Solaire</title><meta name="description" content="Estimez le budget de fourniture et pose d’un film solaire selon vos surfaces. Une fourchette indicative avant diagnostic de vos vitrages par Opalis Solaire."><link rel="canonical" href="https://opalissolaire.fr/simulateur">
+<title>Prix du film solaire posé : simulateur de budget | Opalis Solaire</title><meta name="description" content="Estimez le budget de fourniture et pose d’un film solaire selon vos surfaces. Une fourchette indicative avant diagnostic de vos vitrages par Opalis Solaire."><link rel="canonical" href="https://opalissolaire.fr/simulateur">
 <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="opalis.css"><link rel="stylesheet" href="pro.css"><link rel="stylesheet" href="editorial.css">
@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Opalis Solaire">
-<meta property="og:title" content="Budget de pose de film solaire : estimation | Opalis Solaire">
+<meta property="og:title" content="Prix du film solaire posé : simulateur de budget | Opalis Solaire">
 <meta property="og:description" content="Estimez le budget de fourniture et pose d’un film solaire selon vos surfaces. Une fourchette indicative avant diagnostic de vos vitrages par Opalis Solaire.">
 <meta property="og:url" content="https://opalissolaire.fr/simulateur">
 <meta property="og:image" content="https://opalissolaire.fr/assets/hero-architecture.webp">
@@ -34,7 +34,7 @@
 </header>
 <!-- OPALIS_HEADER_END -->
 <main id="main"><div class="wrap ed-breadcrumb" aria-label="Fil d’Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span>Estimer mon budget</span></div>
-<section class="sim-intro"><div class="wrap"><p class="eyebrow">Première étape · Un budget indicatif</p><h1 class="section-heading">Votre vitrage.<br><em>Une première idée du budget.</em></h1><p class="ed-lead">Renseignez votre projet et vos mesures pour obtenir une fourchette de fourniture et pose. La proposition définitive dépend du film, de la compatibilité et des accès.</p></div></section><div class="sim-wrap">
+<section class="sim-intro"><div class="wrap"><p class="eyebrow">Première étape · Un budget indicatif</p><h1 class="section-heading">Combien coûte un film solaire ?<br><em>Estimez votre budget posé.</em></h1><p class="ed-lead">Renseignez votre projet et vos mesures pour obtenir une fourchette de fourniture et pose. La proposition définitive dépend du film, de la compatibilité et des accès.</p></div></section><div class="sim-benefits wrap"><span>Fourniture & pose</span><span>Particuliers & professionnels</span><span>Fourchette indicative</span></div><div class="sim-wrap">
   <!-- PROGRESS -->
   <div class="progress">
     <div class="prog-step active" id="prog-1">1. Profil</div>
@@ -239,16 +239,16 @@
     <div id="result-view" style="display:none;">
       <div class="result-price">
         <div class="label">Estimation Fourniture &amp; Pose experte</div>
-        <div class="range" id="res-range">— €</div>
+        <p class="sr-only" id="res-range" aria-live="polite">— €</p><div class="sim-price-grid"><div><span>Estimation basse</span><strong id="res-min">— €</strong></div><div><span>Estimation haute</span><strong id="res-max">— €</strong></div></div>
         <div class="note">Tarif <span id="res-tax"></span> estimatif • Dépend de l'accessibilité sur site</div>
       </div>
       <div class="result-block" id="res-argum"></div>
       <div class="result-block">
-        <strong>💬 À noter sur le tarif</strong>
+        <strong>Le prix, dans son contexte.</strong>
         Cette estimation est indicative et basée sur la surface renseignée. Le prix final varie selon le film choisi, l’exposition solaire de vos vitrages, leur type (simple / double vitrage) et leur accessibilité. Votre expert affinera ces éléments lors de l’étude du projet.
       </div>
       <div class="result-block" style="background:#f0fdf4; border-color:#bbf7d0;">
-        <strong style="color:#16a34a; font-size:1.05rem;">✅ Votre demande a bien été envoyée !</strong>
+        <strong style="color:#16a34a; font-size:1.05rem;">Votre demande a bien été envoyée.</strong>
         <span style="display:block; margin-top:0.5rem;">Ceci est une première estimation. Notre équipe s'occupe de vous recontacter très prochainement pour discuter de votre projet avec vous, valider la faisabilité technique et vous proposer un devis précis sur mesure si vous le souhaitez.</span>
       </div>
     </div>
@@ -430,6 +430,7 @@ function calculateFinalPrice(){
     else if(type==='velux'){ minP=totalQty*180; maxP=totalQty*250; } // 180€+ par unité
     else { minP=Math.round(totalSurface*150); maxP=Math.round(totalSurface*220); if(minP<800)minP=800; if(maxP<1500)maxP=1500; } // Véranda
   }
+  minP = Math.round(minP * 0.8);
   return {minP,maxP};
 }
 
@@ -499,6 +500,8 @@ async function submitForm(){
   document.getElementById('contact-card').style.display = 'none';
   document.getElementById('result-view').style.display = 'block';
   document.getElementById('res-range').textContent=result.minP.toLocaleString('fr-FR')+' € – '+result.maxP.toLocaleString('fr-FR')+' €';
+  document.getElementById('res-min').textContent=result.minP.toLocaleString('fr-FR')+' €';
+  document.getElementById('res-max').textContent=result.maxP.toLocaleString('fr-FR')+' €';
   document.getElementById('res-tax').textContent=profile==='pro'?'HT':'TTC';
   const argumEl=document.getElementById('res-argum');
   argumEl.innerHTML = '<strong>Une estimation à confirmer</strong>Cette fourchette utilise les barèmes indicatifs du simulateur. Le choix du film, la compatibilité du vitrage, les conditions d’accès et la pose seront vérifiés avant un devis précis. Aucun gain de température ou d’énergie n’est calculé ici.';
