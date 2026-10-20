@@ -1,8 +1,8 @@
 /* Lumière, matière et mouvement : une couche réservée à l’accueil. */
 .hero-slider { isolation:isolate; }
 .hero-slides { position:absolute; inset:-24px 0; transform:translate3d(0,var(--hero-parallax,0px),0); }
-.hero-slide { position:absolute; inset:0; opacity:0; visibility:hidden; transition:opacity 1.1s ease,visibility 1.1s; }
-.hero-slide.is-active { opacity:1; visibility:visible; }
+.hero-slide { position:absolute; inset:0; visibility:hidden; transform:translateX(100%); }
+.hero-slide.is-active { visibility:visible; transform:translateX(0); }
 .hero-slide img { width:100%; height:100%; object-fit:cover; object-position:56% center; }
 .home-immersive .hero-slide.is-active img { animation:opalis-photo-drift 9s ease-out both; }
 .hero-slider::after { z-index:1; }
@@ -11,9 +11,9 @@
 .hero-frame-base { stroke:#ffffff38; stroke-width:.6; }
 .hero-frame-glint { stroke:#fff; stroke-width:1.3; stroke-dasharray:10 90; animation:opalis-frame-light 9s linear infinite; }
 .hero-slider .hero-image-tag,.hero-slider .hero-coordinate { z-index:3; }
-.hero-slider .glass-note { bottom:78px; animation:opalis-glass-float 6s ease-in-out infinite; transition:opacity .24s,filter .24s; }
+.hero-slider .glass-note { bottom:78px; animation:opalis-glass-float 6s ease-in-out infinite; }
 .hero-slider .glass-note p { white-space:pre-line; }
-.hero-slider .glass-note.is-changing { opacity:0; filter:blur(3px); }
+.hero-slider .glass-note>div { min-width:0; }
 .hero-arrow { position:absolute; z-index:4; top:45%; display:grid; place-items:center; width:46px; height:46px; padding:0; border:1px solid #ffffff73; border-radius:50%; background:#25372e38; color:#fff; font-size:22px!important; backdrop-filter:blur(12px); opacity:0; transform:translateX(var(--arrow-enter)); transition:opacity .25s,transform .35s,background .25s; }
 .hero-prev { left:20px; --arrow-enter:-8px; }.hero-next { right:20px; --arrow-enter:8px; }
 .hero-slider[data-pointer-side=left] .hero-prev,.hero-slider[data-pointer-side=right] .hero-next,.hero-arrow:focus-visible { opacity:1; transform:translateX(0); }
@@ -81,3 +81,16 @@
 @media(max-width:600px) { .hero-slider .glass-note { bottom:73px; left:18px; right:18px; max-width:none; }.hero-navigation { inset:auto 19px 22px; }.hero-slide img { object-position:center; }.hero-index { gap:9px; }.hero-index .index-rule { width:35px; }.hero-light-frame { opacity:.8; } }
 @media(hover:none),(pointer:coarse) { .opalis-pointer-light,.uv-reflection { display:none; }.hero-arrow { opacity:1; transform:none; width:38px; height:38px; top:37%; }.hero-prev { left:13px; }.hero-next { right:13px; }.hero-slider { touch-action:pan-y; } }
 @media(prefers-reduced-motion:reduce) { .opalis-pointer-light,.uv-reflection { display:none; }.home-immersive .motion-enter { opacity:1; transform:none; filter:none; }.hero-slides,.home-immersive .hero-copy,.motion-parallax>img { transform:none; }.hero-frame-glint { stroke-dasharray:none; opacity:.4; }.hero-slide,.home-immersive .hero-copy>* { animation:none!important; }.hero-slider .glass-note { animation:none; } }
+
+/* Un repère compact sur les films, dès le premier tiers de l’accueil. */
+.film-quality { padding:38px 0; }
+.film-quality-panel { display:grid; grid-template-columns:1.05fr 1.5fr; gap:36px; padding:30px 34px; border:1px solid var(--line); border-radius:4px; background:var(--sage); }
+.film-quality h2 { font-size:clamp(24px,2.5vw,32px); font-weight:450; line-height:1.2; letter-spacing:-.035em; }
+.film-quality h2 em { font-family:'Instrument Serif',serif; font-weight:400; color:var(--accent); }
+.film-quality-intro>p:last-child { margin-top:12px; font-size:12px; color:var(--muted); line-height:1.75; }
+.film-quality-facts { display:grid; grid-template-columns:1fr 1fr; gap:24px; align-content:center; }
+.film-quality h3 { font-size:13px; font-weight:600; margin-bottom:8px; }
+.film-quality-facts p { font-size:12px; color:var(--muted); line-height:1.75; }
+.film-quality-link { display:inline-block; margin-top:12px; font-size:11px; color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:800px) { .film-quality-panel { grid-template-columns:1fr; gap:24px; padding:26px; } }
+@media(max-width:480px) { .film-quality-facts { grid-template-columns:1fr; gap:18px; } }

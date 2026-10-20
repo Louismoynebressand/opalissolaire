@@ -20,8 +20,9 @@
   const tag = hero.querySelector('.hero-image-tag');
   const status = hero.querySelector('.hero-slide-status');
   const clock = hero.querySelector('.hero-timer>span');
-  const delay = 6500;
-  let current = 0, timer = 0, noteTimer = 0, changeId = 0;
+  const delay = 4500;
+  let current = 0, timer = 0, changeId = 0;
+  let slideAnimations = [];
   let paused = false, hovered = false, focused = false, onScreen = true;
   const stop = () => {
     clearTimeout(timer);
@@ -48,6 +49,10 @@
     try { if (image.decode) await image.decode(); } catch { arm(); return; }
     if (request !== changeId) return;
     if (selected === current) { arm(); return; }
+    const outgoing = slides[current];
+    const direction = index < current ? -1 : 1;
+    slideAnimations.forEach(animation => animation.cancel());
+    slideAnimations = [];
     current = selected;
     slides.forEach((slide, i) => {
       slide.classList.toggle('is-active', i === current);
@@ -55,14 +60,28 @@
       dots[i].setAttribute('aria-current', String(i === current));
     });
     hero.querySelector('.hero-slide-count').textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
-    clearTimeout(noteTimer);
-    card.classList.add('is-changing');
-    noteTimer = setTimeout(() => {
-      title.textContent = slides[current].dataset.title;
-      note.textContent = slides[current].dataset.note;
-      tag.textContent = slides[current].dataset.tag;
-      card.classList.remove('is-changing');
-    }, reduced ? 0 : 180);
+    title.textContent = slides[current].dataset.title;
+    note.textContent = slides[current].dataset.note;
+    tag.textContent = slides[current].dataset.tag;
+    if (!reduced) {
+      const timing = { duration: 620, easing: 'cubic-bezier(.22,.68,.25,1)' };
+      slideAnimations = [
+        outgoing.animate([
+          { transform: 'translateX(0)', visibility: 'visible' },
+          { transform: `translateX(${-direction * 100}%)`, visibility: 'visible' }
+        ], timing),
+        slides[current].animate([
+          { transform: `translateX(${direction * 100}%)` },
+          { transform: 'translateX(0)' }
+        ], timing)
+      ];
+      // Le panneau conserve son flottement ; son texte accompagne le glissement.
+      card.querySelector('div').getAnimations().forEach(animation => animation.cancel());
+      card.querySelector('div').animate([
+        { transform: `translateX(${direction * 24}px)` },
+        { transform: 'translateX(0)' }
+      ], timing);
+    }
     if (announce) status.textContent = `Photo ${current + 1} sur ${slides.length} : ${image.alt}`;
     arm();
   };
