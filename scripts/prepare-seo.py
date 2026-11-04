@@ -51,7 +51,7 @@ for file in files:
     description=next((n.attrs.get('content','') for n in nodes if n.tag=='meta' and n.attrs.get('name')=='description'),'')
     canonical='https://www.opalissolaire.fr/'+('' if file.name=='index.html' else file.stem)
     hero=next((n.attrs.get('src','') for n in nodes if n.tag=='img' and not n.attrs.get('src','').startswith(('http','data:'))),'assets/hero-architecture.webp')
-    content_type = 'article' if re.search(r'"@type"\s*:\s*"BlogPosting"', source) else 'website'
+    content_type = 'article' if re.search(r'"@type"\s*:\s*"(?:BlogPosting|Article)"', source) else 'website'
     metas={'og:type':content_type,'og:locale':'fr_FR','og:site_name':'Opalis Solaire','og:title':title,'og:description':description,'og:url':canonical,'og:image':'https://www.opalissolaire.fr/'+hero.lstrip('/')}
     for key,value in metas.items():
         tag=f'<meta property="{key}" content="{escape(value,quote=True)}">'

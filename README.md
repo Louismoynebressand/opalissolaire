@@ -86,3 +86,7 @@ Le dépôt GitHub existant est conservé. Aucun push ou déploiement n’est eff
 ## Guides de protection du vitrage — novembre 2026
 
 Cinq articles de conseil sont reliés depuis les pages de service concernées et entre eux, sans ajout au menu. Ils réutilisent `editorial.css` avec `blog.css`, un sommaire, des sources, le téléphone visible et le formulaire existant. Les titres, descriptions, FAQ et données BlogPosting sont propres aux sujets. Les URL canoniques, les données structurées et le sitemap utilisent `https://www.opalissolaire.fr`, hôte servi en production. `robots.txt` déclare le sitemap régénéré automatiquement lors du build Vercel. Ce mécanisme facilite la découverte ; il ne force pas l’indexation Google.
+
+## Outil de choix et réponses opérationnelles
+
+`choisir-film-protection-vitrage.html` : orientation par risque et support, huit références fabricant liées aux sources, calcul de surface et impression. `choix-protection.js` fonctionne localement sans stockage ni envoi de données. Sans JavaScript, les orientations restent consultables et la formule de surface est affichée. Les repères Opalis (réponse dans la journée, devis sous 24 h avec informations nécessaires, moins de 2 h pour une baie simple dans des conditions courantes) ont été confirmés par le propriétaire. Ils sont distincts des délais d’adhésion fabricant. Ne pas transformer ces repères en durée universelle ou en disponibilité garantie pour les travaux.

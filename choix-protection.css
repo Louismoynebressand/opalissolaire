@@ -1,0 +1,27 @@
+.choice-panel{padding:clamp(22px,4vw,40px);background:var(--sage);border:1px solid var(--line);margin:25px 0 40px}
+.choice-summary{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.choice-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:22px 0}
+.choice-fields label{display:flex;flex-direction:column;gap:9px;font-size:13px;color:var(--ink)}
+.choice-fields select,.choice-fields input{width:100%;min-height:48px;padding:10px;border:1px solid var(--line);border-radius:3px;background:var(--paper);color:var(--ink);font:inherit}
+.choice-fields select:focus-visible,.choice-fields input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.choice-answer{padding:24px;margin:20px 0;border:1px solid var(--line);background:var(--paper)}
+.choice-answer[hidden]{display:none}
+.choice-answer h3{margin-top:0}
+.choice-answer p+p{margin-top:15px}
+.choice-table-wrap{overflow-x:auto;margin:26px 0}
+.choice-table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.7}
+.choice-table caption{text-align:left;color:var(--muted);margin-bottom:15px;font-size:12px}
+.choice-table th,.choice-table td{padding:15px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.choice-table th{background:var(--sage);font-weight:550}
+.choice-table td:first-child{min-width:160px}
+.choice-table a{text-decoration:underline;text-underline-offset:3px}
+.choice-panel output{display:block;color:var(--ink);line-height:1.8;margin:20px 0}
+.choice-panel .ed-actions{margin-top:20px}
+.choice-panel [data-access-result]{padding:18px;border-left:2px solid var(--accent);margin-top:20px}
+.choice-response{padding:23px 0;border-bottom:1px solid var(--line);max-width:860px}
+.choice-response h3{font-size:22px;line-height:1.3;font-weight:500;margin:0 0 14px}
+.choice-response p{font-size:14px;line-height:1.9;color:var(--muted)}
+.choice-response p+p{margin-top:15px}
+.choice-response .ed-source{font-size:11px}
+@media(max-width:760px){.choice-fields{grid-template-columns:1fr}.choice-table th,.choice-table td{padding:12px}.choice-panel{padding:22px}}
+@media print{.site-header,.site-footer,.cookie-consent,.ed-reading-nav,.blog-header .ed-actions,.choice-panel button,.choice-panel select,.choice-panel label:has(select){display:none!important}.ed-reading{display:block!important}.blog-reading,.ed-article{max-width:none!important}.choice-panel,.choice-answer{break-inside:avoid}.choice-table-wrap{overflow:visible}.choice-answer[hidden]{display:none!important}}

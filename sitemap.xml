@@ -9,6 +9,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.opalissolaire.fr/choisir-film-protection-vitrage</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.opalissolaire.fr/combiner-film-solaire-et-securite-vitrage</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
