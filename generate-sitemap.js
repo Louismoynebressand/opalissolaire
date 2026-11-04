@@ -14,7 +14,7 @@ const fs = require('fs');
 const path = require('path');
 
 // ── CONFIGURATION ──────────────────────────────────────────────────
-const SITE_URL = process.env.SITE_URL || 'https://opalissolaire.fr';
+const SITE_URL = process.env.SITE_URL || 'https://www.opalissolaire.fr';
 
 // Pages à exclure du sitemap (ex: pages légales peu utiles pour le SEO)
 const EXCLUDED_PAGES = [
@@ -25,6 +25,11 @@ const EXCLUDED_PAGES = [
 
 // Priorités et fréquences de changement par page (le reste aura les valeurs par défaut)
 const PAGE_CONFIG = {
+  'film-anti-eclats-ou-anti-effraction.html': { priority: '0.7', changefreq: 'monthly' },
+  'film-anti-graffiti-multicouche-fonctionnement.html': { priority: '0.7', changefreq: 'monthly' },
+  'prix-film-securite-vitrage-pose.html': { priority: '0.7', changefreq: 'monthly' },
+  'securisation-vitrage-creche-reglementation.html': { priority: '0.7', changefreq: 'monthly' },
+  'securiser-miroir-colle-salle-sport.html': { priority: '0.7', changefreq: 'monthly' },
   'index.html':                   { priority: '1.0', changefreq: 'weekly' },
   'realisations.html':            { priority: '0.9', changefreq: 'weekly' },
   'savoir-faire.html':            { priority: '0.8', changefreq: 'monthly' },

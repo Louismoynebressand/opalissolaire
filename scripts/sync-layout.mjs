@@ -26,7 +26,7 @@ for (const name of fs.readdirSync(root).filter(name => name.endsWith('.html') &&
   if (!html.includes('id="main"')) html = html.replace('<!-- OPALIS_HEADER_END -->', '<!-- OPALIS_HEADER_END -->\n<div id="main" tabindex="-1"></div>');
   html = html.replace(/getElementById\((['"])nav-burger\1\)\.addEventListener/g, 'getElementById($1nav-burger$1)?.addEventListener');
   html = html.replace(/<a href="\/#contact" class="sticky-call-btn/g, '<a href="tel:+33782852008" class="sticky-call-btn');
-  const canonical = name === 'index.html' ? 'https://opalissolaire.fr/' : `https://opalissolaire.fr/${name.slice(0, -5)}`;
+  const canonical = name === 'index.html' ? 'https://www.opalissolaire.fr/' : `https://www.opalissolaire.fr/${name.slice(0, -5)}`;
   if (html.includes('rel="canonical"')) html = html.replace(/(<link rel="canonical" href=")[^"]+("\s*\/?>)/, `$1${canonical}$2`);
   else html = html.replace('</head>', `<link rel="canonical" href="${canonical}">\n</head>`);
   if (html !== original) { fs.writeFileSync(file, html); count++; }

@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap — mis à jour automatiquement à chaque déploiement
-Sitemap: https://opalissolaire.fr/sitemap.xml
+Sitemap: https://www.opalissolaire.fr/sitemap.xml
 
 # Bloquer les fichiers inutiles pour les crawlers
 Disallow: /generate-sitemap.js

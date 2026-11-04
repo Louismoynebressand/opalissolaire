@@ -1,0 +1,24 @@
+/* Lecture des guides : typographies, couleurs et composants du site existant. */
+.blog-header{padding-top:55px;padding-bottom:42px;max-width:1000px}
+.blog-header h1{font-size:clamp(36px,4.5vw,62px);font-weight:450;line-height:1.1;letter-spacing:-.045em;max-width:950px;margin:20px 0}
+.blog-lead{font-size:17px;line-height:1.85;color:var(--muted);max-width:850px}
+.blog-phone{font-size:15px;font-weight:600;color:var(--ink);text-underline-offset:4px}
+.blog-takeaway{background:var(--sage);padding:26px 30px;margin-bottom:55px}
+.blog-takeaway strong{display:block;font-size:12px;color:var(--accent);margin-bottom:10px}
+.blog-takeaway p{max-width:950px;font-size:15px;line-height:1.85}
+.blog-reading{padding-bottom:30px}
+.blog-reading .ed-article>section{scroll-margin-top:120px}
+.blog-reading .ed-article h2{font-size:clamp(27px,3vw,38px)}
+.blog-checklist{padding-left:24px;margin:24px 0}
+.blog-checklist li{padding:8px 0 8px 5px}
+.blog-note{margin:28px 0;padding:22px;background:var(--sage);border-left:2px solid var(--accent)}
+.blog-note h3{margin-top:0;font-size:21px}
+.blog-contact{padding:28px;background:var(--sage);border:1px solid var(--line);margin-bottom:55px}
+.blog-contact h2,.blog-contact h3{margin:14px 0 18px;line-height:1.25}
+.blog-contact .ed-actions{gap:18px}
+.blog-contact .blog-phone{color:var(--ink)}
+.blog-model{padding:22px;border:1px solid var(--line);background:var(--paper);margin:25px 0}
+.blog-model p{color:var(--ink)}
+.blog-model h3{margin-top:0}
+@media(max-width:900px){.blog-header{padding-top:35px}.blog-takeaway{width:calc(100% - 40px)}.blog-reading .ed-reading-nav{position:static}}
+@media(max-width:580px){.blog-lead{font-size:15px}.blog-contact{padding:22px}.blog-takeaway{padding:23px}.blog-header h1{font-size:36px}.blog-contact .ed-actions{align-items:flex-start;flex-direction:column}}

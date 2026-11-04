@@ -82,3 +82,7 @@ L’adresse du webhook n8n et le contrat de données existants sont conservés. 
 Les tests utilisent un transport simulé : ils ne créent aucun prospect sur le webhook réel. Ils couvrent succès, HTTP 500, panne réseau, délai dépassé, double clic, validation, calcul de surface et préremplissage boutique, véranda et fenêtre de toit. `scripts/check-site.py` vérifie également les fichiers, ancres, métadonnées, JSON-LD et la syntaxe JavaScript. L’outil local `scripts/responsive-preview.html` permet d’observer les pages dans des cadres de 320, 390, 768 et 1024 px.
 
 Le dépôt GitHub existant est conservé. Aucun push ou déploiement n’est effectué automatiquement par les scripts locaux.
+
+## Guides de protection du vitrage — novembre 2026
+
+Cinq articles de conseil sont reliés depuis les pages de service concernées et entre eux, sans ajout au menu. Ils réutilisent `editorial.css` avec `blog.css`, un sommaire, des sources, le téléphone visible et le formulaire existant. Les titres, descriptions, FAQ et données BlogPosting sont propres aux sujets. Les URL canoniques, les données structurées et le sitemap utilisent `https://www.opalissolaire.fr`, hôte servi en production. `robots.txt` déclare le sitemap régénéré automatiquement lors du build Vercel. Ce mécanisme facilite la découverte ; il ne force pas l’indexation Google.

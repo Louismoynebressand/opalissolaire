@@ -49,9 +49,10 @@ for file in files:
     tree=Tree(source); nodes=list(tree.root.walk())
     title=next((n.text() for n in nodes if n.tag=='title'),'Opalis Solaire')
     description=next((n.attrs.get('content','') for n in nodes if n.tag=='meta' and n.attrs.get('name')=='description'),'')
-    canonical='https://opalissolaire.fr/'+('' if file.name=='index.html' else file.stem)
+    canonical='https://www.opalissolaire.fr/'+('' if file.name=='index.html' else file.stem)
     hero=next((n.attrs.get('src','') for n in nodes if n.tag=='img' and not n.attrs.get('src','').startswith(('http','data:'))),'assets/hero-architecture.webp')
-    metas={'og:type':'website','og:locale':'fr_FR','og:site_name':'Opalis Solaire','og:title':title,'og:description':description,'og:url':canonical,'og:image':'https://opalissolaire.fr/'+hero.lstrip('/')}
+    content_type = 'article' if re.search(r'"@type"\s*:\s*"BlogPosting"', source) else 'website'
+    metas={'og:type':content_type,'og:locale':'fr_FR','og:site_name':'Opalis Solaire','og:title':title,'og:description':description,'og:url':canonical,'og:image':'https://www.opalissolaire.fr/'+hero.lstrip('/')}
     for key,value in metas.items():
         tag=f'<meta property="{key}" content="{escape(value,quote=True)}">'
         pattern=r'<meta\s+property="'+re.escape(key)+r'"\s+content="[^"]*"\s*/?>'
@@ -69,7 +70,7 @@ for file in files:
     graphs=[]
     if faq: graphs.append({'@type':'FAQPage','@id':canonical+'#questions','mainEntity':faq})
     if file.name!='index.html' and 'BreadcrumbList' not in source:
-        graphs.append({'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Accueil','item':'https://opalissolaire.fr/'},{'@type':'ListItem','position':2,'name':title.split('|')[0].strip(),'item':canonical}]})
+        graphs.append({'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Accueil','item':'https://www.opalissolaire.fr/'},{'@type':'ListItem','position':2,'name':title.split('|')[0].strip(),'item':canonical}]})
     block=''
     if graphs:
         data=json.dumps({'@context':'https://schema.org','@graph':graphs},ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
