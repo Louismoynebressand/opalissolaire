@@ -545,3 +545,12 @@ html { scroll-behavior:smooth; scroll-padding-top:104px; }
 .cookie-consent-actions [data-cookie-accept] { background:#22372d; border-color:#22372d; color:#fff; }
 .cookie-settings { padding:0; border:0; background:none; color:inherit; font:inherit; text-align:left; cursor:pointer; }
 @media(max-width:650px) { .cookie-consent { inset:auto 10px 10px; display:block; padding:17px; max-height:calc(100dvh - 20px); overflow:auto; }.cookie-consent-actions { margin-top:13px; display:grid; grid-template-columns:1fr 1fr; }.cookie-consent-actions button { font-size:10px; padding:9px 8px; } }
+
+/* Coordonnées lisibles et éléments étroits, y compris sur téléphone. */
+.phone-icon{display:inline-block;width:1em;height:1em;vertical-align:-.14em;margin-right:.4em;flex-shrink:0}
+.phone-number{white-space:nowrap}
+.phone-link{overflow-wrap:normal}
+.ed-article,.ed-hero-copy,.pro-hero-grid>*,.split-grid>*,.ed-case-aside{min-width:0}
+.ed-article a:not(.button),.ed-source a,.ed-legal a{overflow-wrap:anywhere}
+@media(max-width:580px){.pro-actions .button,.ed-actions .button{white-space:normal;text-align:center;max-width:100%}.page-jumpnav a,.ed-reading-nav a{min-height:44px;display:flex;align-items:center}.blog-header h1,.pro-hero h1,.ed-hero h1,.section-heading{overflow-wrap:break-word}}
+@media(max-width:580px){.contact-form .form-note-new{font-size:11px;line-height:1.7}.pro-hero-note,.ed-meta{font-size:11px!important;line-height:1.7}}

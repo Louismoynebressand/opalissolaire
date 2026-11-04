@@ -33,7 +33,7 @@
  const lightbox=document.querySelector('.ed-lightbox');
  if(lightbox&&typeof lightbox.showModal==='function'){
   document.querySelectorAll('[data-enlarge]').forEach(link=>link.addEventListener('click',event=>{
-   event.preventDefault();const image=lightbox.querySelector('img');image.src=link.href;image.alt=link.dataset.caption||link.querySelector('img')?.alt||'Photo du vitrage';lightbox.querySelector('[data-lightbox-caption]').textContent=image.alt;lightbox.showModal();
+   event.preventDefault();const image=lightbox.querySelector('img');image.src=link.href;image.alt=link.dataset.caption||link.querySelector('img')?.alt||'Photo du vitrage';image.title=image.alt;lightbox.querySelector('[data-lightbox-caption]').textContent=image.alt;lightbox.showModal();
   }));
   lightbox.querySelector('[data-lightbox-close]').addEventListener('click',()=>lightbox.close());
   lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.close();});

@@ -41,6 +41,9 @@ files = [ROOT / name for name in selected] if selected else sorted(ROOT.glob('*.
 
 for file in files:
     source=file.read_text()
+    # Les anciennes URL de redirection restent exclues de l’index.
+    if re.search(r'<meta\s+name="robots"\s+content="[^"]*noindex', source):
+        continue
     # Retirer notre bloc avant de rechercher les données déjà écrites à la main,
     # pour que les exécutions successives produisent le même résultat.
     source=re.sub(r'<script id="page-seo" type="application/ld\+json">[\s\S]*?</script>\n?', '', source)
@@ -50,15 +53,22 @@ for file in files:
     title=next((n.text() for n in nodes if n.tag=='title'),'Opalis Solaire')
     description=next((n.attrs.get('content','') for n in nodes if n.tag=='meta' and n.attrs.get('name')=='description'),'')
     canonical='https://www.opalissolaire.fr/'+('' if file.name=='index.html' else file.stem)
-    hero=next((n.attrs.get('src','') for n in nodes if n.tag=='img' and not n.attrs.get('src','').startswith(('http','data:'))),'assets/hero-architecture.webp')
+    hero_node=next((n for n in nodes if n.tag=='img' and not n.attrs.get('src','').startswith(('http','data:'))),None)
+    hero=hero_node.attrs.get('src','') if hero_node else 'assets/hero-architecture.webp'
     content_type = 'article' if re.search(r'"@type"\s*:\s*"(?:BlogPosting|Article)"', source) else 'website'
     metas={'og:type':content_type,'og:locale':'fr_FR','og:site_name':'Opalis Solaire','og:title':title,'og:description':description,'og:url':canonical,'og:image':'https://www.opalissolaire.fr/'+hero.lstrip('/')}
+    metas['og:image:alt']=hero_node.attrs.get('alt','') if hero_node else 'Maison aux grandes baies vitrées - illustration'
+    if hero_node:
+        for key in ['width','height']:
+            if hero_node.attrs.get(key,'').isdigit(): metas['og:image:'+key]=hero_node.attrs[key]
     for key,value in metas.items():
         tag=f'<meta property="{key}" content="{escape(value,quote=True)}">'
         pattern=r'<meta\s+property="'+re.escape(key)+r'"\s+content="[^"]*"\s*/?>'
         if re.search(pattern,source): source=re.sub(pattern,lambda m:tag,source)
         else: source=source.replace('</head>',tag+'\n</head>')
     if 'name="twitter:card"' not in source: source=source.replace('</head>','<meta name="twitter:card" content="summary_large_image">\n</head>')
+    if not re.search(r'<meta\s+name="robots"', source):
+        source=source.replace('</head>', '<meta name="robots" content="index,follow,max-image-preview:large">\n</head>')
     faq=[]
     for container in nodes:
         if not set(container.attrs.get('class','').split()) & {'faq-list','pro-faq'}: continue

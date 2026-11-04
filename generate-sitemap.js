@@ -12,6 +12,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const { URL } = require('node:url');
+const xmlEscape = value => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 
 // ── CONFIGURATION ──────────────────────────────────────────────────
 const SITE_URL = process.env.SITE_URL || 'https://www.opalissolaire.fr';
@@ -92,16 +94,20 @@ const urls = htmlFiles.map(file => {
     ? `${SITE_URL}/`
     : `${SITE_URL}/${file.slice(0, -5)}`;
 
+  const source = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  const images = [...new Set([...source.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)].map(match => match[1]).filter(src => src.startsWith('assets/') && fs.existsSync(path.join(ROOT, src))))];
+  const imageEntries = images.map(src => `\n    <image:image><image:loc>${xmlEscape(new URL(src, SITE_URL + '/').href)}</image:loc></image:image>`).join('');
   return `  <url>
     <loc>${loc}</loc>
     <changefreq>${config.changefreq}</changefreq>
-    <priority>${config.priority}</priority>
+    <priority>${config.priority}</priority>${imageEntries}
   </url>`;
 }).join('\n');
 
 // Construit le XML final
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">

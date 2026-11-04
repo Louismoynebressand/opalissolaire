@@ -90,3 +90,9 @@ Cinq articles de conseil sont reliés depuis les pages de service concernées et
 ## Outil de choix et réponses opérationnelles
 
 `choisir-film-protection-vitrage.html` : orientation par risque et support, huit références fabricant liées aux sources, calcul de surface et impression. `choix-protection.js` fonctionne localement sans stockage ni envoi de données. Sans JavaScript, les orientations restent consultables et la formule de surface est affichée. Les repères Opalis (réponse dans la journée, devis sous 24 h avec informations nécessaires, moins de 2 h pour une baie simple dans des conditions courantes) ont été confirmés par le propriétaire. Ils sont distincts des délais d’adhésion fabricant. Ne pas transformer ces repères en durée universelle ou en disponibilité garantie pour les travaux.
+
+## Vérifications SEO et guide
+
+Le contrôle statique vérifie les métadonnées, les images informatives et leurs dimensions, les partages sociaux, les liens, la syntaxe des scripts et les images déclarées dans le sitemap. Les anciennes URL de redirection restent hors index. Le guide peut filtrer les usages, gérer plusieurs lots et télécharger une fiche avec `fiche-projet-pdf.js` ; ce PDF est généré localement et reprend les coordonnées Opalis. Les paramètres de relevé sont contrôlés avant préremplissage du formulaire. La synchronisation du layout ajoute les icônes aux liens téléphoniques.
+
+Le comparateur présente les usages en langage courant, des filtres et un glossaire des normes. La fiche est téléchargée en PDF avec les choix, le relevé, le téléphone et l’email ; elle n’imprime pas le site. Les images informatives sont décrites par leur contenu, avec titre et dimensions ; les illustrations ne sont pas présentées comme des photos de chantier. Le sitemap inclut les images locales affichées.

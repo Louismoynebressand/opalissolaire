@@ -6,6 +6,7 @@ const header = `<!-- OPALIS_HEADER_START -->\n${fs.readFileSync(path.join(root, 
 const footer = `<!-- OPALIS_FOOTER_START -->\n${fs.readFileSync(path.join(root, 'templates/footer.html'), 'utf8').trim()}\n<!-- OPALIS_FOOTER_END -->`;
 let count = 0;
 const redirectAliases = new Set(['exemple-vitrine-film-transparent.html', 'exemple-film-solaire-salon.html']);
+const phoneIcon = '<svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.6 1.7l-1.3 1.3a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 1.7-.6l2.8.5a2 2 0 0 1 1.7 2Z"/></svg>';
 for (const name of fs.readdirSync(root).filter(name => name.endsWith('.html') && !redirectAliases.has(name))) {
   const file = path.join(root, name);
   let html = fs.readFileSync(file, 'utf8');
@@ -29,6 +30,16 @@ for (const name of fs.readdirSync(root).filter(name => name.endsWith('.html') &&
   const canonical = name === 'index.html' ? 'https://www.opalissolaire.fr/' : `https://www.opalissolaire.fr/${name.slice(0, -5)}`;
   if (html.includes('rel="canonical"')) html = html.replace(/(<link rel="canonical" href=")[^"]+("\s*\/?>)/, `$1${canonical}$2`);
   else html = html.replace('</head>', `<link rel="canonical" href="${canonical}">\n</head>`);
+  html = html.replace(/<a\b([^>]*href="tel:[^"]+"[^>]*)>([\s\S]*?)<\/a>/g, (match, attrs, content) => {
+    if (!/aria-label=/.test(attrs)) attrs += ' aria-label="Appeler Opalis Solaire au 07 82 85 20 08"';
+    if (!/\bphone-link\b/.test(attrs)) {
+      if (/class="/.test(attrs)) attrs = attrs.replace(/class="/, 'class="phone-link ');
+      else attrs += ' class="phone-link"';
+    }
+    if (!content.includes('<svg')) content = phoneIcon + content;
+    if (!content.includes('phone-number')) content = content.replace(/07 82 85 20 08/g, '<span class="phone-number">07 82 85 20 08</span>');
+    return `<a${attrs}>${content}</a>`;
+  });
   if (html !== original) { fs.writeFileSync(file, html); count++; }
 }
 console.log(`Header, footer et URLs canoniques synchronisés : ${count} pages.`);

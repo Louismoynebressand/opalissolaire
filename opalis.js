@@ -244,6 +244,24 @@
     'agroalimentaire': 'Je souhaite faire étudier la protection anti-éclats de vitrages en production agroalimentaire. Commune :\nZones et surfaces concernées :\nBesoin identifié par qualité ou maintenance :\nContraintes d’hygiène, de nettoyage et d’accès :'
   };
   if (objectives[query.get('objectif')] && !field('message').value) field('message').value = objectives[query.get('objectif')];
+  if (query.get('objectif') === 'choix-film' && !field('message').value) {
+    const needs = { eclats:'Limiter les éclats après un choc', intrusion:'Renforcer un vitrage exposé aux dégradations volontaires', tags:'Protéger des tags et rayures', chaleur:'Associer contrôle solaire et sécurité', agro:'Limiter le risque verre en production' };
+    const supports = { verre:'Vitrage en place, sans dommage apparent', miroir:'Miroir', casse:'Verre endommagé', plastique:'Polycarbonate ou autre plastique' };
+    const passages = { isolable:'Zone de travail pouvant être isolée', unique:'Seul passage disponible', ferme:'Local pouvant être libéré' };
+    const lines = ['Je souhaite être conseillé à partir du guide de choix Opalis.'];
+    if (needs[query.get('risque')]) lines.push('Besoin : ' + needs[query.get('risque')]);
+    if (supports[query.get('support')]) lines.push('Support : ' + supports[query.get('support')]);
+    if (passages[query.get('passage')]) lines.push('Pendant la pose : ' + passages[query.get('passage')]);
+    try {
+      const raw = query.get('vitrages') || '[]';
+      const lots = raw.length < 4000 ? JSON.parse(raw) : [];
+      if (Array.isArray(lots) && lots.length <= 20 && lots.every(lot => lot && Number.isFinite(lot.width) && lot.width > 0 && lot.width <= 5000 && Number.isFinite(lot.height) && lot.height > 0 && lot.height <= 5000 && Number.isInteger(lot.count) && lot.count > 0 && lot.count <= 10000)) {
+        lots.forEach((lot,index) => lines.push(`Lot ${index+1} : ${lot.count} panneau(x) de ${lot.width} × ${lot.height} cm`));
+      }
+    } catch { /* Un paramètre invalide ne bloque pas la demande. */ }
+    lines.push('Commune et précisions sur le projet :');
+    field('message').value = lines.join('\n');
+  }
   document.querySelectorAll('[data-profile], [data-need]').forEach(link => link.addEventListener('click', () => {
     if (link.dataset.profile) updateProfile(link.dataset.profile);
     if (link.dataset.need) chooseNeed(link.dataset.need);
