@@ -34,6 +34,12 @@ Ouvrir `http://127.0.0.1:4173`. Les URL sans extension fonctionnent aussi dans l
 
 Le positionnement est celui d’un installateur : diagnostic, conseil, fourniture et pose d’une solution. Les références fabricant ne sont que des exemples et les données détaillées restent secondaires dans le parcours.
 
+## Référentiel SEO interne
+
+Avant une modification éditoriale, lire `../STRATEGIE-SEO.md` à la racine du projet local. Il fixe les intentions par page, les mots-clés et variantes, les sources et la zone d’intervention confirmée par le propriétaire. Ce document et les instructions du propriétaire restent hors de la racine publique. Les articles supplémentaires sont réservés à une seconde phase.
+
+Les pages métier de sécurité sont `film-securite-creche.html`, `film-securite-salle-sport.html`, `film-securite-vitrage-erp.html`, `film-securite-vitrage-ecole.html` et `film-anti-eclats-agroalimentaire.html`. Elles réutilisent `opalis.css` et `pro.css`, avec des compléments dans `protection.css`.
+
 ## Modifier le site
 
 Les pages HTML sont éditables directement. `opalis.css` et `opalis.js` portent la nouvelle identité et les interactions communes. `pro.css` / `pro.js` complètent les pages de service. `main.js` conserve les filtres et comparateurs des réalisations et fiches chantier.
@@ -48,6 +54,8 @@ Après une modification de titre, description ou FAQ, actualiser les données SE
 
 ```sh
 npm run seo
+# Ou uniquement les pages modifiées :
+python3 scripts/prepare-seo.py film-securite-creche.html
 ```
 
 Le build synchronise les éléments communs et le sitemap. Les URL canoniques et le sitemap suivent la convention Vercel `cleanUrls`. Aucun faux `lastmod`, avis ou résultat chiffré n’est généré.

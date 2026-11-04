@@ -234,7 +234,15 @@
   }
   if (query.has('vitrage') && [...field('particulier-sub').options].some(option => option.value === query.get('vitrage'))) field('particulier-sub').value = query.get('vitrage');
   if (query.has('besoin')) chooseNeed(query.get('besoin'));
-  const objectives = { 'anti-eclats': 'Je souhaite limiter la dispersion des éclats de verre.', 'protection-renforcee': 'Je souhaite étudier une protection renforcée contre la casse.' };
+  const objectives = {
+    'anti-eclats': 'Je souhaite limiter la dispersion des éclats de verre.',
+    'protection-renforcee': 'Je souhaite étudier une protection renforcée contre la casse.',
+    'creche': 'Je souhaite faire étudier les vitrages de ma crèche ou micro-crèche. Commune :\nSurfaces et dimensions approximatives :\nVitrages accessibles aux enfants :\nContraintes d’accès et de planning :',
+    'sport': 'Je souhaite faire étudier les miroirs et vitrages de ma salle de sport ou de danse. Commune :\nSurfaces et dimensions approximatives :\nFixation et accès au dos des miroirs :\nContraintes de planning :',
+    'erp': 'Je souhaite faire étudier les vitrages de mon établissement. Commune et type de lieu :\nPortes, cloisons et surfaces concernées :\nRisque identifié :\nContraintes d’accès et de planning :',
+    'ecole': 'Je souhaite préparer un projet de protection des vitrages d’un établissement scolaire. Commune et établissement :\nBâtiments et surfaces concernés :\nBesoin identifié et documents disponibles :\nPériode de travaux souhaitée :',
+    'agroalimentaire': 'Je souhaite faire étudier la protection anti-éclats de vitrages en production agroalimentaire. Commune :\nZones et surfaces concernées :\nBesoin identifié par qualité ou maintenance :\nContraintes d’hygiène, de nettoyage et d’accès :'
+  };
   if (objectives[query.get('objectif')] && !field('message').value) field('message').value = objectives[query.get('objectif')];
   document.querySelectorAll('[data-profile], [data-need]').forEach(link => link.addEventListener('click', () => {
     if (link.dataset.profile) updateProfile(link.dataset.profile);

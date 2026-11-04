@@ -4,6 +4,7 @@ from pathlib import Path
 from html import escape, unescape
 import json
 import re
+import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 VOID = {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
@@ -31,7 +32,14 @@ class Tree(HTMLParser):
             if self.stack[i].tag==tag: self.stack=self.stack[:i]; break
     def handle_data(self, data): self.stack[-1].children.append(data)
 
-for file in sorted(ROOT.glob('*.html')):
+# Des noms de pages permettent une mise à jour ciblée, sans réécrire
+# les métadonnées de pages étrangères au chantier éditorial en cours.
+selected = sys.argv[1:]
+if any(Path(name).name != name or not name.endswith('.html') or not (ROOT / name).is_file() for name in selected):
+    raise SystemExit('Indiquer uniquement des fichiers HTML existants à la racine du site.')
+files = [ROOT / name for name in selected] if selected else sorted(ROOT.glob('*.html'))
+
+for file in files:
     source=file.read_text()
     # Retirer notre bloc avant de rechercher les données déjà écrites à la main,
     # pour que les exécutions successives produisent le même résultat.
