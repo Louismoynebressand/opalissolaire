@@ -264,3 +264,46 @@
   preference.addEventListener('change', sync);
   sync();
 })();
+
+// Bénéfices : rotation douce, arrêt durable après un choix manuel.
+(() => {
+  const carousel = document.querySelector('[data-range-carousel]');
+  if (!carousel) return;
+  const slides = [...carousel.querySelectorAll('.range-benefit')];
+  const steps = [...carousel.querySelectorAll('.range-steps button')];
+  const navigation = carousel.querySelector('.range-navigation');
+  const playback = carousel.querySelector('.range-playback');
+  const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  let current = 0, timer = 0, paused = preference.matches, visible = false, hovered = false, focused = false;
+  const stop = () => { clearTimeout(timer); timer = 0; };
+  const arm = () => {
+    stop();
+    if (!paused && visible && !hovered && !focused && !document.hidden) timer = setTimeout(() => show((current + 1) % slides.length), 6500);
+  };
+  const updatePlayback = () => {
+    playback.innerHTML = paused ? 'Reprendre <span aria-hidden="true">▶</span>' : 'Pause <span aria-hidden="true">Ⅱ</span>';
+    playback.setAttribute('aria-label', paused ? 'Reprendre le défilement des bénéfices' : 'Mettre en pause le défilement des bénéfices');
+  };
+  const show = index => {
+    current = index;
+    slides.forEach((slide, i) => { slide.hidden = i !== current; });
+    steps.forEach((step, i) => step.setAttribute('aria-current', String(i === current)));
+    carousel.setAttribute('aria-live', paused ? 'polite' : 'off');
+    arm();
+  };
+  steps.forEach((step, index) => step.addEventListener('click', () => { paused = true; updatePlayback(); show(index); }));
+  playback.addEventListener('click', () => { paused = !paused; updatePlayback(); carousel.setAttribute('aria-live', paused ? 'polite' : 'off'); arm(); });
+  carousel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovered = true; stop(); } });
+  carousel.addEventListener('pointerleave', () => { hovered = false; arm(); });
+  carousel.addEventListener('focusin', () => { focused = true; stop(); });
+  carousel.addEventListener('focusout', event => { focused = carousel.contains(event.relatedTarget); arm(); });
+  document.addEventListener('visibilitychange', arm);
+  preference.addEventListener('change', event => { if (event.matches) { paused = true; updatePlayback(); carousel.setAttribute('aria-live', 'polite'); } arm(); });
+  carousel.classList.add('is-ready');
+  navigation.hidden = false;
+  updatePlayback();
+  show(0);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => { visible = entries[0].isIntersecting; arm(); }, { threshold:.2 }).observe(carousel);
+  } else { visible = true; arm(); }
+})();
